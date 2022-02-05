@@ -16,6 +16,8 @@
 		A3C5DE6A27ADDDC70072D4E8 /* room_o_pedia_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE6927ADDDC70072D4E8 /* room_o_pedia_iosTests.swift */; };
 		A3C5DE7427ADDDC70072D4E8 /* room_o_pedia_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE7327ADDDC70072D4E8 /* room_o_pedia_iosUITests.swift */; };
 		A3C5DE7627ADDDC70072D4E8 /* room_o_pedia_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE7527ADDDC70072D4E8 /* room_o_pedia_iosUITestsLaunchTests.swift */; };
+		D304D07D27ADF12200407DFD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D304D07C27ADF12200407DFD /* Alamofire */; };
+		D304D07F27ADF16700407DFD /* APIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304D07E27ADF16700407DFD /* APIFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 		A3C5DE6F27ADDDC70072D4E8 /* room-o-pedia-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "room-o-pedia-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C5DE7327ADDDC70072D4E8 /* room_o_pedia_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = room_o_pedia_iosUITests.swift; sourceTree = "<group>"; };
 		A3C5DE7527ADDDC70072D4E8 /* room_o_pedia_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = room_o_pedia_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D304D07E27ADF16700407DFD /* APIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D304D07D27ADF12200407DFD /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +110,7 @@
 				A3C5DE5B27ADDDC70072D4E8 /* Assets.xcassets */,
 				A3C5DE5D27ADDDC70072D4E8 /* LaunchScreen.storyboard */,
 				A3C5DE6027ADDDC70072D4E8 /* Info.plist */,
+				D304D07E27ADF16700407DFD /* APIFunctions.swift */,
 			);
 			path = "room-o-pedia-ios";
 			sourceTree = "<group>";
@@ -143,6 +148,9 @@
 			dependencies = (
 			);
 			name = "room-o-pedia-ios";
+			packageProductDependencies = (
+				D304D07C27ADF12200407DFD /* Alamofire */,
+			);
 			productName = "room-o-pedia-ios";
 			productReference = A3C5DE4F27ADDDC30072D4E8 /* room-o-pedia-ios.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +223,9 @@
 				Base,
 			);
 			mainGroup = A3C5DE4627ADDDC30072D4E8;
+			packageReferences = (
+				D304D07B27ADF12200407DFD /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = A3C5DE5027ADDDC30072D4E8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D304D07F27ADF16700407DFD /* APIFunctions.swift in Sources */,
 				A3C5DE5727ADDDC30072D4E8 /* ViewController.swift in Sources */,
 				A3C5DE5327ADDDC30072D4E8 /* AppDelegate.swift in Sources */,
 				A3C5DE5527ADDDC30072D4E8 /* SceneDelegate.swift in Sources */,
@@ -598,6 +610,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D304D07B27ADF12200407DFD /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D304D07C27ADF12200407DFD /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D304D07B27ADF12200407DFD /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A3C5DE4727ADDDC30072D4E8 /* Project object */;
 }
