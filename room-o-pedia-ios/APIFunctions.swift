@@ -27,5 +27,12 @@ class APIFunctions {
             
             self.delegate?.updateArray(newArray: data!)
         }
+        
+    }
+    func AddRoom(room: String, number: String){
+        
+        AF.request("http://localhost:3000/create", method: .post, encoding: URLEncoding.httpBody, headers: ["room": room, "number": number]).responseDecodable(of: Room.self){
+            response in
+        }
     }
 }

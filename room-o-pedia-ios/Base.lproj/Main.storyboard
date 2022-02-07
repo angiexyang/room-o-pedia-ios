@@ -27,6 +27,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="zfO-ZY-AEc" kind="show" identifier="updateRoomSegue" id="QzC-9w-k3B"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -58,7 +61,7 @@
         <!--Add Room-->
         <scene sceneID="UqM-b8-BSu">
             <objects>
-                <viewController id="zfO-ZY-AEc" sceneMemberID="viewController">
+                <viewController id="zfO-ZY-AEc" customClass="AddRoomViewController" customModule="room_o_pedia_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ayy-WI-NP8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +74,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uIW-hU-SI0">
                                 <rect key="frame" x="15" y="152" width="384" height="695"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -82,6 +85,7 @@
                         <constraints>
                             <constraint firstItem="uIW-hU-SI0" firstAttribute="leading" secondItem="scs-tx-QUd" secondAttribute="leading" constant="15" id="4UT-a3-t7z"/>
                             <constraint firstItem="scs-tx-QUd" firstAttribute="bottom" secondItem="uIW-hU-SI0" secondAttribute="bottom" constant="15" id="7yd-NV-YuP"/>
+                            <constraint firstItem="uIW-hU-SI0" firstAttribute="top" secondItem="QLk-f2-HlF" secondAttribute="bottom" constant="50" id="DPr-IY-ClJ"/>
                             <constraint firstItem="uIW-hU-SI0" firstAttribute="top" secondItem="QLk-f2-HlF" secondAttribute="bottom" constant="15" id="DWy-8l-c19"/>
                             <constraint firstItem="uIW-hU-SI0" firstAttribute="top" secondItem="QLk-f2-HlF" secondAttribute="bottom" constant="15" id="FR0-fJ-qlk"/>
                             <constraint firstItem="uIW-hU-SI0" firstAttribute="leading" secondItem="scs-tx-QUd" secondAttribute="leading" constant="15" id="JwC-bl-l1j"/>
@@ -91,18 +95,28 @@
                             <constraint firstItem="scs-tx-QUd" firstAttribute="trailing" secondItem="uIW-hU-SI0" secondAttribute="trailing" constant="15" id="eAT-JG-2PQ"/>
                             <constraint firstItem="scs-tx-QUd" firstAttribute="trailing" secondItem="QLk-f2-HlF" secondAttribute="trailing" id="g9B-3g-OK2"/>
                             <constraint firstItem="QLk-f2-HlF" firstAttribute="leading" secondItem="scs-tx-QUd" secondAttribute="leading" constant="10" id="jW2-94-L7x"/>
+                            <constraint firstItem="uIW-hU-SI0" firstAttribute="top" secondItem="QLk-f2-HlF" secondAttribute="bottom" constant="50" id="nlM-L1-Ocz"/>
                             <constraint firstItem="QLk-f2-HlF" firstAttribute="top" secondItem="scs-tx-QUd" secondAttribute="top" constant="15" id="qAA-DK-5SH"/>
                             <constraint firstItem="scs-tx-QUd" firstAttribute="trailing" secondItem="uIW-hU-SI0" secondAttribute="trailing" constant="15" id="xuU-2P-qdE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Room" id="vzz-JH-tSl">
                         <rightBarButtonItems>
-                            <barButtonItem title="Save" id="ZfV-ns-A1M"/>
+                            <barButtonItem title="Save" id="ZfV-ns-A1M">
+                                <connections>
+                                    <action selector="saveClick:" destination="zfO-ZY-AEc" id="9pm-D3-Gbi"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Delete" id="d6L-8q-QaX">
                                 <color key="tintColor" systemColor="systemRedColor"/>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bodyTextView" destination="uIW-hU-SI0" id="M7i-3J-u9G"/>
+                        <outlet property="saveButton" destination="ZfV-ns-A1M" id="fMY-ad-jsi"/>
+                        <outlet property="titleTextField" destination="QLk-f2-HlF" id="pT4-fj-wXN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8D-1h-DjT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -127,6 +141,9 @@
             <point key="canvasLocation" x="-23.188405797101453" y="53.571428571428569"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="QzC-9w-k3B"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

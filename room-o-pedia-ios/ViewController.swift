@@ -15,6 +15,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var roomsArray = [Room]()
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! AddRoomViewController
+        
+        if segue.identifier == "updateRoomSegue" {
+            vc.room = roomsArray[roomsTableView.indexPathForSelectedRow!.row]
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return roomsArray.count
     }

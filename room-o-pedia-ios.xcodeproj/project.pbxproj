@@ -16,6 +16,7 @@
 		A3C5DE6A27ADDDC70072D4E8 /* room_o_pedia_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE6927ADDDC70072D4E8 /* room_o_pedia_iosTests.swift */; };
 		A3C5DE7427ADDDC70072D4E8 /* room_o_pedia_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE7327ADDDC70072D4E8 /* room_o_pedia_iosUITests.swift */; };
 		A3C5DE7627ADDDC70072D4E8 /* room_o_pedia_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE7527ADDDC70072D4E8 /* room_o_pedia_iosUITestsLaunchTests.swift */; };
+		A3F89C2E27B1B35200658FD9 /* AddRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F89C2D27B1B35200658FD9 /* AddRoomViewController.swift */; };
 		D304D07D27ADF12200407DFD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D304D07C27ADF12200407DFD /* Alamofire */; };
 		D304D07F27ADF16700407DFD /* APIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304D07E27ADF16700407DFD /* APIFunctions.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,7 @@
 		A3C5DE6F27ADDDC70072D4E8 /* room-o-pedia-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "room-o-pedia-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C5DE7327ADDDC70072D4E8 /* room_o_pedia_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = room_o_pedia_iosUITests.swift; sourceTree = "<group>"; };
 		A3C5DE7527ADDDC70072D4E8 /* room_o_pedia_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = room_o_pedia_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A3F89C2D27B1B35200658FD9 /* AddRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomViewController.swift; sourceTree = "<group>"; };
 		D304D07E27ADF16700407DFD /* APIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 				A3C5DE5D27ADDDC70072D4E8 /* LaunchScreen.storyboard */,
 				A3C5DE6027ADDDC70072D4E8 /* Info.plist */,
 				D304D07E27ADF16700407DFD /* APIFunctions.swift */,
+				A3F89C2D27B1B35200658FD9 /* AddRoomViewController.swift */,
 			);
 			path = "room-o-pedia-ios";
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				D304D07F27ADF16700407DFD /* APIFunctions.swift in Sources */,
 				A3C5DE5727ADDDC30072D4E8 /* ViewController.swift in Sources */,
 				A3C5DE5327ADDDC30072D4E8 /* AppDelegate.swift in Sources */,
+				A3F89C2E27B1B35200658FD9 /* AddRoomViewController.swift in Sources */,
 				A3C5DE5527ADDDC30072D4E8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
