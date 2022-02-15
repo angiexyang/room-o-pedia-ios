@@ -10,7 +10,7 @@ import Alamofire
 
 struct Room: Decodable {
     var dorm: String
-    var number: Int
+    var number: String
     var _id: String
 }
 
@@ -29,10 +29,11 @@ class APIFunctions {
         }
         
     }
-    func AddRoom(room: String, number: String){
-        
-        AF.request("http://localhost:3000/create", method: .post, encoding: URLEncoding.httpBody, headers: ["room": room, "number": number]).responseDecodable(of: Room.self){
+    func AddRoom(dorm: String, number: String){
+        //does not work
+        AF.request("http://localhost:3000/create", method: .post, encoding: URLEncoding.httpBody, headers: ["dorm": dorm, "number": number]).responseDecodable(of: Room.self){
             response in
+            debugPrint(response)
         }
     }
 }

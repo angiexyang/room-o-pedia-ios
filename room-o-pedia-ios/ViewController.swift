@@ -14,22 +14,32 @@ protocol DataDelegate {
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var roomsArray = [Room]()
-    
+    //want update room segue to change to view room segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! AddRoomViewController
+       
         
-        if segue.identifier == "updateRoomSegue" {
+        if segue.identifier == "viewRoomSegue" {
+            let vc = segue.destination as! ViewRoomViewController
             vc.room = roomsArray[roomsTableView.indexPathForSelectedRow!.row]
+            //passing data
         }
+        //dont need to send room info if new room
+       // if segue.identifier == "roomsAddRoomSegue" {
+          //  let vc = segue.destination as! AddRoomViewController
+          //  vc.room = roomsArray[roomsTableView.indexPathForSelectedRow!.row]
+       // }
+        
     }
-    
+    //returns number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return roomsArray.count
     }
     
+    //customize what is displayed inside cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "prototypeCell", for: indexPath)
-        let dormAndNumber = roomsArray[indexPath.row].dorm + " " + String(roomsArray[indexPath.row].number)
+        //index path is which cell is clicked on
+        let dormAndNumber = roomsArray[indexPath.row].dorm + " " + roomsArray[indexPath.row].number
         cell.textLabel?.text = dormAndNumber
         return cell
     }
