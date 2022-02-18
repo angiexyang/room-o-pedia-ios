@@ -14,6 +14,7 @@ protocol DataDelegate {
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var roomsArray = [Room]()
+    
     //want update room segue to change to view room segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
@@ -40,8 +41,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "prototypeCell", for: indexPath)
         //index path is which cell is clicked on
         let dormAndNumber = roomsArray[indexPath.row].dorm + " " + roomsArray[indexPath.row].number
+        cell.imageView?.image = UIImage(named: "rad101")
         cell.textLabel?.text = dormAndNumber
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
     
     @IBOutlet weak var roomsTableView: UITableView!
