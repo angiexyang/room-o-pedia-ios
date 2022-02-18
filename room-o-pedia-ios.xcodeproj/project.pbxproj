@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A317FBD827BF535E005C01B6 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A317FBD627BF535E005C01B6 /* RoomTableViewCell.swift */; };
+		A317FBD927BF535E005C01B6 /* RoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A317FBD727BF535E005C01B6 /* RoomTableViewCell.xib */; };
+		A317FBDB27BF6B1A005C01B6 /* images in Resources */ = {isa = PBXBuildFile; fileRef = A317FBDA27BF6B19005C01B6 /* images */; };
 		A392E49927BC45DE00F1A760 /* ViewRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A392E49827BC45DD00F1A760 /* ViewRoomViewController.swift */; };
 		A3C5DE5327ADDDC30072D4E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE5227ADDDC30072D4E8 /* AppDelegate.swift */; };
 		A3C5DE5527ADDDC30072D4E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE5427ADDDC30072D4E8 /* SceneDelegate.swift */; };
@@ -40,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A317FBD627BF535E005C01B6 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
+		A317FBD727BF535E005C01B6 /* RoomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomTableViewCell.xib; sourceTree = "<group>"; };
+		A317FBDA27BF6B19005C01B6 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		A392E49827BC45DD00F1A760 /* ViewRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRoomViewController.swift; sourceTree = "<group>"; };
 		A3C5DE4F27ADDDC30072D4E8 /* room-o-pedia-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "room-o-pedia-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C5DE5227ADDDC30072D4E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,12 +117,15 @@
 				A3C5DE5427ADDDC30072D4E8 /* SceneDelegate.swift */,
 				A3C5DE5627ADDDC30072D4E8 /* ViewController.swift */,
 				A3C5DE5827ADDDC30072D4E8 /* Main.storyboard */,
+				A317FBDA27BF6B19005C01B6 /* images */,
 				A3C5DE5B27ADDDC70072D4E8 /* Assets.xcassets */,
 				A3C5DE5D27ADDDC70072D4E8 /* LaunchScreen.storyboard */,
 				A3C5DE6027ADDDC70072D4E8 /* Info.plist */,
 				D304D07E27ADF16700407DFD /* APIFunctions.swift */,
 				A3F89C2D27B1B35200658FD9 /* AddRoomViewController.swift */,
 				A392E49827BC45DD00F1A760 /* ViewRoomViewController.swift */,
+				A317FBD627BF535E005C01B6 /* RoomTableViewCell.swift */,
+				A317FBD727BF535E005C01B6 /* RoomTableViewCell.xib */,
 			);
 			path = "room-o-pedia-ios";
 			sourceTree = "<group>";
@@ -248,8 +257,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A317FBDB27BF6B1A005C01B6 /* images in Resources */,
 				A3C5DE5F27ADDDC70072D4E8 /* LaunchScreen.storyboard in Resources */,
 				A3C5DE5C27ADDDC70072D4E8 /* Assets.xcassets in Resources */,
+				A317FBD927BF535E005C01B6 /* RoomTableViewCell.xib in Resources */,
 				A3C5DE5A27ADDDC30072D4E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +289,7 @@
 				D304D07F27ADF16700407DFD /* APIFunctions.swift in Sources */,
 				A3C5DE5727ADDDC30072D4E8 /* ViewController.swift in Sources */,
 				A3C5DE5327ADDDC30072D4E8 /* AppDelegate.swift in Sources */,
+				A317FBD827BF535E005C01B6 /* RoomTableViewCell.swift in Sources */,
 				A3F89C2E27B1B35200658FD9 /* AddRoomViewController.swift in Sources */,
 				A392E49927BC45DE00F1A760 /* ViewRoomViewController.swift in Sources */,
 				A3C5DE5527ADDDC30072D4E8 /* SceneDelegate.swift in Sources */,

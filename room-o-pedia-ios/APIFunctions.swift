@@ -12,7 +12,18 @@ struct Room: Decodable {
     var dorm: String
     var number: String
     var _id: String
+    var features: Features
+    
 }
+struct Features: Decodable {
+    var floor: String
+    var occupancy: String
+    var cooling_system: String
+    //var storage: Array<Any>
+    var flooring: String
+    //var other: Array<Any>
+}
+
 
 class APIFunctions {
     
