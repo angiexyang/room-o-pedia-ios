@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A31299E227C19CB300B7AF01 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31299E127C19CB300B7AF01 /* RoomTableViewCell.swift */; };
 		A392E49927BC45DE00F1A760 /* ViewRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A392E49827BC45DD00F1A760 /* ViewRoomViewController.swift */; };
 		A3C5DE5327ADDDC30072D4E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE5227ADDDC30072D4E8 /* AppDelegate.swift */; };
 		A3C5DE5527ADDDC30072D4E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE5427ADDDC30072D4E8 /* SceneDelegate.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A31299E127C19CB300B7AF01 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
 		A392E49827BC45DD00F1A760 /* ViewRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRoomViewController.swift; sourceTree = "<group>"; };
 		A3C5DE4F27ADDDC30072D4E8 /* room-o-pedia-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "room-o-pedia-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C5DE5227ADDDC30072D4E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				D304D07E27ADF16700407DFD /* APIFunctions.swift */,
 				A3F89C2D27B1B35200658FD9 /* AddRoomViewController.swift */,
 				A392E49827BC45DD00F1A760 /* ViewRoomViewController.swift */,
+				A31299E127C19CB300B7AF01 /* RoomTableViewCell.swift */,
 			);
 			path = "room-o-pedia-ios";
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				D304D07F27ADF16700407DFD /* APIFunctions.swift in Sources */,
 				A3C5DE5727ADDDC30072D4E8 /* ViewController.swift in Sources */,
 				A3C5DE5327ADDDC30072D4E8 /* AppDelegate.swift in Sources */,
+				A31299E227C19CB300B7AF01 /* RoomTableViewCell.swift in Sources */,
 				A3F89C2E27B1B35200658FD9 /* AddRoomViewController.swift in Sources */,
 				A392E49927BC45DE00F1A760 /* ViewRoomViewController.swift in Sources */,
 				A3C5DE5527ADDDC30072D4E8 /* SceneDelegate.swift in Sources */,

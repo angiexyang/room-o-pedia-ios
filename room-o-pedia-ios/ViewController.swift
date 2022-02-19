@@ -12,6 +12,7 @@ protocol DataDelegate {
 }
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+   
     
     var roomsArray = [Room]()
     
@@ -38,17 +39,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //customize what is displayed inside cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "prototypeCell", for: indexPath)
+        let cellIdentifier = "RoomCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RoomTableViewCell
         //index path is which cell is clicked on
-        let dormAndNumber = roomsArray[indexPath.row].dorm + " " + roomsArray[indexPath.row].number
-        cell.imageView?.image = UIImage(named: "rad101")
-        cell.textLabel?.text = dormAndNumber
+        let currRoom = roomsArray[indexPath.row]
+        let dormAndNumber = currRoom.dorm + " " + currRoom.number
+//        cell.imageView?.image = UIImage(named: "rad101")
+//        cell.textLabel?.text = dormAndNumber
+        cell.roomLabel.text = dormAndNumber
+        cell.roomPreviewImageView.image = UIImage(named: "rad101")
+        print()
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 80
+//    }
     
     @IBOutlet weak var roomsTableView: UITableView!
     
@@ -56,7 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         APIFunctions.functions.delegate = self
         APIFunctions.functions.fetchRooms()
-        print(roomsArray)
+       // print(roomsArray)
         
         roomsTableView.delegate = self
         roomsTableView.dataSource = self
