@@ -48,7 +48,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        cell.textLabel?.text = dormAndNumber
         cell.roomLabel.text = dormAndNumber
         cell.roomPreviewImageView.image = UIImage(named: "rad101")
-        print()
+        print(currRoom.features)
         return cell
     }
     

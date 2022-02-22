@@ -8,20 +8,22 @@
 import Foundation
 import Alamofire
 
-struct Room: Decodable {
+struct Room: Codable {
     var dorm: String
     var number: String
     var _id: String
-    struct Features: Decodable {
-        var floor: String
-        var occupancy: String
-        var cooling_system: String
-        var storage: Array<String>
-        var flooring: String
-        var other: Array<String>
-    }
-    
+    var features: Features
 }
+
+struct Features: Codable {
+    var floor: String
+    var occupancy: String
+    var cooling_system: String
+    var storage: Array<String>
+    var flooring: String
+    var other: Array<String>
+}
+
 
 
 class APIFunctions {
