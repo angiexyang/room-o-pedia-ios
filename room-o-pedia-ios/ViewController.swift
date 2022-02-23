@@ -67,6 +67,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         roomsTableView.delegate = self
         roomsTableView.dataSource = self
         // Do any additional setup after loading the view.
+        
+        APIFunctions.functions.fetchPhotos()
     }
 
 
