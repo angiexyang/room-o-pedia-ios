@@ -39,6 +39,7 @@ struct Photo: Codable {
 class APIFunctions {
     
     var delegate: DataDelegate?
+   // var photo_delegate: DataDelegate?
     static let functions = APIFunctions()
     
     func fetchRooms() {
@@ -53,9 +54,13 @@ class APIFunctions {
     
     // trial getting photo data
     func fetchPhotos() {
-        AF.request("http://localhost:3000/photos").responseJSON { response in
+        AF.request("http://localhost:3000/photos").response { response in
             print("PHOTOS")
             print(response.result)
+            
+            let data = String(data: response.data!, encoding: .utf8)
+            
+            self.delegate?.updateArray(newArray: data!)
         }
     }
     
