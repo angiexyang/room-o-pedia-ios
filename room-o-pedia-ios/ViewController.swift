@@ -71,6 +71,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         APIFunctions.functions.fetchPhotos()
     }
 
+    
+    // CLICK PHOTO BUTTON TO NEW PHOTO TEST SCENE
+    @IBAction func didTapButton() {
+        guard let pt = storyboard?.instantiateViewController(withIdentifier: "photoTest") as? PhotoTestViewController else {
+            print("failed to get pt from storyboard")
+            return
+        }
+        present(pt, animated: true)
+    }
 
 }
 

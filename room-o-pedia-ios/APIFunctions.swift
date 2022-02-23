@@ -51,7 +51,7 @@ class APIFunctions {
         }
     }
     
-    
+    // trial getting photo data
     func fetchPhotos() {
         AF.request("http://localhost:3000/photos").responseJSON { response in
             print("PHOTOS")
