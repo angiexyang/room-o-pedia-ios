@@ -24,18 +24,6 @@ struct Features: Codable {
     var other: Array<String>
 }
 
-
-struct Photo: Codable {
-    var dorm: String
-    var number: String
-    var _id: String
-    var photoURL: String
-}
-
-
-
-
-
 class APIFunctions {
     
     var delegate: DataDelegate?
@@ -51,19 +39,6 @@ class APIFunctions {
             self.delegate?.updateArray(newArray: data!)
         }
     }
-    
-    // trial getting photo data
-    func fetchPhotos() {
-        AF.request("http://localhost:3000/photos").response { response in
-            print("PHOTOS")
-            print(response.result)
-            
-            let data = String(data: response.data!, encoding: .utf8)
-            
-            self.delegate?.updateArray(newArray: data!)
-        }
-    }
-    
     
     
     func AddRoom(dorm: String, number: String){

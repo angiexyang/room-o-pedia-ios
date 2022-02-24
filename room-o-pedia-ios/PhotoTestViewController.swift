@@ -5,12 +5,24 @@
 //  Created by Rachel H Lee on 2/22/22.
 //
 
+import Foundation
 import UIKit
+import Alamofire
+import Network
+
+
+struct Photo: Codable {
+    var dorm: String
+    var number: String
+    var _id: String
+    var photoURL: String
+}
+
 
 class PhotoTestViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var functions = APIFunctions()
     var photosArray = [Photo]()
+    
     @IBOutlet weak var photosTableView: UITableView!
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -24,13 +36,36 @@ class PhotoTestViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     
+    // trial getting photo data
+    func fetchPhotos() -> [Photo] {
+        var photos:[Photo] = []
+        AF.request("http://localhost:3000/photos").response { response in
+            guard let photosData = response.data else {
+                print("failed to assign response data")
+              return
+            }
+            do {
+                let decoder = JSONDecoder()
+                photos = try decoder.decode([Photo].self, from: photosData)
+                self.photosArray = photos
+                print("PRINT FROM INSIDE DO")
+                print(photos)
+                print(self.photosArray)
+            } catch {
+                print("error here")
+            }
+        }
+        print("PRINTING IN FUNC")
+        print(self.photosArray)
+        return photos
+    }
+     
     
-
     override func viewDidLoad() {
-        APIFunctions.functions.delegate = self
-        APIFunctions.functions.fetchPhotos()
-        print(photosArray)
         super.viewDidLoad()
+        photosArray = fetchPhotos()
+        print("FROM VIEWDIDLOAD")
+        print(photosArray)
         
 
         // Do any additional setup after loading the view.
@@ -49,15 +84,5 @@ class PhotoTestViewController: UIViewController, UITableViewDataSource, UITableV
 
 }
 
-extension PhotoTestViewController: DataDelegate {
-    func updateArray(newArray: String) {
-        do {
-            photosArray = try JSONDecoder().decode([Photo].self, from: newArray.data(using: .utf8)!)
-            print(photosArray)
-        } catch {
-            print("Failed to decode")
-        }
-        self.photosTableView?.reloadData()
-    }
-    
-}
+
+       
