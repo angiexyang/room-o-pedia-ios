@@ -11,8 +11,34 @@ protocol DataDelegate {
     func updateArray(newArray: String)
 }
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
    
+    
+
+    @IBOutlet weak var textBox: UITextField!
+    @IBOutlet weak var dropDown: UIPickerView!
+    
+    var list = ["1st", "2nd", "3rd", "4th"]
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1;
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return list.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.textBox.text = self.list[row]
+        self.dropDown.isHidden = true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == self.textBox {
+            self.dropDown.isHidden = true
+            textField.endEditing(true)
+        }
+    }
     
     var roomsArray = [Room]()
     
