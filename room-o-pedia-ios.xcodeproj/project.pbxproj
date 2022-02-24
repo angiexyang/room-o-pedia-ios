@@ -18,9 +18,9 @@
 		A3C5DE6A27ADDDC70072D4E8 /* room_o_pedia_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE6927ADDDC70072D4E8 /* room_o_pedia_iosTests.swift */; };
 		A3C5DE7427ADDDC70072D4E8 /* room_o_pedia_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE7327ADDDC70072D4E8 /* room_o_pedia_iosUITests.swift */; };
 		A3C5DE7627ADDDC70072D4E8 /* room_o_pedia_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE7527ADDDC70072D4E8 /* room_o_pedia_iosUITestsLaunchTests.swift */; };
+		A3D2DD0927C7245800C66707 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A3D2DD0827C7245800C66707 /* Alamofire */; };
 		A3F89C2E27B1B35200658FD9 /* AddRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F89C2D27B1B35200658FD9 /* AddRoomViewController.swift */; };
 		A3FFF51F27C5894C007B0994 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFF51E27C5894C007B0994 /* TagCollectionViewCell.swift */; };
-		D304D07D27ADF12200407DFD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D304D07C27ADF12200407DFD /* Alamofire */; };
 		D304D07F27ADF16700407DFD /* APIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304D07E27ADF16700407DFD /* APIFunctions.swift */; };
 		D3C94C9B27C5E514003390CE /* PhotoTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C94C9A27C5E514003390CE /* PhotoTestViewController.swift */; };
 /* End PBXBuildFile section */
@@ -69,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D304D07D27ADF12200407DFD /* Alamofire in Frameworks */,
+				A3D2DD0927C7245800C66707 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +164,7 @@
 			);
 			name = "room-o-pedia-ios";
 			packageProductDependencies = (
-				D304D07C27ADF12200407DFD /* Alamofire */,
+				A3D2DD0827C7245800C66707 /* Alamofire */,
 			);
 			productName = "room-o-pedia-ios";
 			productReference = A3C5DE4F27ADDDC30072D4E8 /* room-o-pedia-ios.app */;
@@ -239,7 +239,7 @@
 			);
 			mainGroup = A3C5DE4627ADDDC30072D4E8;
 			packageReferences = (
-				D304D07B27ADF12200407DFD /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A3D2DD0727C7245800C66707 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = A3C5DE5027ADDDC30072D4E8 /* Products */;
 			projectDirPath = "";
@@ -632,20 +632,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D304D07B27ADF12200407DFD /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		A3D2DD0727C7245800C66707 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D304D07C27ADF12200407DFD /* Alamofire */ = {
+		A3D2DD0827C7245800C66707 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D304D07B27ADF12200407DFD /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = A3D2DD0727C7245800C66707 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
