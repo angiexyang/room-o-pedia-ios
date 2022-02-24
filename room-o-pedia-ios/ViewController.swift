@@ -13,30 +13,55 @@ protocol DataDelegate {
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
    
+    @IBOutlet weak var textBoxFloors: UITextField!
+    @IBOutlet weak var dropDownFloors: UIPickerView!
+    @IBOutlet weak var dropDownAC: UIPickerView!
+    @IBOutlet weak var textBoxAC: UITextField!
     
-
-    @IBOutlet weak var textBox: UITextField!
-    @IBOutlet weak var dropDown: UIPickerView!
-    
-    var list = ["1st", "2nd", "3rd", "4th"]
+    var floorsFeature = ["1st", "2nd", "3rd", "4th"]
+    var ACFeature = ["central", "window unit", "none"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1;
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return list.count
+        var countRows : Int = floorsFeature.count
+        if pickerView == dropDownAC {
+            countRows = self.ACFeature.count
+        }
+        return countRows
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView == dropDownFloors {
+            let titleRow = floorsFeature[row]
+            return titleRow
+        }
+        else if pickerView == dropDownAC {
+            let titleRow = ACFeature[row]
+            return titleRow
+        }
+        return ""
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.textBox.text = self.list[row]
-        self.dropDown.isHidden = true
+        if pickerView == dropDownFloors {
+            self.textBoxFloors.text = self.floorsFeature[row]
+            self.dropDownFloors.isHidden = true
+        }
+        else if pickerView == dropDownAC {
+            self.textBoxAC.text = self.ACFeature[row]
+            self.dropDownAC.isHidden = true
+        }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == self.textBox {
-            self.dropDown.isHidden = true
-            textField.endEditing(true)
+        if (textField == self.textBoxFloors) {
+            self.dropDownFloors.isHidden = false
+        }
+        else if (textField == self.textBoxAC) {
+            self.dropDownAC.isHidden = false
         }
     }
     

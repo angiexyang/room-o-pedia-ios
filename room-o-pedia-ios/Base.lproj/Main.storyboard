@@ -71,11 +71,28 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="utZ-NX-ZjK">
-                                <rect key="frame" x="20" y="130" width="182" height="84"/>
+                                <rect key="frame" x="20" y="121" width="182" height="74"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="6za-wp-bMZ"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="vxy-UB-pjg"/>
+                                </connections>
+                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JdK-Dq-fbx">
+                                <rect key="frame" x="212" y="88" width="182" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="52J-0i-nlc"/>
+                                </connections>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Chk-5C-Qn0">
+                                <rect key="frame" x="212" y="121" width="182" height="74"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="BdO-l7-nHc"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="LWh-0Q-fvE"/>
                                 </connections>
                             </pickerView>
                         </subviews>
@@ -90,9 +107,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="dropDown" destination="utZ-NX-ZjK" id="R1C-gT-M8b"/>
+                        <outlet property="dropDownAC" destination="Chk-5C-Qn0" id="8cn-9u-eNF"/>
+                        <outlet property="dropDownFloors" destination="utZ-NX-ZjK" id="R1C-gT-M8b"/>
                         <outlet property="roomsTableView" destination="foD-Cy-NOd" id="jNd-yn-qsq"/>
-                        <outlet property="textBox" destination="QTR-dU-KaM" id="o1J-PA-Y0x"/>
+                        <outlet property="textBoxAC" destination="JdK-Dq-fbx" id="2iE-UL-VtF"/>
+                        <outlet property="textBoxFloors" destination="QTR-dU-KaM" id="o1J-PA-Y0x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
