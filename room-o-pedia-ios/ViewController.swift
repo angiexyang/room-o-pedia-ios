@@ -74,6 +74,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.roomsTableView.reloadData()
     }
     
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = (view as? UILabel) ?? UILabel()
+        label.textAlignment = .center
+        label.font = UIFont(name: "SanFranciscoText-Light", size: 18)
+        
+        if (pickerView == dropDownFloors) {
+            label.text = floorsFeature[row]
+        }
+        else {
+            label.text = ACFeature[row]
+        }
+        return label
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if (textField == self.textBoxAC) {
             self.dropDownAC.isHidden = false
