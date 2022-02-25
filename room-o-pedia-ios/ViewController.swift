@@ -13,8 +13,14 @@ protocol DataDelegate {
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
    
-    @IBOutlet weak var textBoxFloors: UITextField!
+    var filterActive = false
+    var floorsCurrFilter = "None"
+    var ACCurrFilter = "None"
+    
+    // ------- Room Feature Filters --------------------------------------------------------------
+    
     @IBOutlet weak var dropDownFloors: UIPickerView!
+    @IBOutlet weak var textBoxFloors: UITextField!
     @IBOutlet weak var dropDownAC: UIPickerView!
     @IBOutlet weak var textBoxAC: UITextField!
     
@@ -26,51 +32,56 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        var countRows : Int = floorsFeature.count
-        if pickerView == dropDownAC {
-            countRows = self.ACFeature.count
+        var countRows : Int = ACFeature.count
+        if pickerView == dropDownFloors {
+            countRows = self.floorsFeature.count
         }
         return countRows
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView == dropDownFloors {
-            let titleRow = floorsFeature[row]
+        if pickerView == dropDownAC {
+            let titleRow = ACFeature[row]
             return titleRow
         }
-        else if pickerView == dropDownAC {
-            let titleRow = ACFeature[row]
+        else if pickerView == dropDownFloors {
+            let titleRow = floorsFeature[row]
             return titleRow
         }
         return ""
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == dropDownFloors {
-            self.textBoxFloors.text = self.floorsFeature[row]
-            self.dropDownFloors.isHidden = true
-        }
-        else if pickerView == dropDownAC {
+        if pickerView == dropDownAC {
             self.textBoxAC.text = self.ACFeature[row]
             self.dropDownAC.isHidden = true
+            ACCurrFilter = self.ACFeature[row]
+            
         }
+        else if pickerView == dropDownFloors {
+            self.textBoxFloors.text = self.floorsFeature[row]
+            self.dropDownFloors.isHidden = true
+            floorsCurrFilter = self.floorsFeature[row]
+        }
+        filterActive = true
+        self.roomsTableView.reloadData()
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if (textField == self.textBoxFloors) {
-            self.dropDownFloors.isHidden = false
-        }
-        else if (textField == self.textBoxAC) {
+        if (textField == self.textBoxAC) {
             self.dropDownAC.isHidden = false
+        }
+        else if (textField == self.textBoxFloors) {
+            self.dropDownFloors.isHidden = false
         }
     }
     
+    // ------- Room Listings -------------------------------------------------------------
     var roomsArray = [Room]()
     
     //want update room segue to change to view room segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
-        
         if segue.identifier == "viewRoomSegue" {
             let vc = segue.destination as! ViewRoomViewController
             vc.room = roomsArray[roomsTableView.indexPathForSelectedRow!.row]
@@ -90,17 +101,39 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //customize what is displayed inside cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cellIdentifier = "RoomCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RoomTableViewCell
-        //index path is which cell is clicked on
-        let currRoom = roomsArray[indexPath.row]
-        let dormAndNumber = currRoom.dorm + " " + currRoom.number
-//        cell.imageView?.image = UIImage(named: "rad101")
-//        cell.textLabel?.text = dormAndNumber
-        cell.roomLabel.text = dormAndNumber
-        cell.roomPreviewImageView.image = UIImage(named: "rad101")
-        print(currRoom.features)
-        return cell
+        
+        if (filterActive) {
+            //index path is which cell is clicked on
+            let currRoom = roomsArray[indexPath.row]
+            let currFeatures = currRoom.features
+            print("OVER HERE")
+            print(floorsCurrFilter)
+            if (floorsCurrFilter != currFeatures.floor) {
+                print("NO")
+                cell.roomLabel.text = " "
+                //cell.roomPreviewImageView.image = nil
+                return cell
+            }
+            else {
+                print("YES")
+                let dormAndNumber = currRoom.dorm + " " + currRoom.number
+        //        cell.imageView?.image = UIImage(named: "rad101")
+        //        cell.textLabel?.text = dormAndNumber
+                cell.roomLabel.text = dormAndNumber
+                cell.roomPreviewImageView.image = UIImage(named: "rad101")
+            }
+            return cell
+        }
+        else {
+            let currRoom = roomsArray[indexPath.row]
+            let dormAndNumber = currRoom.dorm + " " + currRoom.number
+            cell.roomLabel.text = dormAndNumber
+            cell.roomPreviewImageView.image = UIImage(named: "rad101")
+            return cell
+        }
     }
     
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
