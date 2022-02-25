@@ -24,8 +24,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var dropDownAC: UIPickerView!
     @IBOutlet weak var textBoxAC: UITextField!
     
-    var floorsFeature = ["1st", "2nd", "3rd", "4th"]
-    var ACFeature = ["central", "window unit", "none"]
+    var floorsFeature = ["Any Floor", "1st", "2nd", "3rd", "4th"]
+    var ACFeature = ["Any AC Option", "central", "window unit", "none"]
+    
+    var filteredRoomsArray = [Room]()
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -53,15 +55,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == dropDownAC {
+            filteredRoomsArray = roomsArray
             self.textBoxAC.text = self.ACFeature[row]
             self.dropDownAC.isHidden = true
-            ACCurrFilter = self.ACFeature[row]
             
+            ACCurrFilter = self.ACFeature[row]
+            filteredRoomsArray = roomsArray.filter{$0.features.cooling_system == ACCurrFilter || ACCurrFilter == "Any AC Option"}
         }
         else if pickerView == dropDownFloors {
+            filteredRoomsArray = roomsArray
             self.textBoxFloors.text = self.floorsFeature[row]
             self.dropDownFloors.isHidden = true
+            
             floorsCurrFilter = self.floorsFeature[row]
+            filteredRoomsArray = roomsArray.filter{$0.features.floor == floorsCurrFilter || floorsCurrFilter == "Any Floor"}
         }
         filterActive = true
         self.roomsTableView.reloadData()
@@ -96,6 +103,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //returns number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (filterActive) {
+            return filteredRoomsArray.count
+        }
         return roomsArray.count
     }
     
@@ -104,35 +114,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cellIdentifier = "RoomCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RoomTableViewCell
-        
         if (filterActive) {
-            //index path is which cell is clicked on
-            let currRoom = roomsArray[indexPath.row]
-            let currFeatures = currRoom.features
-            print("OVER HERE")
-            print(floorsCurrFilter)
-            if (floorsCurrFilter != currFeatures.floor) {
-                print("NO")
-                cell.roomLabel.text = " "
-                //cell.roomPreviewImageView.image = nil
-                return cell
-            }
-            else {
-                print("YES")
-                let dormAndNumber = currRoom.dorm + " " + currRoom.number
-        //        cell.imageView?.image = UIImage(named: "rad101")
-        //        cell.textLabel?.text = dormAndNumber
-                cell.roomLabel.text = dormAndNumber
-                cell.roomPreviewImageView.image = UIImage(named: "rad101")
-            }
+            let currRoom = filteredRoomsArray[indexPath.row]
+            let dormAndNumber = currRoom.dorm + " " + currRoom.number
+    //        cell.imageView?.image = UIImage(named: "rad101")
+    //        cell.textLabel?.text = dormAndNumber
+            cell.roomLabel.text = dormAndNumber
+            cell.roomPreviewImageView.image = UIImage(named: "rad101")
+            print(currRoom.features)
             return cell
         }
         else {
-            let currRoom = roomsArray[indexPath.row]
-            let dormAndNumber = currRoom.dorm + " " + currRoom.number
-            cell.roomLabel.text = dormAndNumber
-            cell.roomPreviewImageView.image = UIImage(named: "rad101")
-            return cell
+        //index path is which cell is clicked on
+        let currRoom = roomsArray[indexPath.row]
+        let dormAndNumber = currRoom.dorm + " " + currRoom.number
+//        cell.imageView?.image = UIImage(named: "rad101")
+//        cell.textLabel?.text = dormAndNumber
+        cell.roomLabel.text = dormAndNumber
+        cell.roomPreviewImageView.image = UIImage(named: "rad101")
+        print(currRoom.features)
+        return cell
         }
     }
     
@@ -151,6 +152,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         roomsTableView.delegate = self
         roomsTableView.dataSource = self
         // Do any additional setup after loading the view.
+        
+        dropDownFloors.selectedRow(inComponent: 0)
+        dropDownAC.selectedRow(inComponent: 0)
+        textBoxFloors.text = "Select Floor"
+        textBoxAC.text = "Select AC Option"
     }
 
 
