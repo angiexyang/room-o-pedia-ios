@@ -84,6 +84,3 @@ class PhotoTestViewController: UIViewController, UITableViewDataSource, UITableV
 
 
 
-//AKIAWS6SSLQJ6B5PXF74
-//AWS_ACCESS_KEY_SECRET = "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"
-
