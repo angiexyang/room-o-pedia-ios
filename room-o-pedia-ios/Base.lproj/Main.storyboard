@@ -181,13 +181,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7pv-KE-MOc">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pv-KE-MOc">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JkV-sq-Uog">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JkV-sq-Uog">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Dl-oE-odO">
                                                 <rect key="frame" x="20" y="126" width="374" height="363"/>
@@ -200,34 +198,36 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TYj-I8-tt2">
-                                                <rect key="frame" x="20" y="530" width="374" height="194"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" dataMode="prototypes" id="TYj-I8-tt2">
+                                                <rect key="frame" x="20" y="530" width="374" height="196"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="7" minimumInteritemSpacing="7" id="P1N-it-yGO">
-                                                    <size key="itemSize" width="133" height="44"/>
+                                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="P1N-it-yGO">
+                                                    <size key="itemSize" width="126" height="44"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="featureTag" id="gvI-Sy-1KG" customClass="TagCollectionViewCell" customModule="room_o_pedia_ios" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="133" height="44"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="126" height="44"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wbI-GM-KbO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="133" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="126" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nU-x8-H52">
-                                                                    <rect key="frame" x="22" y="15" width="134" height="21"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nU-x8-H52">
+                                                                    <rect key="frame" x="8" y="12" width="110" height="21"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </collectionViewCellContentView>
-                                                        <size key="customSize" width="133" height="44"/>
+                                                        <color key="backgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <size key="customSize" width="126" height="44"/>
                                                         <connections>
                                                             <outlet property="roomTagLabel" destination="4nU-x8-H52" id="apu-cY-jgd"/>
                                                         </connections>
@@ -242,10 +242,24 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="JkV-sq-Uog" secondAttribute="bottom" id="Xu7-mP-RpM"/>
+                                    <constraint firstItem="JkV-sq-Uog" firstAttribute="centerX" secondItem="7pv-KE-MOc" secondAttribute="centerX" id="iLn-yc-hhQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="JkV-sq-Uog" secondAttribute="trailing" constant="8" id="n6w-Xf-q9R"/>
+                                    <constraint firstItem="JkV-sq-Uog" firstAttribute="centerY" secondItem="7pv-KE-MOc" secondAttribute="centerY" id="qbb-Y0-DXe"/>
+                                    <constraint firstItem="JkV-sq-Uog" firstAttribute="leading" secondItem="7pv-KE-MOc" secondAttribute="leading" id="rIF-Wm-wVU"/>
+                                    <constraint firstItem="JkV-sq-Uog" firstAttribute="top" secondItem="7pv-KE-MOc" secondAttribute="top" id="rv4-Ag-Ayj"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2Zb-kU-4jD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="7pv-KE-MOc" secondAttribute="bottom" constant="-49" id="1C2-LW-6mm"/>
+                            <constraint firstItem="7pv-KE-MOc" firstAttribute="leading" secondItem="2Zb-kU-4jD" secondAttribute="leading" id="CQV-e8-PFk"/>
+                            <constraint firstItem="7pv-KE-MOc" firstAttribute="top" secondItem="2Zb-kU-4jD" secondAttribute="top" id="Fpf-Ig-7o8"/>
+                            <constraint firstItem="7pv-KE-MOc" firstAttribute="centerX" secondItem="Nk9-gp-8yo" secondAttribute="centerX" id="w0J-sj-8iU"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Pwc-SB-zfm">
@@ -388,7 +402,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kpq-s7-ie3"/>
+        <segue reference="3yC-IR-je8"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="AccentColor">
@@ -396,6 +410,9 @@
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

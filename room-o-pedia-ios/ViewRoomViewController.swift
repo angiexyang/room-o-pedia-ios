@@ -9,7 +9,7 @@ import UIKit
 
 
 
-class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var room: Room!
     var currFeatures: Features!
@@ -18,7 +18,7 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
    
     //number of rows
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let tagTotal = 4 +  room.features.storage.count + room.features.other.count
+        let tagTotal = 3 +  room.features.storage.count + room.features.other.count
         return tagTotal
     }
     
@@ -36,16 +36,15 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         for o in self.currFeatures.other{
             featureArray.append(o)
         }
-        print(featureArray)
-        print(tagCount)
         if tagCount<featureArray.count{
             cell.roomTagLabel.text = featureArray[tagCount]
         }
         tagCount+=1
         return cell
-        
     }
     
+
+
     
     @IBOutlet weak var tagCollectionView: UICollectionView!
     
@@ -76,7 +75,7 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         // Do any additional setup after loading the view.
     }
 
-
+    
     
     
 
@@ -91,3 +90,4 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     */
 
 }
+
