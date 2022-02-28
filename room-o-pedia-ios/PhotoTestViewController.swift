@@ -47,16 +47,14 @@ class PhotoTestViewController: UIViewController, UITableViewDataSource, UITableV
             do {
                 let decoder = JSONDecoder()
                 photos = try decoder.decode([Photo].self, from: photosData)
-                self.photosArray = photos
                 print("PRINT FROM INSIDE DO")
                 print(photos)
-                print(self.photosArray)
             } catch {
                 print("error here")
             }
         }
         print("PRINTING IN FUNC")
-        print(self.photosArray)
+        print(photos)
         return photos
     }
      
@@ -85,4 +83,7 @@ class PhotoTestViewController: UIViewController, UITableViewDataSource, UITableV
 }
 
 
-       
+
+//AKIAWS6SSLQJ6B5PXF74
+//AWS_ACCESS_KEY_SECRET = "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"
+

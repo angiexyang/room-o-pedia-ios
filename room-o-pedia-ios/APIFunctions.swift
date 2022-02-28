@@ -8,11 +8,19 @@
 import Foundation
 import Alamofire
 
+/*struct Room: Codable {
+    var dorm: String
+    var number: String
+    var _id: String
+    var features: Features
+}*/
+
 struct Room: Codable {
     var dorm: String
     var number: String
     var _id: String
     var features: Features
+    var photoURL: Array<String>
 }
 
 struct Features: Codable {
@@ -43,7 +51,7 @@ class APIFunctions {
     
     func AddRoom(dorm: String, number: String){
         //does not work
-        AF.request("http://localhost:3000/create", method: .post, encoding: URLEncoding.httpBody, headers: ["dorm": dorm, "number": number]).responseDecodable(of: Room.self){
+        AF.request("http://localhost:3000/create_room_with_photo", method: .post, encoding: URLEncoding.httpBody, headers: ["dorm": dorm, "number": number]).responseDecodable(of: Room.self){
             response in
             debugPrint(response)
         }

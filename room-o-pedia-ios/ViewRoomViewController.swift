@@ -14,6 +14,9 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     var room: Room!
     var currFeatures: Features!
     var featureArray = [String]()
+    
+    var photoURLArray = [String]()
+    
     var tagCount = 0
    
     //number of rows
@@ -69,6 +72,11 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         //set label to selected room
         dormRoomLabel.text = room!.dorm + " " + room!.number
+        self.photoURLArray = room.photoURL
+        let currURL = photoURLArray[0]
+        
+        print(currURL)
+        
         roomImageView.image = UIImage(named: "rad101")
        // tagCollectionView.delegate = self
         tagCollectionView.dataSource = self
