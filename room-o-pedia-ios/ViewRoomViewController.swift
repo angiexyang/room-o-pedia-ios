@@ -72,19 +72,17 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         //set label to selected room
         dormRoomLabel.text = room!.dorm + " " + room!.number
+        
+        // GET PHOTOURLS
         self.photoURLArray = room.photoURL
-        let currURL = photoURLArray[0]
+        let currURL = photoURLArray[0] // GET FIRST FOR TESTER
         
-        print(currURL)
-        
-        roomImageView.image = UIImage(named: "rad101")
+        roomImageView.loadFrom(URLAddress: currURL)
        // tagCollectionView.delegate = self
         tagCollectionView.dataSource = self
         // Do any additional setup after loading the view.
     }
 
-    
-    
     
 
     /*
@@ -97,5 +95,22 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     */
 
+}
+
+// LOAD PHOTO FROM URL
+extension UIImageView {
+    func loadFrom(URLAddress: String) {
+        guard let url = URL(string: URLAddress) else {
+            return
+        }
+        
+        DispatchQueue.main.async { [weak self] in
+            if let imageData = try? Data(contentsOf: url) {
+                if let loadedImage = UIImage(data: imageData) {
+                        self?.image = loadedImage
+                }
+            }
+        }
+    }
 }
 

@@ -134,8 +134,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //        cell.imageView?.image = UIImage(named: "rad101")
     //        cell.textLabel?.text = dormAndNumber
             cell.roomLabel.text = dormAndNumber
-            cell.roomPreviewImageView.image = UIImage(named: "rad101")
-            print(currRoom.features)
+            cell.roomPreviewImageView.loadFrom(URLAddress: currRoom.photoURL[0])
+           // print(currRoom.features)
             return cell
         }
         else {
@@ -145,8 +145,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        cell.imageView?.image = UIImage(named: "rad101")
 //        cell.textLabel?.text = dormAndNumber
         cell.roomLabel.text = dormAndNumber
-        cell.roomPreviewImageView.image = UIImage(named: "rad101")
-        print(currRoom.features)
+            cell.roomPreviewImageView.loadFrom(URLAddress: currRoom.photoURL[0])
+       // print(currRoom.features)
         return cell
         }
     }
@@ -196,3 +196,5 @@ extension ViewController: DataDelegate {
     }
     
 }
+
+
