@@ -9,4 +9,9 @@ import UIKit
 
 class TagCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var roomTagLabel: UILabel!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.cornerRadius = 20.0
+        layer.masksToBounds = false
+    }
 }

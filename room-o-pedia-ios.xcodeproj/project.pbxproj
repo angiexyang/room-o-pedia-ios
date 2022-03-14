@@ -22,7 +22,6 @@
 		A3F89C2E27B1B35200658FD9 /* AddRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F89C2D27B1B35200658FD9 /* AddRoomViewController.swift */; };
 		A3FFF51F27C5894C007B0994 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFF51E27C5894C007B0994 /* TagCollectionViewCell.swift */; };
 		D304D07F27ADF16700407DFD /* APIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304D07E27ADF16700407DFD /* APIFunctions.swift */; };
-		D3C94C9B27C5E514003390CE /* PhotoTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C94C9A27C5E514003390CE /* PhotoTestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +60,6 @@
 		A3F89C2D27B1B35200658FD9 /* AddRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomViewController.swift; sourceTree = "<group>"; };
 		A3FFF51E27C5894C007B0994 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		D304D07E27ADF16700407DFD /* APIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFunctions.swift; sourceTree = "<group>"; };
-		D3C94C9A27C5E514003390CE /* PhotoTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +123,6 @@
 				A392E49827BC45DD00F1A760 /* ViewRoomViewController.swift */,
 				A31299E127C19CB300B7AF01 /* RoomTableViewCell.swift */,
 				A3FFF51E27C5894C007B0994 /* TagCollectionViewCell.swift */,
-				D3C94C9A27C5E514003390CE /* PhotoTestViewController.swift */,
 			);
 			path = "room-o-pedia-ios";
 			sourceTree = "<group>";
@@ -285,7 +282,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D304D07F27ADF16700407DFD /* APIFunctions.swift in Sources */,
-				D3C94C9B27C5E514003390CE /* PhotoTestViewController.swift in Sources */,
 				A3FFF51F27C5894C007B0994 /* TagCollectionViewCell.swift in Sources */,
 				A3C5DE5727ADDDC30072D4E8 /* ViewController.swift in Sources */,
 				A3C5DE5327ADDDC30072D4E8 /* AppDelegate.swift in Sources */,

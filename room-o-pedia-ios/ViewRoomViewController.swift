@@ -53,6 +53,27 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBOutlet weak var roomImageView: UIImageView!
     
+    /* TESTING SCROLL VIEW */
+    /*
+     
+    var imageScrollView: UIScrollView!
+    var roomImages = [UIImageView]()
+    
+     scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+         scrollView.backgroundColor = .systemTeal
+         // Set the contentSize to 100 times the height of the phone's screen so that
+         scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height*100)
+         view.addSubview(scrollView)
+     
+     for i in 0...100 {
+           images.append(UIImageView(image: UIImage(systemName: "person.3.fill")))
+           images[i].frame = CGRect(x: 0, y: UIScreen.main.bounds.height*CGFloat(i), width: view.frame.width, height: view.frame.height)
+           images[i].contentMode = .scaleAspectFit
+           scrollView.addSubview(images[i])
+         }
+     
+    */
+    
     @IBOutlet weak var dormRoomLabel: UILabel!
     
     
