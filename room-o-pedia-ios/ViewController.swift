@@ -12,10 +12,6 @@ protocol DataDelegate {
 }
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-   
-    var filterActive = false
-    var floorsCurrFilter = "None"
-    var ACCurrFilter = "None"
     
     // ------- Room Feature Filters --------------------------------------------------------------
     
@@ -30,6 +26,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // use this array for rooms that apply to the current filters
     var filteredRoomsArray = [Room]()
+    
+    // use these to keep track of there are ANY filters active, and what they're set to
+    var filterActive = false
+    var floorsCurrFilter = "None"
+    var ACCurrFilter = "None"
     
     // function sets one field per filter
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
