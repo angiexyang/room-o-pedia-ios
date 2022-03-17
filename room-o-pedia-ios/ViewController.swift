@@ -24,15 +24,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var dropDownAC: UIPickerView!
     @IBOutlet weak var textBoxAC: UITextField!
     
+    // arrays of options for each filter
     var floorsFeature = ["Any Floor", "1st", "2nd", "3rd", "4th"]
     var ACFeature = ["Any AC Option", "central", "window unit", "none"]
     
+    // use this array for rooms that apply to the current filters
     var filteredRoomsArray = [Room]()
     
+    // function sets one field per filter
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
+    // function sets number of rows in filter picker
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         var countRows : Int = ACFeature.count
         if pickerView == dropDownFloors {
@@ -41,6 +45,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return countRows
     }
     
+    // function that I don't really get the point of
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == dropDownAC {
             let titleRow = ACFeature[row]
@@ -53,12 +58,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return ""
     }
     
+    // function that does the logic:
+    // upon selecting a row, it displays the selected option, hides the dropdown picker, and populates the filteredRoomsArray
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == dropDownAC {
             filteredRoomsArray = roomsArray
             self.textBoxAC.text = self.ACFeature[row]
             self.dropDownAC.isHidden = true
-            
+        
             ACCurrFilter = self.ACFeature[row]
             filteredRoomsArray = roomsArray.filter{$0.features.cooling_system == ACCurrFilter || ACCurrFilter == "Any AC Option"}
         }
@@ -74,6 +81,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.roomsTableView.reloadData()
     }
     
+    // function that does formating
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let label = (view as? UILabel) ?? UILabel()
         label.textAlignment = .center
@@ -128,26 +136,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cellIdentifier = "RoomCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RoomTableViewCell
+        // if there are any filters applied, the table will dequeue rooms from the filteredRoomsArray
         if (filterActive) {
+            filteredRoomsArray.sort{$0.dorm + " " + $0.number < $1.dorm + " " + $1.number}
+            //index path is which cell is clicked on
             let currRoom = filteredRoomsArray[indexPath.row]
             let dormAndNumber = currRoom.dorm + " " + currRoom.number
     //        cell.imageView?.image = UIImage(named: "rad101")
     //        cell.textLabel?.text = dormAndNumber
             cell.roomLabel.text = dormAndNumber
             cell.roomPreviewImageView.loadFrom(URLAddress: currRoom.photoURL[0])
-           // print(currRoom.features)
             return cell
         }
+        // if no filters applied, then use the full roomsArray
         else {
-        //index path is which cell is clicked on
-        let currRoom = roomsArray[indexPath.row]
-        let dormAndNumber = currRoom.dorm + " " + currRoom.number
-//        cell.imageView?.image = UIImage(named: "rad101")
-//        cell.textLabel?.text = dormAndNumber
-        cell.roomLabel.text = dormAndNumber
-            cell.roomPreviewImageView.loadFrom(URLAddress: currRoom.photoURL[0])
-       // print(currRoom.features)
-        return cell
+            roomsArray.sort{$0.dorm + " " + $0.number < $1.dorm + " " + $1.number}
+            let currRoom = roomsArray[indexPath.row]
+            let dormAndNumber = currRoom.dorm + " " + currRoom.number
+    //        cell.imageView?.image = UIImage(named: "rad101")
+    //        cell.textLabel?.text = dormAndNumber
+            cell.roomLabel.text = dormAndNumber
+                cell.roomPreviewImageView.loadFrom(URLAddress: currRoom.photoURL[0])
+            return cell
         }
     }
     

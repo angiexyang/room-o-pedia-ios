@@ -21,6 +21,7 @@ struct Room: Codable {
     var _id: String
     var features: Features
     var photoURL: Array<String>
+    
 }
 
 struct Features: Codable {
