@@ -31,7 +31,7 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     //customize what is displayed inside cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "featureTag", for: indexPath) as! TagCollectionViewCell
-        
+        cell.roomTagLabel.font = UIFont.systemFont(ofSize: 11)
         self.currFeatures = room.features
         
         featureArray = [self.currFeatures.floor, self.currFeatures.cooling_system, self.currFeatures.flooring]
