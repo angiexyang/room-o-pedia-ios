@@ -122,40 +122,6 @@
             </objects>
             <point key="canvasLocation" x="886.95652173913049" y="53.571428571428569"/>
         </scene>
-        <!--Search Rooms-->
-        <scene sceneID="K9R-fm-vvD">
-            <objects>
-                <tableViewController id="6yc-xX-x88" customClass="SearchViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ud7-rb-rVC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <color key="sectionIndexColor" name="AccentColor"/>
-                        <color key="sectionIndexBackgroundColor" name="AccentColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ATd-ga-oZ8">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ATd-ga-oZ8" id="UJS-ME-BAm">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="6yc-xX-x88" id="roq-0H-lOX"/>
-                            <outlet property="delegate" destination="6yc-xX-x88" id="4ZX-6A-1Zc"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Search Rooms" id="9U3-kI-C3f"/>
-                    <connections>
-                        <outlet property="TableView" destination="ud7-rb-rVC" id="7JE-Tc-QjJ"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lgg-Z1-P1U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="887" y="781"/>
-        </scene>
         <!--View Room Scene-->
         <scene sceneID="x2S-Yu-mAv">
             <objects>
@@ -415,12 +381,70 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="6yc-xX-x88" kind="relationship" relationship="rootViewController" id="Leb-SL-LYQ"/>
+                        <segue destination="ulD-aw-E6u" kind="relationship" relationship="rootViewController" id="bWq-50-Wjx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZT-0w-EK6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-23" y="781"/>
+        </scene>
+        <!--Search Rooms-->
+        <scene sceneID="EPf-HK-Nql">
+            <objects>
+                <viewController id="ulD-aw-E6u" customClass="SearchRoomsViewController" customModule="room_o_pedia_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2xa-Jw-6GN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bDf-EL-il9">
+                                <rect key="frame" x="0.0" y="119" width="191" height="92"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ulD-aw-E6u" id="sxc-XT-CR0"/>
+                                    <outlet property="delegate" destination="ulD-aw-E6u" id="Vco-Q1-OY3"/>
+                                </connections>
+                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Dorm" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="im8-8k-3Zg">
+                                <rect key="frame" x="20" y="88" width="171" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ulD-aw-E6u" id="QEt-cx-iBl"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Number" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gz8-gz-OaD">
+                                <rect key="frame" x="231" y="88" width="163" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZO-bS-sT5">
+                                <rect key="frame" x="154" y="267" width="106" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Search"/>
+                                <connections>
+                                    <action selector="getVal" destination="ulD-aw-E6u" eventType="touchUpInside" id="bZs-ed-oGr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QXi-Os-yXc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search Rooms" id="dm1-hb-Ost"/>
+                    <connections>
+                        <outlet property="SearchButton" destination="vZO-bS-sT5" id="drY-Gg-bNt"/>
+                        <outlet property="dormDropDown" destination="bDf-EL-il9" id="pRx-hy-87d"/>
+                        <outlet property="dormTextBox" destination="im8-8k-3Zg" id="amQ-xy-gqa"/>
+                        <outlet property="numberSelect" destination="gz8-gz-OaD" id="0Wg-b3-lPe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="abY-Nv-GNA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="836.23188405797111" y="782.8125"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="0aa-P0-tn2">
@@ -477,12 +501,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kpq-s7-ie3"/>
+        <segue reference="3yC-IR-je8"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
