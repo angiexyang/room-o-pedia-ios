@@ -21,7 +21,7 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
    
     //number of rows
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let tagTotal = 3 +  room.features.storage.count + room.features.other.count
+        let tagTotal = 3 +  room.features.storage.count + room.features.window_direction.count + room.features.other.count
         return tagTotal
     }
     
@@ -32,12 +32,28 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.currFeatures = room.features
         
         featureArray = [self.currFeatures.floor, self.currFeatures.cooling_system, self.currFeatures.flooring]
+        print("FEATURES CHECK HERE")
+        print(featureArray)
         
         for s in self.currFeatures.storage{
             featureArray.append(s)
+            print("STORAGE CHECK HERE")
+            print(featureArray)
+            
         }
+        
+        for w in self.currFeatures.window_direction{
+            print("WINDOW CHECK HERE")
+            print(self.currFeatures.window_direction)
+            featureArray.append(w + " windows")
+            print(featureArray)
+        }
+        
         for o in self.currFeatures.other{
             featureArray.append(o)
+            print("OTHER CHECK HERE")
+            print(featureArray)
+            
         }
         if tagCount<featureArray.count{
             cell.roomTagLabel.text = featureArray[tagCount]
