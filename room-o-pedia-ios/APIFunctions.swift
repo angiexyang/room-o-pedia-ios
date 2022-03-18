@@ -30,6 +30,7 @@ struct Features: Codable {
     var cooling_system: String
     var storage: Array<String>
     var flooring: String
+    var window_direction: Array<String>
     var other: Array<String>
 }
 
