@@ -8,25 +8,38 @@
 import UIKit
 
 
-class SearchRoomsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-    
-    
-
-
+class SearchRoomsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+   
     var roomsArray = [Room]()
     var searchResultsArray = [Room]()
+    var room: Room!
     
-    @IBOutlet weak var numberSelect: UITextView!
+    var featureArray = [String]()
+    var tagCount = 0
+    var selectedNumber = 0
+    
+    @IBOutlet weak var numberSelect: UITextField!
     @IBOutlet weak var dormDropDown: UIPickerView!
     @IBOutlet weak var dormTextBox: UITextField!
     @IBOutlet weak var SearchButton: UIButton!
+    @IBOutlet weak var roomImage: UIImageView!
+    @IBOutlet weak var tagCollectionView: UICollectionView!
     
-    @IBAction func getVal() {
-        selectedNumber = Int(numberSelect.text) ?? 0
+    
+    @IBAction func getRoom() {
+        selectedNumber = Int(numberSelect.text!) ?? 0
         print("CHECK SELECTION HERE " + selectedDorm + " " + String(selectedNumber))
         searchResultsArray = roomsArray.filter{$0.dorm == selectedDorm && Int($0.number) == selectedNumber}
         if searchResultsArray.count == 1 {
             print("FOUND IT")
+            //assign global variable value of found room
+            room = searchResultsArray[0]
+            // GET PHOTOURLS
+            let currURL = room.photoURL[0] // GET FIRST FOR TESTER
+            
+            roomImage.loadFrom(URLAddress: currURL)
+           // tagCollectionView.delegate = self
+            tagCollectionView.dataSource = self
         }
         else if searchResultsArray.count > 1 {
             print("FOUND MORE THAN ONE")
@@ -35,11 +48,11 @@ class SearchRoomsViewController: UIViewController, UIPickerViewDelegate, UIPicke
             print ("FOUND NONE")
         }
         
+        
     }
     
     var dormNames = ["Merion", "New Dorm", "Radnor"]
     var selectedDorm = "None"
-    var selectedNumber = 0
     
     // function sets one field per filter
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -90,19 +103,56 @@ class SearchRoomsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         
     }
     
+   
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        var tagTotal = 3 +  room.features.storage.count + room.features.window_direction.count
+        if (!room.features.other.isEmpty && room.features.other[0] != ""){
+            tagTotal = tagTotal + room.features.other.count
+        }
+        return tagTotal
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "featureTag", for: indexPath) as! TagCollectionViewCell
+        cell.roomTagLabel.font = UIFont.systemFont(ofSize: 11)
+       // self.currFeatures = room.features
+        
+        featureArray = [room.features.floor, room.features.cooling_system, room.features.flooring]
+        
+        for s in room.features.storage{
+            featureArray.append(s)
+        }
+        
+        for w in room.features.window_direction{
+            featureArray.append(w + " windows")
+        }
+        
+        for o in room.features.other{
+            if (o != "") {
+                featureArray.append(o)
+            }
+            
+        }
+        if tagCount<featureArray.count{
+            cell.roomTagLabel.text = featureArray[tagCount]
+        }
+        tagCount+=1
+        return cell
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         APIFunctions.functions.delegate = self
         APIFunctions.functions.fetchRooms()
-        print(roomsArray)
+        print("roomsarray ", roomsArray.count)
 
-        
         dormDropDown.selectedRow(inComponent: 0)
         dormTextBox.text = "Select Dorm"
-        numberSelect.text = "Type Room Number"
+        numberSelect.placeholder = "Type Room Number"
+        
+        
         // Do any additional setup after loading the view.
     }
-    
     
     /*
     // MARK: - Navigation
@@ -127,3 +177,5 @@ extension SearchRoomsViewController: DataDelegate {
     }
     
 }
+
+
