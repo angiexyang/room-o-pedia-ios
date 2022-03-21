@@ -114,7 +114,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
        
         if segue.identifier == "viewRoomSegue" {
             let vc = segue.destination as! ViewRoomViewController
-            vc.room = roomsArray[roomsTableView.indexPathForSelectedRow!.row]
+            if (filterActive) {
+                vc.room = filteredRoomsArray[roomsTableView.indexPathForSelectedRow!.row]
+            }
+            else {
+                vc.room = roomsArray[roomsTableView.indexPathForSelectedRow!.row]
+            }
             //passing data
         }
         //dont need to send room info if new room
@@ -139,7 +144,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RoomTableViewCell
         // if there are any filters applied, the table will dequeue rooms from the filteredRoomsArray
         if (filterActive) {
-            filteredRoomsArray.sort{$0.dorm + " " + $0.number < $1.dorm + " " + $1.number}
+            //filteredRoomsArray.sort{$0.dorm + " " + $0.number < $1.dorm + " " + $1.number}
             //index path is which cell is clicked on
             let currRoom = filteredRoomsArray[indexPath.row]
             let dormAndNumber = currRoom.dorm + " " + currRoom.number
@@ -151,7 +156,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         // if no filters applied, then use the full roomsArray
         else {
-            roomsArray.sort{$0.dorm + " " + $0.number < $1.dorm + " " + $1.number}
+            //roomsArray.sort{$0.dorm + " " + $0.number < $1.dorm + " " + $1.number}
             let currRoom = roomsArray[indexPath.row]
             let dormAndNumber = currRoom.dorm + " " + currRoom.number
     //        cell.imageView?.image = UIImage(named: "rad101")
@@ -189,6 +194,7 @@ extension ViewController: DataDelegate {
     func updateArray(newArray: String) {
         do {
             roomsArray = try JSONDecoder().decode([Room].self, from: newArray.data(using: .utf8)!)
+            roomsArray.sort{$0.dorm + " " + $0.number < $1.dorm + " " + $1.number}
         } catch {
             print("Failed to decode")
         }

@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var verifyButton: UIButton!
     @IBOutlet weak var welcomeMessage: UILabel!
+    @IBOutlet weak var brynMawrLogo: UIImageView!
     
     var inputEmail = ""
     
@@ -19,7 +20,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         userEmail.placeholder = "@bmc email only"
         welcomeMessage.text = "Welcome to Room-o-pedia!"
-        
+        brynMawrLogo.image = UIImage(named: "owl")
         verifyButton.layer.cornerRadius = 16
     }
     
@@ -28,9 +29,7 @@ class LoginViewController: UIViewController {
         print(inputEmail)
         if inputEmail.suffix(13) == "@brynmawr.edu" {
             self.shouldPerformSegue(withIdentifier: "TabBarController", sender: nil)
-        }
-        else {
-            print("Wrong email")
+        } else {
             let alert = UIAlertController(title: "Sorry", message: "You need a Bryn Mawr email!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default) {_ in})
             self.present(alert, animated: true) {}
