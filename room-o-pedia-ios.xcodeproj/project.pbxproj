@@ -24,6 +24,7 @@
 		A3FFF51F27C5894C007B0994 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFF51E27C5894C007B0994 /* TagCollectionViewCell.swift */; };
 		D304D07F27ADF16700407DFD /* APIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304D07E27ADF16700407DFD /* APIFunctions.swift */; };
 		D3B2212827E8EEFE006C4FA2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B2212727E8EEFE006C4FA2 /* LoginViewController.swift */; };
+		D3B2213027ED34BF006C4FA2 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B2212F27ED34BF006C4FA2 /* FavoriteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		A3FFF51E27C5894C007B0994 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		D304D07E27ADF16700407DFD /* APIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFunctions.swift; sourceTree = "<group>"; };
 		D3B2212727E8EEFE006C4FA2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D3B2212F27ED34BF006C4FA2 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				A3FFF51E27C5894C007B0994 /* TagCollectionViewCell.swift */,
 				A3EE042927E4FCB100E5E357 /* SearchRoomsViewController.swift */,
 				D3B2212727E8EEFE006C4FA2 /* LoginViewController.swift */,
+				D3B2212F27ED34BF006C4FA2 /* FavoriteViewController.swift */,
 			);
 			path = "room-o-pedia-ios";
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3B2213027ED34BF006C4FA2 /* FavoriteViewController.swift in Sources */,
 				A3EE042A27E4FCB100E5E357 /* SearchRoomsViewController.swift in Sources */,
 				D304D07F27ADF16700407DFD /* APIFunctions.swift in Sources */,
 				A3FFF51F27C5894C007B0994 /* TagCollectionViewCell.swift in Sources */,
