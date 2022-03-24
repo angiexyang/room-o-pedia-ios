@@ -30,8 +30,8 @@ class LoginViewController: UIViewController {
         if inputEmail.suffix(13) == "@brynmawr.edu" {
             self.shouldPerformSegue(withIdentifier: "TabBarController", sender: nil)
         } else {
-            let alert = UIAlertController(title: "Sorry", message: "You need a Bryn Mawr email!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default) {_ in})
+            let alert = UIAlertController(title: "Invalid email", message: "You need a valid Bryn Mawr email :(", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) {_ in})
             self.present(alert, animated: true) {}
         }
     }

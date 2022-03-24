@@ -46,6 +46,15 @@
                                                         <constraint firstAttribute="width" secondItem="JvB-Wd-A8o" secondAttribute="height" multiplier="26:23" id="iCe-UR-KR4"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0DK-7a-OLT">
+                                                    <rect key="frame" x="20" y="90" width="24" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <connections>
+                                                        <action selector="clickFav:" destination="sbK-L5-Xcd" eventType="touchUpInside" id="seM-F5-Cbl"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="JvB-Wd-A8o" firstAttribute="leading" secondItem="AQW-BL-0ur" secondAttribute="trailing" constant="8" symbolic="YES" id="DQQ-de-aDq"/>
@@ -60,6 +69,7 @@
                                         <connections>
                                             <outlet property="roomLabel" destination="AQW-BL-0ur" id="pN2-WR-qXf"/>
                                             <outlet property="roomPreviewImageView" destination="JvB-Wd-A8o" id="MuY-D6-9SA"/>
+                                            <outlet property="starButton" destination="0DK-7a-OLT" id="ftZ-p0-Spy"/>
                                             <segue destination="a2E-GF-9mH" kind="show" identifier="viewRoomSegue" id="mON-lX-XpN"/>
                                         </connections>
                                     </tableViewCell>
@@ -646,7 +656,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3yC-IR-je8"/>
+        <segue reference="kpq-s7-ie3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="AccentColor">
