@@ -14,23 +14,24 @@ class RoomTableViewCell: UITableViewCell {
     
     // Adding star button test
     @IBOutlet var starButton: UIButton!
-    
+    var favButtonPressed : (() -> ()) = {}
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
         // test star
-        starButton.setImage(UIImage(systemName: "star"), for: .normal)
-        starButton.setImage(UIImage(systemName: "star.fill"), for: .selected)
+       /* starButton.setImage(UIImage(systemName: "star"), for: .normal)
+        starButton.setImage(UIImage(systemName: "star.fill"), for: .selected) */
     }
     
     @IBAction func clickFav(_ sender: UIButton) {
-        if starButton.isSelected {
+/*        if starButton.isSelected {
             starButton.isSelected = false
         } else {
             starButton.isSelected = true
-        }
+        }      */
+        favButtonPressed()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
