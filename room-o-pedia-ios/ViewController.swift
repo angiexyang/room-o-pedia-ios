@@ -297,8 +297,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         dropDownFloors.selectedRow(inComponent: 0)
         dropDownAC.selectedRow(inComponent: 0)
-        textBoxFloors.text = "Select Floor"
-        textBoxAC.text = "Select AC Option"
+        textBoxFloors.placeholder = "Select Floor"
+        textBoxAC.placeholder = "Select AC Option"
     }
 }
 
