@@ -88,17 +88,6 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var dormRoomLabel: UILabel!
     
     
-    
-    
-    //if user edits room, send room data
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "editRoomSegue" {
-            let vc = segue.destination as! AddRoomViewController
-            vc.room = room
-        }
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

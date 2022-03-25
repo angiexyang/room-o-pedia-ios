@@ -21,7 +21,6 @@
 		A3C5DE7627ADDDC70072D4E8 /* room_o_pedia_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE7527ADDDC70072D4E8 /* room_o_pedia_iosUITestsLaunchTests.swift */; };
 		A3D2DD0927C7245800C66707 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A3D2DD0827C7245800C66707 /* Alamofire */; };
 		A3EE042A27E4FCB100E5E357 /* SearchRoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE042927E4FCB100E5E357 /* SearchRoomsViewController.swift */; };
-		A3F89C2E27B1B35200658FD9 /* AddRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F89C2D27B1B35200658FD9 /* AddRoomViewController.swift */; };
 		A3FFF51F27C5894C007B0994 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFF51E27C5894C007B0994 /* TagCollectionViewCell.swift */; };
 		D304D07F27ADF16700407DFD /* APIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304D07E27ADF16700407DFD /* APIFunctions.swift */; };
 		D3B2212827E8EEFE006C4FA2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B2212727E8EEFE006C4FA2 /* LoginViewController.swift */; };
@@ -63,7 +62,6 @@
 		A3C5DE7327ADDDC70072D4E8 /* room_o_pedia_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = room_o_pedia_iosUITests.swift; sourceTree = "<group>"; };
 		A3C5DE7527ADDDC70072D4E8 /* room_o_pedia_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = room_o_pedia_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A3EE042927E4FCB100E5E357 /* SearchRoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRoomsViewController.swift; sourceTree = "<group>"; };
-		A3F89C2D27B1B35200658FD9 /* AddRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomViewController.swift; sourceTree = "<group>"; };
 		A3FFF51E27C5894C007B0994 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		D304D07E27ADF16700407DFD /* APIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFunctions.swift; sourceTree = "<group>"; };
 		D3B2212727E8EEFE006C4FA2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 				A3C5DE5D27ADDDC70072D4E8 /* LaunchScreen.storyboard */,
 				A3C5DE6027ADDDC70072D4E8 /* Info.plist */,
 				D304D07E27ADF16700407DFD /* APIFunctions.swift */,
-				A3F89C2D27B1B35200658FD9 /* AddRoomViewController.swift */,
 				A392E49827BC45DD00F1A760 /* ViewRoomViewController.swift */,
 				A31299E127C19CB300B7AF01 /* RoomTableViewCell.swift */,
 				A3FFF51E27C5894C007B0994 /* TagCollectionViewCell.swift */,
@@ -301,7 +298,6 @@
 				A3C5DE5727ADDDC30072D4E8 /* ViewController.swift in Sources */,
 				A3C5DE5327ADDDC30072D4E8 /* AppDelegate.swift in Sources */,
 				A31299E227C19CB300B7AF01 /* RoomTableViewCell.swift in Sources */,
-				A3F89C2E27B1B35200658FD9 /* AddRoomViewController.swift in Sources */,
 				A392E49927BC45DE00F1A760 /* ViewRoomViewController.swift in Sources */,
 				D3B2212827E8EEFE006C4FA2 /* LoginViewController.swift in Sources */,
 				A3C5DE5527ADDDC30072D4E8 /* SceneDelegate.swift in Sources */,
