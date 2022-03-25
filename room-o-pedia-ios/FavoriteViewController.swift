@@ -13,6 +13,14 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     
     let defaults = UserDefaults.standard
     var favorited = [String]()
+    var starredRooms = [Room]()
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "favRoomSegue" {
+            let vc = segue.destination as! ViewRoomViewController
+            vc.room = starredRooms[favTableView.indexPathForSelectedRow!.row]
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -22,6 +30,12 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         favorited = defaults.stringArray(forKey: "roomFavorite")!
         favorited.sort()
         
+        if let data = defaults.data(forKey: "starredRooms") {
+            starredRooms = try! PropertyListDecoder().decode([Room].self, from: data)
+        }
+        starredRooms.sort{$0.dorm + " " + $0.number < $1.dorm + " " + $1.number}
+        
+        
         favTableView.reloadData()
     }
     
@@ -29,33 +43,12 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         return favorited.count
     }
     
-    // var rowsWhichAreChecked = UserDefaults.standard.array(forKey: "roomFavorite") as? [String] ?? [String] ()
-    
-    /* if rowsWhichAreChecked.contains(dormAndNumber) {
-            cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-        } else {
-            cell.starButton.setImage(UIImage(systemName: "star"), for: .normal)
-        }
- 
-        cell.favButtonPressed = { [ weak self ] in
-            if self!.rowsWhichAreChecked.contains(dormAndNumber) {
-                let removeFav = self?.rowsWhichAreChecked.lastIndex(where: {$0 == dormAndNumber})
-                self!.rowsWhichAreChecked.remove(at: removeFav!)
-         
-                cell.starButton.setImage(UIImage(systemName: "star"), for: .normal)
-            } else {
-                cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-                self!.rowsWhichAreChecked.append(dormAndNumber)
-            }
-            UserDefaults.standard.set(self!.rowsWhichAreChecked, forKey: "roomFavorite")
-            print("ROOMS CHECKED: ")
-            print(self!.rowsWhichAreChecked)
-     */
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let favCell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as! FavoriteTableViewCell
-        let currRoom = favorited[indexPath.row]
-        favCell.favLabel.text = currRoom
+        let currLabel = favorited[indexPath.row]
+        favCell.favLabel.text = currLabel
+        favCell.nextSign.image = (UIImage(named: "caret"))
         return favCell
     }
     

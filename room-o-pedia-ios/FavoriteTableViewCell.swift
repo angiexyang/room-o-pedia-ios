@@ -11,7 +11,7 @@ class FavoriteTableViewCell: UITableViewCell {
 
     @IBOutlet weak var favLabel: UILabel!
     @IBOutlet weak var favNote: UITextField!
-    
+    @IBOutlet weak var nextSign: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

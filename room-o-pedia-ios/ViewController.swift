@@ -140,6 +140,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // empty UserDefaults array
     var rowsWhichAreChecked = UserDefaults.standard.array(forKey: "roomFavorite") as? [String] ?? [String] ()
+    var starredRooms = [Room]()
     
     //customize what is displayed inside cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -160,12 +161,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //------------------- starButton ---------------
             if rowsWhichAreChecked.contains(dormAndNumber) {
                 cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+                if !(starredRooms.contains(where: {$0.dorm + " " + $0.number == dormAndNumber})) {
+                    starredRooms.append(currRoom)
+                }
             } else {
                 cell.starButton.setImage(UIImage(systemName: "star"), for: .normal)
+                if starredRooms.contains(where: {$0.dorm + " " + $0.number == dormAndNumber}) {
+                    let roomOffset = starredRooms.lastIndex(where: {$0.dorm + " " + $0.number == dormAndNumber})
+                    starredRooms.remove(at: roomOffset!)
+                }
             }
             
             cell.favButtonPressed = { [ weak self ] in
-                if self!.rowsWhichAreChecked.contains(dormAndNumber) {
+                if self!.rowsWhichAreChecked.contains(dormAndNumber) && self!.starredRooms.contains(where: {$0.dorm + " " + $0.number == dormAndNumber}) {
+                    
+                    // remove from list of starred rooms
+                    let roomOffset = self!.starredRooms.lastIndex(where: {$0.dorm + " " + $0.number == dormAndNumber})
+                    self!.starredRooms.remove(at: roomOffset!)
+                    
+                    //remove from list of text
                     let removeFav = self?.rowsWhichAreChecked.lastIndex(where: {$0 == dormAndNumber})
                     self!.rowsWhichAreChecked.remove(at: removeFav!)
                     
@@ -173,10 +187,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 } else {
                     cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
                     self!.rowsWhichAreChecked.append(dormAndNumber)
+                    if !(self!.starredRooms.contains(where: {$0.dorm + " " + $0.number == dormAndNumber})) {
+                        self!.starredRooms.append(currRoom)
+                    }
                 }
+                
                 UserDefaults.standard.set(self!.rowsWhichAreChecked, forKey: "roomFavorite")
+                if let dataRoom = try? PropertyListEncoder().encode(self!.starredRooms) {
+                    UserDefaults.standard.set(dataRoom, forKey: "starredRooms")
+                }
+               
                 print("ROOMS CHECKED: ")
                 print(self!.rowsWhichAreChecked)
+                
+                print("STARRED ROOM OBJECTS: ")
+                let defaults = UserDefaults.standard
+                if let data = defaults.data(forKey: "starredRooms") {
+                    let finalArray = try! PropertyListDecoder().decode([Room].self, from: data)
+                    for roomElem in finalArray {print(roomElem)}
+                }
                 
                 //self?.roomsTableView.reloadData()
             }
@@ -197,12 +226,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             // ----------------------- test starButton ----------------------
             if rowsWhichAreChecked.contains(dormAndNumber) {
                 cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+                if !(starredRooms.contains(where: {$0.dorm + " " + $0.number == dormAndNumber})) {
+                    starredRooms.append(currRoom)
+                }
             } else {
                 cell.starButton.setImage(UIImage(systemName: "star"), for: .normal)
+                if starredRooms.contains(where: {$0.dorm + " " + $0.number == dormAndNumber}) {
+                    let roomOffset = starredRooms.lastIndex(where: {$0.dorm + " " + $0.number == dormAndNumber})
+                    starredRooms.remove(at: roomOffset!)
+                }
             }
             
             cell.favButtonPressed = { [ weak self ] in
-                if self!.rowsWhichAreChecked.contains(dormAndNumber) {
+                if self!.rowsWhichAreChecked.contains(dormAndNumber) && self!.starredRooms.contains(where: {$0.dorm + " " + $0.number == dormAndNumber}) {
+                    
+                    // remove from list of starred rooms
+                    let roomOffset = self!.starredRooms.lastIndex(where: {$0.dorm + " " + $0.number == dormAndNumber})
+                    self!.starredRooms.remove(at: roomOffset!)
+                    
+                    //remove from list of text
                     let removeFav = self?.rowsWhichAreChecked.lastIndex(where: {$0 == dormAndNumber})
                     self!.rowsWhichAreChecked.remove(at: removeFav!)
                     
@@ -210,10 +252,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 } else {
                     cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
                     self!.rowsWhichAreChecked.append(dormAndNumber)
+                    if !(self!.starredRooms.contains(where: {$0.dorm + " " + $0.number == dormAndNumber})) {
+                        self!.starredRooms.append(currRoom)
+                    }
                 }
+                
                 UserDefaults.standard.set(self!.rowsWhichAreChecked, forKey: "roomFavorite")
+                if let dataRoom = try? PropertyListEncoder().encode(self!.starredRooms) {
+                    UserDefaults.standard.set(dataRoom, forKey: "starredRooms")
+                }
+               
                 print("ROOMS CHECKED: ")
                 print(self!.rowsWhichAreChecked)
+                
+                print("STARRED ROOM OBJECTS: ")
+                let defaults = UserDefaults.standard
+                if let data = defaults.data(forKey: "starredRooms") {
+                    let finalArray = try! PropertyListDecoder().decode([Room].self, from: data)
+                    for roomElem in finalArray {print(roomElem)}
+                }
                 
                 //self?.roomsTableView.reloadData()
             }
