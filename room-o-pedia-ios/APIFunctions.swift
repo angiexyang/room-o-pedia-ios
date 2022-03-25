@@ -42,7 +42,7 @@ class APIFunctions {
     
     func fetchRooms() {
         AF.request("http://localhost:3000/rooms").response { response in
-            print(response.data!)
+            //print(response.data!)
             
             let data = String(data: response.data!, encoding: .utf8)
             
@@ -55,7 +55,7 @@ class APIFunctions {
         //does not work
         AF.request("http://localhost:3000/create_room_with_photo", method: .post, encoding: URLEncoding.httpBody, headers: ["dorm": dorm, "number": number]).responseDecodable(of: Room.self){
             response in
-            debugPrint(response)
+           // debugPrint(response)
         }
     }
 }

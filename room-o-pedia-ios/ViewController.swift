@@ -156,6 +156,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //        cell.textLabel?.text = dormAndNumber
             cell.roomLabel.text = dormAndNumber
             cell.roomPreviewImageView.loadFrom(URLAddress: currRoom.photoURL[0])
+            
+            //------------------- starButton ---------------
+            if rowsWhichAreChecked.contains(dormAndNumber) {
+                cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            } else {
+                cell.starButton.setImage(UIImage(systemName: "star"), for: .normal)
+            }
+            
+            cell.favButtonPressed = { [ weak self ] in
+                if self!.rowsWhichAreChecked.contains(dormAndNumber) {
+                    let removeFav = self?.rowsWhichAreChecked.lastIndex(where: {$0 == dormAndNumber})
+                    self!.rowsWhichAreChecked.remove(at: removeFav!)
+                    
+                    cell.starButton.setImage(UIImage(systemName: "star"), for: .normal)
+                } else {
+                    cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+                    self!.rowsWhichAreChecked.append(dormAndNumber)
+                }
+                UserDefaults.standard.set(self!.rowsWhichAreChecked, forKey: "roomFavorite")
+                print("ROOMS CHECKED: ")
+                print(self!.rowsWhichAreChecked)
+                
+                //self?.roomsTableView.reloadData()
+            }
+            // ---------------------------------------------
             return cell
         }
         // if no filters applied, then use the full roomsArray
