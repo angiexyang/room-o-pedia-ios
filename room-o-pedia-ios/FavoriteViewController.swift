@@ -7,36 +7,26 @@
 
 import UIKit
 
-class FavoriteViewController: UIViewController {
-    public let tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "favCell")
-        return tableView
-    }()
+class FavoriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet var favTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = .link
-        tableView.dataSource = self
-        view.addSubview(tableView)
+        favTableView.delegate = self
+        favTableView.dataSource = self
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = view.bounds
-    }
-}
-
-extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath)
-        cell.textLabel?.text = "Hello World"
-        
-        return cell
+        let favCell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as! FavoriteTableViewCell
+        favCell.favLabel.text = "Dorm and Number"
+        return favCell
     }
+    
+    
     
 }

@@ -623,11 +623,53 @@
         <scene sceneID="EUq-dp-yYc">
             <objects>
                 <tableViewController title="Favorite List" id="nCC-Fw-EOx" customClass="FavoriteViewController" customModule="room_o_pedia_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="3Sy-EV-pF8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="10" reuseIdentifier="favCell" rowHeight="145" id="ZVc-ng-W8N" customClass="FavoriteTableViewCell" customModule="room_o_pedia_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="145"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZVc-ng-W8N" id="vlP-L1-frH">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="145"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IX-Ex-ykk">
+                                            <rect key="frame" x="47" y="35" width="277" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="personal note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M9A-ll-I6B">
+                                            <rect key="frame" x="47" y="64" width="261" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="favLabel" destination="2IX-Ex-ykk" id="wlr-B7-PXG"/>
+                                    <outlet property="favNote" destination="M9A-ll-I6B" id="h45-L7-ibq"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nCC-Fw-EOx" id="5FG-3g-bwn"/>
+                            <outlet property="delegate" destination="nCC-Fw-EOx" id="XFe-sC-8yE"/>
+                        </connections>
+                    </tableView>
                     <navigationItem key="navigationItem" title="Favorited Rooms" id="lkc-yq-VvJ"/>
+                    <connections>
+                        <outlet property="favTableView" destination="3Sy-EV-pF8" id="nUI-67-xOO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYf-q3-9F1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="887" y="1513"/>
+            <point key="canvasLocation" x="886.95652173913049" y="1512.7232142857142"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
