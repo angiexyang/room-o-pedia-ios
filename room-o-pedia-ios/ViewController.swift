@@ -11,14 +11,48 @@ protocol DataDelegate {
     func updateArray(newArray: String)
 }
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
     
     // ------- Room Feature Filters --------------------------------------------------------------
     
+    @IBOutlet weak var addFiltersButton: UIButton!
     @IBOutlet weak var dropDownFloors: UIPickerView!
     @IBOutlet weak var textBoxFloors: UITextField!
     @IBOutlet weak var dropDownAC: UIPickerView!
     @IBOutlet weak var textBoxAC: UITextField!
+    
+    @IBAction func addFilters() {
+        
+        /* 2 */
+        //Configure the presentation controller
+        let popoverContentController = self.storyboard?.instantiateViewController( withIdentifier: "PopoverContentController") as? PopoverContentController
+        popoverContentController?.modalPresentationStyle = .popover
+
+        /* 3 */
+        if let popoverPresentationController = popoverContentController?.popoverPresentationController {
+            popoverPresentationController.permittedArrowDirections = .unknown
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = CGRect.zero
+            popoverPresentationController.delegate = self
+            if let popoverController = popoverContentController {
+                present(popoverController, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    //UIPopoverPresentationControllerDelegate inherits from UIAdaptivePresentationControllerDelegate, we will use this method to define the presentation style for popover presentation controller
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    //UIPopoverPresentationControllerDelegate
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+
+    }
+
+    func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        return true
+    }
     
     // arrays of options for each filter
     var floorsFeature = ["Any Floor", "1st", "2nd", "3rd", "4th"]
@@ -80,6 +114,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         filterActive = true
         self.roomsTableView.reloadData()
+        
+        
     }
     
     // function that does formating
@@ -257,5 +293,3 @@ extension ViewController: DataDelegate {
     }
     
 }
-
-

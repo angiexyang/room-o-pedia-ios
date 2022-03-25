@@ -10,6 +10,8 @@
 		A31299E227C19CB300B7AF01 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31299E127C19CB300B7AF01 /* RoomTableViewCell.swift */; };
 		A35909C027ED57C600C3C3D2 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35909BF27ED57C600C3C3D2 /* FavoriteTableViewCell.swift */; };
 		A392E49927BC45DE00F1A760 /* ViewRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A392E49827BC45DD00F1A760 /* ViewRoomViewController.swift */; };
+		A3B4A71227EE59E100FCC752 /* PopUpWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B4A71127EE59E100FCC752 /* PopUpWindow.swift */; };
+		A3B4A71827EE64AB00FCC752 /* PopoverContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B4A71727EE64AB00FCC752 /* PopoverContentController.swift */; };
 		A3C5DE5327ADDDC30072D4E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE5227ADDDC30072D4E8 /* AppDelegate.swift */; };
 		A3C5DE5527ADDDC30072D4E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE5427ADDDC30072D4E8 /* SceneDelegate.swift */; };
 		A3C5DE5727ADDDC30072D4E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5DE5627ADDDC30072D4E8 /* ViewController.swift */; };
@@ -49,6 +51,8 @@
 		A31299E127C19CB300B7AF01 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
 		A35909BF27ED57C600C3C3D2 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		A392E49827BC45DD00F1A760 /* ViewRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRoomViewController.swift; sourceTree = "<group>"; };
+		A3B4A71127EE59E100FCC752 /* PopUpWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindow.swift; sourceTree = "<group>"; };
+		A3B4A71727EE64AB00FCC752 /* PopoverContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverContentController.swift; sourceTree = "<group>"; };
 		A3C5DE4F27ADDDC30072D4E8 /* room-o-pedia-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "room-o-pedia-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C5DE5227ADDDC30072D4E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3C5DE5427ADDDC30072D4E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 				D3B2212727E8EEFE006C4FA2 /* LoginViewController.swift */,
 				D3B2212F27ED34BF006C4FA2 /* FavoriteViewController.swift */,
 				A35909BF27ED57C600C3C3D2 /* FavoriteTableViewCell.swift */,
+				A3B4A71127EE59E100FCC752 /* PopUpWindow.swift */,
+				A3B4A71727EE64AB00FCC752 /* PopoverContentController.swift */,
 			);
 			path = "room-o-pedia-ios";
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3B4A71227EE59E100FCC752 /* PopUpWindow.swift in Sources */,
 				D3B2213027ED34BF006C4FA2 /* FavoriteViewController.swift in Sources */,
 				A35909C027ED57C600C3C3D2 /* FavoriteTableViewCell.swift in Sources */,
 				A3EE042A27E4FCB100E5E357 /* SearchRoomsViewController.swift in Sources */,
@@ -303,6 +310,7 @@
 				A31299E227C19CB300B7AF01 /* RoomTableViewCell.swift in Sources */,
 				A3F89C2E27B1B35200658FD9 /* AddRoomViewController.swift in Sources */,
 				A392E49927BC45DE00F1A760 /* ViewRoomViewController.swift in Sources */,
+				A3B4A71827EE64AB00FCC752 /* PopoverContentController.swift in Sources */,
 				D3B2212827E8EEFE006C4FA2 /* LoginViewController.swift in Sources */,
 				A3C5DE5527ADDDC30072D4E8 /* SceneDelegate.swift in Sources */,
 			);

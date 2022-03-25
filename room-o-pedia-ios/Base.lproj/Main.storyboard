@@ -75,7 +75,7 @@
                                 </prototypes>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JdK-Dq-fbx">
-                                <rect key="frame" x="212" y="88" width="182" height="34"/>
+                                <rect key="frame" x="138" y="88" width="94" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -83,16 +83,8 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="52J-0i-nlc"/>
                                 </connections>
                             </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Chk-5C-Qn0">
-                                <rect key="frame" x="212" y="121" width="182" height="74"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="BdO-l7-nHc"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="LWh-0Q-fvE"/>
-                                </connections>
-                            </pickerView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3PA-jd-61j">
-                                <rect key="frame" x="20" y="88" width="184" height="34"/>
+                                <rect key="frame" x="20" y="88" width="110" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -101,11 +93,28 @@
                                 </connections>
                             </textField>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="roS-yZ-iwo">
-                                <rect key="frame" x="20" y="121" width="184" height="74"/>
+                                <rect key="frame" x="20" y="121" width="110" height="74"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="ZcC-C0-i4S"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="WdO-Jn-Hil"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcB-xK-Wnw">
+                                <rect key="frame" x="248" y="121" width="146" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add Filters"/>
+                                <connections>
+                                    <action selector="addFilters" destination="BYZ-38-t0r" eventType="touchUpInside" id="C7q-8M-duU"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Chk-5C-Qn0">
+                                <rect key="frame" x="138" y="121" width="94" height="74"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="BdO-l7-nHc"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="LWh-0Q-fvE"/>
                                 </connections>
                             </pickerView>
                         </subviews>
@@ -120,6 +129,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addFiltersButton" destination="DcB-xK-Wnw" id="yP2-OF-DV6"/>
                         <outlet property="dropDownAC" destination="Chk-5C-Qn0" id="8cn-9u-eNF"/>
                         <outlet property="dropDownFloors" destination="roS-yZ-iwo" id="iB9-Uo-SpC"/>
                         <outlet property="roomsTableView" destination="foD-Cy-NOd" id="jNd-yn-qsq"/>
@@ -300,6 +310,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxd-Hb-Ey6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2005.7971014492755" y="64.955357142857139"/>
+        </scene>
+        <!--Popover Content Controller-->
+        <scene sceneID="70l-n0-gCs">
+            <objects>
+                <viewController storyboardIdentifier="PopoverContentController" id="nGS-SF-oBL" customClass="PopoverContentController" customModule="room_o_pedia_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ygq-Ch-GaR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" dataMode="prototypes" id="FOx-cQ-Fhs">
+                                <rect key="frame" x="0.0" y="118" width="414" height="241"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="9bW-N8-iJd">
+                                    <size key="itemSize" width="120" height="44"/>
+                                    <size key="estimatedItemSize" width="120" height="44"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="filterTag" id="MxD-sg-4fh" customClass="TagCollectionViewCell" customModule="room_o_pedia_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DhS-vm-3DH">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Button" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAQ-qn-X26">
+                                                    <rect key="frame" x="0.0" y="0.0" width="136" height="57"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <color key="tintColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="customSize" width="120" height="44"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cPp-i1-iIb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="T9j-y7-J4f"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ezg-wz-EvF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="886.95652173913049" y="-617.41071428571422"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UOx-8F-1Nf">
@@ -683,7 +745,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3yC-IR-je8"/>
+        <segue reference="kpq-s7-ie3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="secondarySystemGroupedBackgroundColor">
