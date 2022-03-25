@@ -46,6 +46,9 @@ class SearchRoomsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
         else {
             print ("FOUND NONE")
+            let alert = UIAlertController(title: "Room Not Found", message: "Try searching for a different dorm room.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) {_ in})
+            self.present(alert, animated: true) {}
         }
         
         
@@ -147,8 +150,8 @@ class SearchRoomsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         print("roomsarray ", roomsArray.count)
 
         dormDropDown.selectedRow(inComponent: 0)
-        dormTextBox.text = "Select Dorm"
         numberSelect.placeholder = "Type Room Number"
+        dormTextBox.placeholder = "Select a Dorm"
         
         
         // Do any additional setup after loading the view.
