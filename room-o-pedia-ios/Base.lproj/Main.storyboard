@@ -9,6 +9,78 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Apply Filters View Controller-->
+        <scene sceneID="iiG-G4-OKZ">
+            <objects>
+                <viewController id="xHX-Cc-hQA" customClass="ApplyFiltersViewController" customModule="room_o_pedia_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DMc-Yc-P2W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15j-IE-eGY">
+                                <rect key="frame" x="90" y="160" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="1st"/>
+                                <connections>
+                                    <action selector="tappedFloor1st" destination="xHX-Cc-hQA" eventType="touchUpInside" id="cea-MJ-CRA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIF-Sa-O22">
+                                <rect key="frame" x="256" y="704" width="120" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Done"/>
+                                <connections>
+                                    <segue destination="JV1-GH-zc9" kind="unwind" identifier="unwindSegueToViewController" unwindAction="unwind:" id="clj-U6-6cr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVe-pe-oPK">
+                                <rect key="frame" x="250" y="160" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="3rd"/>
+                                <connections>
+                                    <action selector="tappedFloor3rd" destination="xHX-Cc-hQA" eventType="touchUpInside" id="KSr-dN-bZg"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Floors" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oC8-5e-FUK">
+                                <rect key="frame" x="20" y="160" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFM-XW-rGV">
+                                <rect key="frame" x="170" y="160" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="2nd"/>
+                                <connections>
+                                    <action selector="tappedFloor2nd" destination="xHX-Cc-hQA" eventType="touchUpInside" id="86m-FZ-4sf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RJz-yb-wtC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="floor1st" destination="15j-IE-eGY" id="zmO-nd-Mq5"/>
+                        <outlet property="floor2nd" destination="UFM-XW-rGV" id="eAE-oz-3fn"/>
+                        <outlet property="floor3rd" destination="bVe-pe-oPK" id="ce6-pE-qzv"/>
+                        <outlet property="floorTextLabel" destination="oC8-5e-FUK" id="L2O-Tf-rI6"/>
+                        <outlet property="testDone" destination="LIF-Sa-O22" id="jlT-cS-8e4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uZG-Xu-Vnm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="JV1-GH-zc9" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="886.95652173913049" y="-651.5625"/>
+        </scene>
         <!--Filter Rooms-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -75,7 +147,7 @@
                                 </prototypes>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JdK-Dq-fbx">
-                                <rect key="frame" x="212" y="88" width="182" height="34"/>
+                                <rect key="frame" x="118" y="88" width="86" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -83,16 +155,8 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="52J-0i-nlc"/>
                                 </connections>
                             </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Chk-5C-Qn0">
-                                <rect key="frame" x="212" y="121" width="182" height="74"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="BdO-l7-nHc"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="LWh-0Q-fvE"/>
-                                </connections>
-                            </pickerView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3PA-jd-61j">
-                                <rect key="frame" x="20" y="88" width="184" height="34"/>
+                                <rect key="frame" x="20" y="88" width="90" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -101,11 +165,31 @@
                                 </connections>
                             </textField>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="roS-yZ-iwo">
-                                <rect key="frame" x="20" y="121" width="184" height="74"/>
+                                <rect key="frame" x="20" y="121" width="90" height="74"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="ZcC-C0-i4S"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="WdO-Jn-Hil"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ef-Rh-h3T">
+                                <rect key="frame" x="277" y="91" width="117" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add Filters"/>
+                                <connections>
+                                    <action selector="addFilters" destination="BYZ-38-t0r" eventType="touchUpInside" id="fDR-aO-DQm"/>
+                                    <segue destination="xHX-Cc-hQA" kind="popoverPresentation" identifier="applyFiltersSegue" popoverAnchorView="5ef-Rh-h3T" id="wad-JZ-GPG">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Chk-5C-Qn0">
+                                <rect key="frame" x="118" y="121" width="86" height="74"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="BdO-l7-nHc"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="LWh-0Q-fvE"/>
                                 </connections>
                             </pickerView>
                         </subviews>
@@ -114,6 +198,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Filter Rooms" id="DNV-1y-gWm"/>
                     <connections>
+                        <outlet property="addFiltersButton" destination="5ef-Rh-h3T" id="V1e-r5-4L8"/>
                         <outlet property="dropDownAC" destination="Chk-5C-Qn0" id="8cn-9u-eNF"/>
                         <outlet property="dropDownFloors" destination="roS-yZ-iwo" id="iB9-Uo-SpC"/>
                         <outlet property="roomsTableView" destination="foD-Cy-NOd" id="jNd-yn-qsq"/>
@@ -578,11 +663,17 @@
         <segue reference="mON-lX-XpN"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

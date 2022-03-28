@@ -52,6 +52,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var filterActive = false
     var floorsCurrFilter = "None"
     var ACCurrFilter = "None"
+    var currentFilters = [String]()
     
     // function sets one field per filter
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -145,6 +146,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             //passing data
         }
+        else if segue.identifier == "applyFiltersSegue" {
+            let vc = segue.destination as! ApplyFiltersViewController
+            vc.currentFilters = self.currentFilters
+            print("VIEW CONTROLLER CHECK HERE")
+            print(self.currentFilters)
+            
+        }
         //dont need to send room info if new room
        // if segue.identifier == "roomsAddRoomSegue" {
           //  let vc = segue.destination as! AddRoomViewController
@@ -152,6 +160,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
        // }
         
     }
+    
+    @IBAction func unwind(_ seg: UIStoryboardSegue) {
+        
+    }
+    
+    
     //returns number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (filterActive) {

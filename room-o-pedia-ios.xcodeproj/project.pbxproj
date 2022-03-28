@@ -25,6 +25,7 @@
 		A3EE042A27E4FCB100E5E357 /* SearchRoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE042927E4FCB100E5E357 /* SearchRoomsViewController.swift */; };
 		A3FFF51F27C5894C007B0994 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFF51E27C5894C007B0994 /* TagCollectionViewCell.swift */; };
 		D304D07F27ADF16700407DFD /* APIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D304D07E27ADF16700407DFD /* APIFunctions.swift */; };
+		D35D706127F17AAA00C28419 /* ApplyFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35D706027F17AAA00C28419 /* ApplyFiltersViewController.swift */; };
 		D3B2212827E8EEFE006C4FA2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B2212727E8EEFE006C4FA2 /* LoginViewController.swift */; };
 		D3B2213027ED34BF006C4FA2 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B2212F27ED34BF006C4FA2 /* FavoriteViewController.swift */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		A3EE042927E4FCB100E5E357 /* SearchRoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRoomsViewController.swift; sourceTree = "<group>"; };
 		A3FFF51E27C5894C007B0994 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		D304D07E27ADF16700407DFD /* APIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFunctions.swift; sourceTree = "<group>"; };
+		D35D706027F17AAA00C28419 /* ApplyFiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyFiltersViewController.swift; sourceTree = "<group>"; };
 		D3B2212727E8EEFE006C4FA2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D3B2212F27ED34BF006C4FA2 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +140,7 @@
 				A35909BF27ED57C600C3C3D2 /* FavoriteTableViewCell.swift */,
 				A3B4A71127EE59E100FCC752 /* PopUpWindow.swift */,
 				A3B4A71727EE64AB00FCC752 /* PopoverContentController.swift */,
+				D35D706027F17AAA00C28419 /* ApplyFiltersViewController.swift */,
 			);
 			path = "room-o-pedia-ios";
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			files = (
 				A3B4A71227EE59E100FCC752 /* PopUpWindow.swift in Sources */,
 				D3B2213027ED34BF006C4FA2 /* FavoriteViewController.swift in Sources */,
+				D35D706127F17AAA00C28419 /* ApplyFiltersViewController.swift in Sources */,
 				A35909C027ED57C600C3C3D2 /* FavoriteTableViewCell.swift in Sources */,
 				A3EE042A27E4FCB100E5E357 /* SearchRoomsViewController.swift in Sources */,
 				D304D07F27ADF16700407DFD /* APIFunctions.swift in Sources */,
