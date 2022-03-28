@@ -11,6 +11,7 @@ class RoomTableViewCell: UITableViewCell {
 
     @IBOutlet var roomLabel: UILabel!
     @IBOutlet var roomPreviewImageView: UIImageView!
+    @IBOutlet var occupancyLabel: UILabel!
     
     // Adding star button test
     @IBOutlet var starButton: UIButton!

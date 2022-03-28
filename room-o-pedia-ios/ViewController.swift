@@ -156,7 +156,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //        cell.imageView?.image = UIImage(named: "rad101")
     //        cell.textLabel?.text = dormAndNumber
             cell.roomLabel.text = dormAndNumber
+            
+            let currOccupancy = currRoom.features.occupancy + " occupancy"
+            cell.occupancyLabel.text = currOccupancy
             cell.roomPreviewImageView.loadFrom(URLAddress: currRoom.photoURL[0])
+            
             
             //------------------- starButton ---------------
             if rowsWhichAreChecked.contains(dormAndNumber) {
@@ -220,7 +224,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //        cell.imageView?.image = UIImage(named: "rad101")
     //        cell.textLabel?.text = dormAndNumber
             cell.roomLabel.text = dormAndNumber
+            
+            cell.occupancyLabel.text = currRoom.features.occupancy + " occupancy"
             cell.roomPreviewImageView.loadFrom(URLAddress: currRoom.photoURL[0])
+            
             
             
             // ----------------------- test starButton ----------------------
