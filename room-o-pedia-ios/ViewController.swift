@@ -23,21 +23,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func addFilters() {
         
-        /* 2 */
-        //Configure the presentation controller
-        let popoverContentController = self.storyboard?.instantiateViewController( withIdentifier: "PopoverContentController") as? PopoverContentController
-        popoverContentController?.modalPresentationStyle = .popover
-
-        /* 3 */
-        if let popoverPresentationController = popoverContentController?.popoverPresentationController {
-            popoverPresentationController.permittedArrowDirections = .unknown
-            popoverPresentationController.sourceView = self.view
-            popoverPresentationController.sourceRect = CGRect.zero
-            popoverPresentationController.delegate = self
-            if let popoverController = popoverContentController {
-                present(popoverController, animated: true, completion: nil)
-            }
-        }
     }
     
     //UIPopoverPresentationControllerDelegate inherits from UIAdaptivePresentationControllerDelegate, we will use this method to define the presentation style for popover presentation controller
