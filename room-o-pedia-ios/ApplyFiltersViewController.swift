@@ -13,9 +13,40 @@ class ApplyFiltersViewController: UIViewController {
     
     
     @IBOutlet weak var floorTextLabel: UITextView!
+    @IBOutlet weak var dormTextLabel: UITextView!
+    @IBOutlet weak var occupancyTextLabel: UITextView!
+    @IBOutlet weak var acTextLabel: UITextView!
+    @IBOutlet weak var flooringTextLabel: UITextView!
+    @IBOutlet weak var storageTextLabel: UITextView!
+    @IBOutlet weak var windowTextLabel: UITextView!
+    @IBOutlet weak var otherTextLabel: UITextView!
+    
     @IBOutlet weak var floor1st: UIButton!
     @IBOutlet weak var floor2nd: UIButton!
     @IBOutlet weak var floor3rd: UIButton!
+    @IBOutlet weak var dormMerion: UIButton!
+    @IBOutlet weak var dormNewDorm: UIButton!
+    @IBOutlet weak var dormRadnor: UIButton!
+    @IBOutlet weak var occupancySingle: UIButton!
+    @IBOutlet weak var occupancyDouble: UIButton!
+    @IBOutlet weak var occupancyTriple: UIButton!
+    @IBOutlet weak var acCentral: UIButton!
+    @IBOutlet weak var acWindow: UIButton!
+    @IBOutlet weak var flooringWood: UIButton!
+    @IBOutlet weak var flooringCarpet: UIButton!
+    @IBOutlet weak var storageCloset: UIButton!
+    @IBOutlet weak var storageWardrobe: UIButton!
+    @IBOutlet weak var storageDresser: UIButton!
+    @IBOutlet weak var storageCaptains: UIButton!
+    @IBOutlet weak var windowN: UIButton!
+    @IBOutlet weak var windowNE: UIButton!
+    @IBOutlet weak var windowE: UIButton!
+    @IBOutlet weak var windowSE: UIButton!
+    @IBOutlet weak var windowS: UIButton!
+    @IBOutlet weak var windowSW: UIButton!
+    @IBOutlet weak var windowW: UIButton!
+    @IBOutlet weak var windowNW: UIButton!
+    @IBOutlet weak var otherFireplace: UIButton!
     
     @IBOutlet weak var testDone: UIButton!
     
@@ -23,12 +54,12 @@ class ApplyFiltersViewController: UIViewController {
     @IBAction func tappedFloor1st() {
         if floor1st.isSelected == true {
             floor1st.isSelected = false
-            floor1st.tintColor = UIColor.systemRed
+            floor1st.tintColor = UIColor.systemGray2
             currentFilters.removeAll {$0 == "floor-1st"}
         }
         else {
             floor1st.isSelected = true
-            floor1st.tintColor = UIColor.systemGreen
+            floor1st.tintColor = UIColor.systemBlue
             currentFilters.append("floor-1st")
         }
     }
@@ -36,12 +67,12 @@ class ApplyFiltersViewController: UIViewController {
     @IBAction func tappedFloor2nd() {
         if floor2nd.isSelected == true {
             floor2nd.isSelected = false
-            floor2nd.tintColor = UIColor.systemRed
+            floor2nd.tintColor = UIColor.systemGray2
             currentFilters.removeAll {$0 == "floor-2nd"}
         }
         else {
             floor2nd.isSelected = true
-            floor2nd.tintColor = UIColor.systemGreen
+            floor2nd.tintColor = UIColor.systemBlue
             currentFilters.append("floor-2nd")
         }
     }
@@ -49,16 +80,316 @@ class ApplyFiltersViewController: UIViewController {
     @IBAction func tappedFloor3rd() {
         if floor3rd.isSelected == true {
             floor3rd.isSelected = false
-            floor3rd.tintColor = UIColor.systemRed
+            floor3rd.tintColor = UIColor.systemGray2
             currentFilters.removeAll {$0 == "floor-3rd"}
         }
         else {
             floor3rd.isSelected = true
-            floor3rd.tintColor = UIColor.systemGreen
+            floor3rd.tintColor = UIColor.systemBlue
             currentFilters.append("floor-3rd")
         }
     }
     
+    @IBAction func tappedDormMerion() {
+        if dormMerion.isSelected == true {
+            dormMerion.isSelected = false
+            dormMerion.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "dorm-merion"}
+        }
+        else {
+            dormMerion.isSelected = true
+            dormMerion.tintColor = UIColor.systemBlue
+            currentFilters.append("dorm-merion")
+        }
+    }
+    
+    @IBAction func tappedDormNewDorm() {
+        if dormNewDorm.isSelected == true {
+            dormNewDorm.isSelected = false
+            dormNewDorm.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "dorm-newDorm"}
+        }
+        else {
+            dormNewDorm.isSelected = true
+            dormNewDorm.tintColor = UIColor.systemBlue
+            currentFilters.append("dorm-newDorm")
+        }
+    }
+    
+    @IBAction func tappedDormRadnor() {
+        if dormRadnor.isSelected == true {
+            dormRadnor.isSelected = false
+            dormRadnor.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "dorm-radnor"}
+        }
+        else {
+            dormRadnor.isSelected = true
+            dormRadnor.tintColor = UIColor.systemBlue
+            currentFilters.append("dorm-radnor")
+        }
+    }
+    
+    @IBAction func tappedOccupancySingle() {
+        if occupancySingle.isSelected == true {
+            occupancySingle.isSelected = false
+            occupancySingle.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "occupancy-single"}
+        }
+        else {
+            occupancySingle.isSelected = true
+            occupancySingle.tintColor = UIColor.systemBlue
+            currentFilters.append("occupancy-single")
+        }
+    }
+    
+    @IBAction func tappedOccupancyDouble() {
+        if occupancyDouble.isSelected == true {
+            occupancyDouble.isSelected = false
+            occupancyDouble.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "occupancy-double"}
+        }
+        else {
+            occupancyDouble.isSelected = true
+            occupancyDouble.tintColor = UIColor.systemBlue
+            currentFilters.append("occupancy-double")
+        }
+    }
+    
+    @IBAction func tappedOccupancyTriple() {
+        if occupancyTriple.isSelected == true {
+            occupancyTriple.isSelected = false
+            occupancyTriple.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "occupancy-triple"}
+        }
+        else {
+            occupancyTriple.isSelected = true
+            occupancyTriple.tintColor = UIColor.systemBlue
+            currentFilters.append("occupancy-triple")
+        }
+    }
+    
+    @IBAction func tappedAcCentral() {
+        if acCentral.isSelected == true {
+            acCentral.isSelected = false
+            acCentral.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "ac-central"}
+        }
+        else {
+            acCentral.isSelected = true
+            acCentral.tintColor = UIColor.systemBlue
+            currentFilters.append("ac-central")
+        }
+    }
+    
+    @IBAction func tappedAcWindow() {
+        if acWindow.isSelected == true {
+            acWindow.isSelected = false
+            acWindow.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "ac-window"}
+        }
+        else {
+            acWindow.isSelected = true
+            acWindow.tintColor = UIColor.systemBlue
+            currentFilters.append("ac-window")
+        }
+    }
+    
+    @IBAction func tappedFlooringWood() {
+        if flooringWood.isSelected == true {
+            flooringWood.isSelected = false
+            flooringWood.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "flooring-wood"}
+        }
+        else {
+            flooringWood.isSelected = true
+            flooringWood.tintColor = UIColor.systemBlue
+            currentFilters.append("flooring-wood")
+        }
+    }
+    
+    @IBAction func tappedFlooringCarpet() {
+        if flooringCarpet.isSelected == true {
+            flooringCarpet.isSelected = false
+            flooringCarpet.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "flooring-carpet"}
+        }
+        else {
+            flooringCarpet.isSelected = true
+            flooringCarpet.tintColor = UIColor.systemBlue
+            currentFilters.append("flooring-carpet")
+        }
+    }
+    
+    @IBAction func tappedStorageCloset() {
+        if storageCloset.isSelected == true {
+            storageCloset.isSelected = false
+            storageCloset.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "storage-closet"}
+        }
+        else {
+            storageCloset.isSelected = true
+            storageCloset.tintColor = UIColor.systemBlue
+            currentFilters.append("storage-closet")
+        }
+    }
+    
+    @IBAction func tappedStorageWardrobe() {
+        if storageWardrobe.isSelected == true {
+            storageWardrobe.isSelected = false
+            storageWardrobe.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "storage-wardrobe"}
+        }
+        else {
+            storageWardrobe.isSelected = true
+            storageWardrobe.tintColor = UIColor.systemBlue
+            currentFilters.append("storage-wardrobe")
+        }
+    }
+    
+    @IBAction func tappedStorageDresser() {
+        if storageDresser.isSelected == true {
+            storageDresser.isSelected = false
+            storageDresser.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "storage-dresser"}
+        }
+        else {
+            storageDresser.isSelected = true
+            storageDresser.tintColor = UIColor.systemBlue
+            currentFilters.append("storage-dresser")
+        }
+    }
+    
+    @IBAction func tappedStorageCaptains() {
+        if storageCaptains.isSelected == true {
+            storageCaptains.isSelected = false
+            storageCaptains.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "storage-captains"}
+        }
+        else {
+            storageCaptains.isSelected = true
+            storageCaptains.tintColor = UIColor.systemBlue
+            currentFilters.append("storage-captains")
+        }
+    }
+    
+    @IBAction func tappedWindowNorth() {
+        if windowN.isSelected == true {
+            windowN.isSelected = false
+            windowN.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "window-N"}
+        }
+        else {
+            windowN.isSelected = true
+            windowN.tintColor = UIColor.systemBlue
+            currentFilters.append("window-N")
+        }
+    }
+    
+    @IBAction func tappedWindowNortheast() {
+        if windowNE.isSelected == true {
+            windowNE.isSelected = false
+            windowNE.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "window-NE"}
+        }
+        else {
+            windowNE.isSelected = true
+            windowNE.tintColor = UIColor.systemBlue
+            currentFilters.append("window-NE")
+        }
+    }
+    
+    @IBAction func tappedWindowEast() {
+        if windowE.isSelected == true {
+            windowE.isSelected = false
+            windowE.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "window-E"}
+        }
+        else {
+            windowE.isSelected = true
+            windowE.tintColor = UIColor.systemBlue
+            currentFilters.append("window-E")
+        }
+    }
+    
+    @IBAction func tappedWindowSoutheast() {
+        if windowSE.isSelected == true {
+            windowSE.isSelected = false
+            windowSE.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "window-SE"}
+        }
+        else {
+            windowSE.isSelected = true
+            windowSE.tintColor = UIColor.systemBlue
+            currentFilters.append("window-SE")
+        }
+    }
+    
+    @IBAction func tappedWindowSouth() {
+        if windowS.isSelected == true {
+            windowS.isSelected = false
+            windowS.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "window-S"}
+        }
+        else {
+            windowS.isSelected = true
+            windowS.tintColor = UIColor.systemBlue
+            currentFilters.append("window-S")
+        }
+    }
+    
+    @IBAction func tappedWindowSouthwest() {
+        if windowSW.isSelected == true {
+            windowSW.isSelected = false
+            windowSW.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "window-SW"}
+        }
+        else {
+            windowSW.isSelected = true
+            windowSW.tintColor = UIColor.systemBlue
+            currentFilters.append("window-SW")
+        }
+    }
+    
+    @IBAction func tappedWindowWest() {
+        if windowW.isSelected == true {
+            windowW.isSelected = false
+            windowW.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "window-W"}
+        }
+        else {
+            windowW.isSelected = true
+            windowW.tintColor = UIColor.systemBlue
+            currentFilters.append("window-W")
+        }
+    }
+    
+    @IBAction func tappedWindowNorthwest() {
+        if windowNW.isSelected == true {
+            windowNW.isSelected = false
+            windowNW.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "window-NW"}
+        }
+        else {
+            windowNW.isSelected = true
+            windowNW.tintColor = UIColor.systemBlue
+            currentFilters.append("window-NW")
+        }
+    }
+    
+    @IBAction func tappedFireplace() {
+        if otherFireplace.isSelected == true {
+            otherFireplace.isSelected = false
+            otherFireplace.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "other-fireplace"}
+        }
+        else {
+            otherFireplace.isSelected = true
+            otherFireplace.tintColor = UIColor.systemBlue
+            currentFilters.append("other-fireplace")
+        }
+    }
+    
+    // DO NOT CONNECT THIS TO THE STORYBOARD!!
     @IBAction func tappedDone() {
         performSegue(withIdentifier: "unwindSegueToViewController", sender: self)
     }
@@ -74,20 +405,32 @@ class ApplyFiltersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if currentFilters.contains("floor-1st") {
-            floor1st.isSelected = true
-            floor1st.tintColor = UIColor.systemGreen
-        }
-        if currentFilters.contains("floor-2nd") {
-            floor2nd.isSelected = true
-            floor2nd.tintColor = UIColor.systemGreen
-        }
-        if currentFilters.contains("floor-3rd") {
-            floor3rd.isSelected = true
-            floor3rd.tintColor = UIColor.systemGreen
+        
+        let allFilters = [
+            "floor-1st": floor1st, "floor-2nd": floor2nd, "floor-3rd": floor3rd,
+            "dorm-merion": dormMerion, "dorm-newDorm": dormNewDorm, "dorm-radnor": dormRadnor,
+            "occupancy-single": occupancySingle, "occupancy-double": occupancyDouble, "occupancy-triple": occupancyTriple,
+            "ac-central": acCentral, "ac-window": acWindow,
+            "flooring-wood": flooringWood, "flooring-carpet": flooringCarpet,
+            "storage-closet": storageCloset, "storage-wardrobe": storageWardrobe, "storage-dresser": storageDresser, "storage-captains": storageCaptains,
+            "window-N": windowN, "window-NE": windowNE, "window-E": windowE, "window-SE": windowSE, "window-S": windowS, "window-SW": windowSW, "window-W": windowW, "window-NW": windowNW,
+            "other-fireplace": otherFireplace]
+        
+        for (key, value) in allFilters {
+            if currentFilters.contains(key) {
+                value?.isSelected = true
+                value?.tintColor = UIColor.systemBlue
+            }
         }
         floorTextLabel.isEditable = false
         floorTextLabel.isSelectable = false
+        dormTextLabel.isEditable = false
+        dormTextLabel.isSelectable = false
+        occupancyTextLabel.isEditable = false
+        occupancyTextLabel.isSelectable = false
+        acTextLabel.isEditable = false
+        acTextLabel.isSelectable = false
+        
 
         // Do any additional setup after loading the view.
     }

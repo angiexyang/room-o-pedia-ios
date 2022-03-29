@@ -24,21 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var textBoxAC: UITextField!
     
     @IBAction func addFilters() {
-        
-    }
-    
-    //UIPopoverPresentationControllerDelegate inherits from UIAdaptivePresentationControllerDelegate, we will use this method to define the presentation style for popover presentation controller
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
-    
-    //UIPopoverPresentationControllerDelegate
-    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-
-    }
-
-    func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
-        return true
+        print(currentFilters)
     }
     
     // arrays of options for each filter
@@ -52,6 +38,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var filterActive = false
     var floorsCurrFilter = "None"
     var ACCurrFilter = "None"
+    
+    // NEW!! USE THIS STRING ARRAY
     var currentFilters = [String]()
     
     // function sets one field per filter
@@ -174,7 +162,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return roomsArray.count
     }
     
-    
+
     // empty UserDefaults array
     var rowsWhichAreChecked = UserDefaults.standard.array(forKey: "roomFavorite") as? [String] ?? [String] ()
     var starredRooms = [Room]()
@@ -336,6 +324,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         dropDownAC.selectedRow(inComponent: 0)
         textBoxFloors.placeholder = "Select Floor"
         textBoxAC.placeholder = "Select AC Option"
+        
+        //print(currentFilters)
+        
     }
 }
 
