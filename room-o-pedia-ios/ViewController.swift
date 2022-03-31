@@ -305,6 +305,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //        cell.imageView?.image = UIImage(named: "rad101")
     //        cell.textLabel?.text = dormAndNumber
             cell.roomLabel.text = dormAndNumber
+            cell.occupancyLabel.text = currRoom.features.occupancy + " occupancy"
             cell.roomPreviewImageView.loadFrom(URLAddress: currRoom.photoURL[0])
             
             //------------------- starButton ---------------
@@ -369,6 +370,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //        cell.imageView?.image = UIImage(named: "rad101")
     //        cell.textLabel?.text = dormAndNumber
             cell.roomLabel.text = dormAndNumber
+            cell.occupancyLabel.text = currRoom.features.occupancy + " occupancy"
             cell.roomPreviewImageView.loadFrom(URLAddress: currRoom.photoURL[0])
             
             
