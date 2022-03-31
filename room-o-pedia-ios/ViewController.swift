@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var roomsCount: UILabel!
     
     @IBAction func addFilters() {
-        print(currentFilters)
+        //print(currentFilters)
     }
     
     // arrays of options for each filter
@@ -145,7 +145,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         filteredRoomsArray = currentRooms
         filteredRoomsArray.sort{$0.dorm + " " + $0.number < $1.dorm + " " + $1.number}
         print("FOUND \(filteredRoomsArray.count) RESULTS!!!!!!")
-        roomsCount.text = "\(filteredRoomsArray.count) rooms found"
+       // roomsCount.text = "\(filteredRoomsArray.count) rooms found"
     }
         
         
@@ -269,13 +269,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (currentFilters.count > 0) {
             filterRooms()
             self.roomsTableView.reloadData()
-            filteredRoomsArray = roomsArray
             print("------------JUST RELOADED MAIN VIEW-------------")
         } else {
             print("FILTER IS NOT ACTIVE")
+            filteredRoomsArray = roomsArray
             self.roomsTableView.reloadData()
         }
-        //self.roomsTableView.reloadData()
     }
     
     
