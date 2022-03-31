@@ -41,12 +41,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // NEW!! USE THIS STRING ARRAY
     var currentFilters = [String]()
+    var currentRooms = [Room]()
     
     //------------------------------------ FILTERING LOGIC TEST ---------------------------
     func filterRooms() {
-        //if currentFilters.count > 0 {
-        //    filterActive = true
-        //}
+        //print("GOT INTO FUNCTION")
+        if currentFilters.count > 0 {
+            filterActive = true
+          //  print("FILTER TURNED ON")
+        }
         
         var currFiltersDict = [String : [String]]()
         
@@ -62,54 +65,92 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
             }
         }
-        //print(currFiltersDict)
+       // print("CURRENT FILTER DICT")
+       // print(currFiltersDict)
         
-        filteredRoomsArray = roomsArray
-        var roomDict = [String : Any]()
+        currentRooms = roomsArray
+        
         var roomFeatureDict = [String : Any]()
-        /*
-        for room in filteredRoomsArray {
+        var selectedKeys = Array(currFiltersDict.keys)
+        var selectedValues = [String]()
+        var roomValues = [String]()
+        let dormList = ["Radnor", "Merion", "New Dorm"]
+        var unselectedDorms = [String]()
+        var satisfied = false
+        
+        // take out all rooms with the wrong dorm first
+        if selectedKeys.contains("dorm") {
+            for dorm in dormList {
+                if !(currFiltersDict["dorm"]!.contains(dorm)) {
+                    unselectedDorms.append(dorm)
+                }
+            }
+            let indexDorm = selectedKeys.firstIndex(of: "dorm")
+            selectedKeys.remove(at: indexDorm!)
             
+          //  print("UNSELECTED DORMS")
+          //  print(unselectedDorms)
+            currentRooms.removeAll(where: {unselectedDorms.contains($0.dorm)})
         }
         
-        let testArray = ["dorm", "number", "occupancy", "floor", "flooring", "other", "cooling_system","storage", "photoURL", "window_direction", "features"]
-        var testDict = [String: Any]()
-        var testFeatureDict = [String : Any]()
         
-        
-        
-        do {
-            testDict = try DictionaryEncoder().encode(testRoom)
-            testFeatureDict = try DictionaryEncoder().encode(testRoom.features)
-        } catch {
-            print("TEST DICT FAILED")
-        }
-        
-        for category in testArray {
-            if (testDict[category] != nil) {
-                print("\(category) : \(testDict[category]!)")
+        // check other conditions for the rest of the rooms
+        for room in currentRooms {
+           // print("//////////// \(room.dorm) \(room.number)  //////////////")
+            do {
+                roomFeatureDict = try DictionaryEncoder().encode(room.features)
+            } catch {
+           //     print("FAILED TO CONVERT TO DICT")
             }
-            if (testFeatureDict[category] != nil) {
-                print("\(category) : \(testFeatureDict[category]!)")
+            
+            // go through each category that requires filtering
+            for keyFilter in selectedKeys {
+             //   print("ROOM DICT AT KEY LOOKS LIKE")
+             //   print(roomFeatureDict[keyFilter]!)
+                if roomFeatureDict[keyFilter] != nil {
+                    if let accessDict = roomFeatureDict[keyFilter]! as? String {
+                        roomValues = Array(arrayLiteral: accessDict)
+                    } else if let accessDict = roomFeatureDict[keyFilter]! as? [String] {
+                        roomValues = accessDict
+                    }
+               //     print("ROOM VALUES ARRAY")
+               //     print(roomValues)
+                } else {
+                    roomValues = []
+                }
+              //  print("FILTER SELECTED")
+                selectedValues = currFiltersDict[keyFilter]!                    //"carpet"
+              //  print(selectedValues)
+                
+                for option in selectedValues {                                  //"carpet"
+                    if roomValues.contains(option) {
+                        satisfied = true
+                        break
+                    } else {
+                        satisfied = false                                       //false
+                    }
+                }
+                
+                if satisfied == false {
+                    let indexRoom = currentRooms.firstIndex(where: {$0.dorm + $0.number == room.dorm + room.number})
+                    currentRooms.remove(at: indexRoom!)
+                    break
+                }
             }
+            //if satisfied == true {
+            //    filteredRoomsArray.append(room)
+            //}
         }
-        print(testFeatureDict["storage"]!)
-        let arrayConvert = testFeatureDict["storage"] as! [String]
-        print(arrayConvert)
-    
         
-        
-        
-         favorited.sort()
-         
-         if let data = defaults.data(forKey: "starredRooms") {
-             starredRooms = try! PropertyListDecoder().decode([Room].self, from: data)
-         }
-         starredRooms.sort{$0.dorm + " " + $0.number < $1.dorm + " " + $1.number}
-         
-         
-         favTableView.reloadData()*/
+        filteredRoomsArray = currentRooms
+        filteredRoomsArray.sort{$0.dorm + " " + $0.number < $1.dorm + " " + $1.number}
+        print("FOUND \(filteredRoomsArray.count) RESULTS!!!!!!")
+        roomsCount.text = "\(filteredRoomsArray.count) rooms found"
     }
+        
+        
+    
+    
     
     
     //------------------------------------ END MAIN FILTER TEST --------------------------
@@ -212,8 +253,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         else if segue.identifier == "applyFiltersSegue" {
             let vc = segue.destination as! ApplyFiltersViewController
             vc.currentFilters = self.currentFilters
-            print("VIEW CONTROLLER CHECK HERE")
-            print(self.currentFilters)
+      //      print("VIEW CONTROLLER CHECK HERE")
+      //      print(self.currentFilters)
             
         }
         //dont need to send room info if new room
@@ -227,10 +268,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func unwind(_ seg: UIStoryboardSegue) {
         if (currentFilters.count > 0) {
             filterRooms()
+            self.roomsTableView.reloadData()
+            filteredRoomsArray = roomsArray
+            print("------------JUST RELOADED MAIN VIEW-------------")
+        } else {
+            print("FILTER IS NOT ACTIVE")
+            self.roomsTableView.reloadData()
         }
-        print("I just unwound")
         //self.roomsTableView.reloadData()
-        //print("Data reloaded")
     }
     
     

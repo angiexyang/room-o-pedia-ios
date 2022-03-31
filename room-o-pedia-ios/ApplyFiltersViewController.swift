@@ -397,7 +397,7 @@ class ApplyFiltersViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "unwindSegueToViewController" {
             let vc = segue.destination as! ViewController
-            print("APPLY FILTERS VIEW CONTROLLER CHECK HERE")
+            print("-------------- APPLIED FILTERS ---------------")
             print(self.currentFilters)
             vc.currentFilters = self.currentFilters
         }
