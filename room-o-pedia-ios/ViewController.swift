@@ -13,7 +13,6 @@ protocol DataDelegate {
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
     
-    //I think this is back to things working?
     
     // ------- Room Feature Filters --------------------------------------------------------------
     
@@ -22,6 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var textBoxFloors: UITextField!
     @IBOutlet weak var dropDownAC: UIPickerView!
     @IBOutlet weak var textBoxAC: UITextField!
+    @IBOutlet weak var roomsCount: UILabel!
     
     @IBAction func addFilters() {
         print(currentFilters)
@@ -41,6 +41,81 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // NEW!! USE THIS STRING ARRAY
     var currentFilters = [String]()
+    
+    //------------------------------------ FILTERING LOGIC TEST ---------------------------
+    func filterRooms() {
+        //if currentFilters.count > 0 {
+        //    filterActive = true
+        //}
+        
+        var currFiltersDict = [String : [String]]()
+        
+        for filter in currentFilters {
+            if let index = filter.firstIndex(of: "-") {
+                let category = String(filter.prefix(upTo: index))
+                let option = String(String(filter.suffix(from: index)).dropFirst())
+                
+                if currFiltersDict[category] != nil {
+                    currFiltersDict[category]!.append(option)
+                } else {
+                    currFiltersDict[category] = [option]
+                }
+            }
+        }
+        //print(currFiltersDict)
+        
+        filteredRoomsArray = roomsArray
+        var roomDict = [String : Any]()
+        var roomFeatureDict = [String : Any]()
+        /*
+        for room in filteredRoomsArray {
+            
+        }
+        
+        let testArray = ["dorm", "number", "occupancy", "floor", "flooring", "other", "cooling_system","storage", "photoURL", "window_direction", "features"]
+        var testDict = [String: Any]()
+        var testFeatureDict = [String : Any]()
+        
+        
+        
+        do {
+            testDict = try DictionaryEncoder().encode(testRoom)
+            testFeatureDict = try DictionaryEncoder().encode(testRoom.features)
+        } catch {
+            print("TEST DICT FAILED")
+        }
+        
+        for category in testArray {
+            if (testDict[category] != nil) {
+                print("\(category) : \(testDict[category]!)")
+            }
+            if (testFeatureDict[category] != nil) {
+                print("\(category) : \(testFeatureDict[category]!)")
+            }
+        }
+        print(testFeatureDict["storage"]!)
+        let arrayConvert = testFeatureDict["storage"] as! [String]
+        print(arrayConvert)
+    
+        
+        
+        
+         favorited.sort()
+         
+         if let data = defaults.data(forKey: "starredRooms") {
+             starredRooms = try! PropertyListDecoder().decode([Room].self, from: data)
+         }
+         starredRooms.sort{$0.dorm + " " + $0.number < $1.dorm + " " + $1.number}
+         
+         
+         favTableView.reloadData()*/
+    }
+    
+    
+    //------------------------------------ END MAIN FILTER TEST --------------------------
+    
+    
+    
     
     // function sets one field per filter
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -150,7 +225,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func unwind(_ seg: UIStoryboardSegue) {
-        
+        if (currentFilters.count > 0) {
+            filterRooms()
+        }
+        print("I just unwound")
+        //self.roomsTableView.reloadData()
+        //print("Data reloaded")
     }
     
     
@@ -308,13 +388,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        return 80
 //    }
     
+        
     @IBOutlet weak var roomsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         APIFunctions.functions.delegate = self
         APIFunctions.functions.fetchRooms()
-       // print(roomsArray)
         
         roomsTableView.delegate = self
         roomsTableView.dataSource = self
@@ -324,8 +404,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         dropDownAC.selectedRow(inComponent: 0)
         textBoxFloors.placeholder = "Select Floor"
         textBoxAC.placeholder = "Select AC Option"
-        
-        //print(currentFilters)
         
     }
 }
@@ -341,4 +419,40 @@ extension ViewController: DataDelegate {
         self.roomsTableView?.reloadData()
     }
     
+}
+
+
+
+
+
+
+// ------------- OBJECT TO DICT -----------------
+class DictionaryEncoder {
+
+    private let encoder = JSONEncoder()
+
+    var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy {
+        set { encoder.dateEncodingStrategy = newValue }
+        get { return encoder.dateEncodingStrategy }
+    }
+
+    var dataEncodingStrategy: JSONEncoder.DataEncodingStrategy {
+        set { encoder.dataEncodingStrategy = newValue }
+        get { return encoder.dataEncodingStrategy }
+    }
+
+    var nonConformingFloatEncodingStrategy: JSONEncoder.NonConformingFloatEncodingStrategy {
+        set { encoder.nonConformingFloatEncodingStrategy = newValue }
+        get { return encoder.nonConformingFloatEncodingStrategy }
+    }
+
+    var keyEncodingStrategy: JSONEncoder.KeyEncodingStrategy {
+        set { encoder.keyEncodingStrategy = newValue }
+        get { return encoder.keyEncodingStrategy }
+    }
+
+    func encode<T>(_ value: T) throws -> [String: Any] where T : Encodable {
+        let data = try encoder.encode(value)
+        return try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
+    }
 }

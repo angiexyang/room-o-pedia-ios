@@ -94,12 +94,12 @@ class ApplyFiltersViewController: UIViewController {
         if dormMerion.isSelected == true {
             dormMerion.isSelected = false
             dormMerion.tintColor = UIColor.systemGray2
-            currentFilters.removeAll {$0 == "dorm-merion"}
+            currentFilters.removeAll {$0 == "dorm-Merion"}
         }
         else {
             dormMerion.isSelected = true
             dormMerion.tintColor = UIColor.systemBlue
-            currentFilters.append("dorm-merion")
+            currentFilters.append("dorm-Merion")
         }
     }
     
@@ -107,12 +107,12 @@ class ApplyFiltersViewController: UIViewController {
         if dormNewDorm.isSelected == true {
             dormNewDorm.isSelected = false
             dormNewDorm.tintColor = UIColor.systemGray2
-            currentFilters.removeAll {$0 == "dorm-newDorm"}
+            currentFilters.removeAll {$0 == "dorm-New Dorm"}
         }
         else {
             dormNewDorm.isSelected = true
             dormNewDorm.tintColor = UIColor.systemBlue
-            currentFilters.append("dorm-newDorm")
+            currentFilters.append("dorm-New Dorm")
         }
     }
     
@@ -120,12 +120,12 @@ class ApplyFiltersViewController: UIViewController {
         if dormRadnor.isSelected == true {
             dormRadnor.isSelected = false
             dormRadnor.tintColor = UIColor.systemGray2
-            currentFilters.removeAll {$0 == "dorm-radnor"}
+            currentFilters.removeAll {$0 == "dorm-Radnor"}
         }
         else {
             dormRadnor.isSelected = true
             dormRadnor.tintColor = UIColor.systemBlue
-            currentFilters.append("dorm-radnor")
+            currentFilters.append("dorm-Radnor")
         }
     }
     
@@ -172,12 +172,12 @@ class ApplyFiltersViewController: UIViewController {
         if acCentral.isSelected == true {
             acCentral.isSelected = false
             acCentral.tintColor = UIColor.systemGray2
-            currentFilters.removeAll {$0 == "ac-central"}
+            currentFilters.removeAll {$0 == "cooling_system-central"}
         }
         else {
             acCentral.isSelected = true
             acCentral.tintColor = UIColor.systemBlue
-            currentFilters.append("ac-central")
+            currentFilters.append("cooling_system-central")
         }
     }
     
@@ -185,12 +185,12 @@ class ApplyFiltersViewController: UIViewController {
         if acWindow.isSelected == true {
             acWindow.isSelected = false
             acWindow.tintColor = UIColor.systemGray2
-            currentFilters.removeAll {$0 == "ac-window"}
+            currentFilters.removeAll {$0 == "cooling_system-window unit"}
         }
         else {
             acWindow.isSelected = true
             acWindow.tintColor = UIColor.systemBlue
-            currentFilters.append("ac-window")
+            currentFilters.append("cooling_system-window unit")
         }
     }
     
@@ -263,12 +263,12 @@ class ApplyFiltersViewController: UIViewController {
         if storageCaptains.isSelected == true {
             storageCaptains.isSelected = false
             storageCaptains.tintColor = UIColor.systemGray2
-            currentFilters.removeAll {$0 == "storage-captains"}
+            currentFilters.removeAll {$0 == "storage-captain's bed"}
         }
         else {
             storageCaptains.isSelected = true
             storageCaptains.tintColor = UIColor.systemBlue
-            currentFilters.append("storage-captains")
+            currentFilters.append("storage-captain's bed")
         }
     }
     
@@ -276,12 +276,12 @@ class ApplyFiltersViewController: UIViewController {
         if windowN.isSelected == true {
             windowN.isSelected = false
             windowN.tintColor = UIColor.systemGray2
-            currentFilters.removeAll {$0 == "window-N"}
+            currentFilters.removeAll {$0 == "window_direction-north"}
         }
         else {
             windowN.isSelected = true
             windowN.tintColor = UIColor.systemBlue
-            currentFilters.append("window-N")
+            currentFilters.append("window_direction-north")
         }
     }
     
@@ -289,12 +289,12 @@ class ApplyFiltersViewController: UIViewController {
         if windowNE.isSelected == true {
             windowNE.isSelected = false
             windowNE.tintColor = UIColor.systemGray2
-            currentFilters.removeAll {$0 == "window-NE"}
+            currentFilters.removeAll {$0 == "window_direction-northeast"}
         }
         else {
             windowNE.isSelected = true
             windowNE.tintColor = UIColor.systemBlue
-            currentFilters.append("window-NE")
+            currentFilters.append("window_direction-northeast")
         }
     }
     
@@ -302,12 +302,12 @@ class ApplyFiltersViewController: UIViewController {
         if windowE.isSelected == true {
             windowE.isSelected = false
             windowE.tintColor = UIColor.systemGray2
-            currentFilters.removeAll {$0 == "window-E"}
+            currentFilters.removeAll {$0 == "window_direction-east"}
         }
         else {
             windowE.isSelected = true
             windowE.tintColor = UIColor.systemBlue
-            currentFilters.append("window-E")
+            currentFilters.append("window_direction-east")
         }
     }
     
@@ -315,12 +315,12 @@ class ApplyFiltersViewController: UIViewController {
         if windowSE.isSelected == true {
             windowSE.isSelected = false
             windowSE.tintColor = UIColor.systemGray2
-            currentFilters.removeAll {$0 == "window-SE"}
+            currentFilters.removeAll {$0 == "window_direction-southeast"}
         }
         else {
             windowSE.isSelected = true
             windowSE.tintColor = UIColor.systemBlue
-            currentFilters.append("window-SE")
+            currentFilters.append("window_direction-southeast")
         }
     }
     
@@ -328,12 +328,12 @@ class ApplyFiltersViewController: UIViewController {
         if windowS.isSelected == true {
             windowS.isSelected = false
             windowS.tintColor = UIColor.systemGray2
-            currentFilters.removeAll {$0 == "window-S"}
+            currentFilters.removeAll {$0 == "window_direction-south"}
         }
         else {
             windowS.isSelected = true
             windowS.tintColor = UIColor.systemBlue
-            currentFilters.append("window-S")
+            currentFilters.append("window_direction-south")
         }
     }
     
@@ -341,12 +341,12 @@ class ApplyFiltersViewController: UIViewController {
         if windowSW.isSelected == true {
             windowSW.isSelected = false
             windowSW.tintColor = UIColor.systemGray2
-            currentFilters.removeAll {$0 == "window-SW"}
+            currentFilters.removeAll {$0 == "window_direction-southwest"}
         }
         else {
             windowSW.isSelected = true
             windowSW.tintColor = UIColor.systemBlue
-            currentFilters.append("window-SW")
+            currentFilters.append("window_direction-southwest")
         }
     }
     
@@ -354,12 +354,12 @@ class ApplyFiltersViewController: UIViewController {
         if windowW.isSelected == true {
             windowW.isSelected = false
             windowW.tintColor = UIColor.systemGray2
-            currentFilters.removeAll {$0 == "window-W"}
+            currentFilters.removeAll {$0 == "window_direction-west"}
         }
         else {
             windowW.isSelected = true
             windowW.tintColor = UIColor.systemBlue
-            currentFilters.append("window-W")
+            currentFilters.append("window_direction-west")
         }
     }
     
@@ -367,12 +367,12 @@ class ApplyFiltersViewController: UIViewController {
         if windowNW.isSelected == true {
             windowNW.isSelected = false
             windowNW.tintColor = UIColor.systemGray2
-            currentFilters.removeAll {$0 == "window-NW"}
+            currentFilters.removeAll {$0 == "window_direction-northwest"}
         }
         else {
             windowNW.isSelected = true
             windowNW.tintColor = UIColor.systemBlue
-            currentFilters.append("window-NW")
+            currentFilters.append("window_direction-northwest")
         }
     }
     
@@ -408,12 +408,12 @@ class ApplyFiltersViewController: UIViewController {
         
         let allFilters = [
             "floor-1st": floor1st, "floor-2nd": floor2nd, "floor-3rd": floor3rd,
-            "dorm-merion": dormMerion, "dorm-newDorm": dormNewDorm, "dorm-radnor": dormRadnor,
+            "dorm-Merion": dormMerion, "dorm-New Dorm": dormNewDorm, "dorm-Radnor": dormRadnor,
             "occupancy-single": occupancySingle, "occupancy-double": occupancyDouble, "occupancy-triple": occupancyTriple,
-            "ac-central": acCentral, "ac-window": acWindow,
+            "cooling_system-central": acCentral, "cooling_system-window unit": acWindow,
             "flooring-wood": flooringWood, "flooring-carpet": flooringCarpet,
-            "storage-closet": storageCloset, "storage-wardrobe": storageWardrobe, "storage-dresser": storageDresser, "storage-captains": storageCaptains,
-            "window-N": windowN, "window-NE": windowNE, "window-E": windowE, "window-SE": windowSE, "window-S": windowS, "window-SW": windowSW, "window-W": windowW, "window-NW": windowNW,
+            "storage-closet": storageCloset, "storage-wardrobe": storageWardrobe, "storage-dresser": storageDresser, "storage-captain's bed": storageCaptains,
+            "window_direction-north": windowN, "window_direction-northeast": windowNE, "window_direction-east": windowE, "window_direction-southeast": windowSE, "window_direction-south": windowS, "window_direction-southwest": windowSW, "window_direction-west": windowW, "window_direction-northwest": windowNW,
             "other-fireplace": otherFireplace]
         
         for (key, value) in allFilters {
