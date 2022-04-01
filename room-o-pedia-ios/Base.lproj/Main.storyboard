@@ -141,6 +141,16 @@
                                     <action selector="tappedFloor3rd" destination="xHX-Cc-hQA" eventType="touchUpInside" id="KSr-dN-bZg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vln-Ob-6zw" userLabel="Floor 4th">
+                                <rect key="frame" x="330" y="159" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="4th"/>
+                                <connections>
+                                    <action selector="tappedFloor4th" destination="xHX-Cc-hQA" eventType="touchUpInside" id="CKS-7L-74P"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iff-XU-SkL">
                                 <rect key="frame" x="120" y="210" width="80" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -212,7 +222,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIF-Sa-O22">
-                                <rect key="frame" x="256" y="704" width="120" height="42"/>
+                                <rect key="frame" x="255" y="704" width="120" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.17320742419999999" green="0.33281013780000002" blue="0.55882113739999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
@@ -351,6 +361,16 @@
                                     <action selector="tappedFireplace" destination="xHX-Cc-hQA" eventType="touchUpInside" id="FEn-Ee-n7h"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNE-qM-s0z" userLabel="Other Window Seat">
+                                <rect key="frame" x="201" y="630" width="131" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Window Seat"/>
+                                <connections>
+                                    <action selector="tappedWindowSeat" destination="xHX-Cc-hQA" eventType="touchUpInside" id="V6b-OY-98C"/>
+                                </connections>
+                            </button>
                             <progressView opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HAB-3Q-NnC">
                                 <rect key="frame" x="12" y="148" width="402" height="4"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -407,6 +427,16 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
                             </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xke-mW-8GN">
+                                <rect key="frame" x="112" y="704" width="126" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Clear Filters"/>
+                                <connections>
+                                    <action selector="tappedClear" destination="xHX-Cc-hQA" eventType="touchUpInside" id="rQM-TX-EZs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RJz-yb-wtC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -415,6 +445,7 @@
                         <outlet property="acCentral" destination="Rj1-4y-hVO" id="G2G-Hq-WLh"/>
                         <outlet property="acTextLabel" destination="C0c-el-kVd" id="CbU-Fj-N3k"/>
                         <outlet property="acWindow" destination="lJH-ld-NUx" id="lPO-mA-saV"/>
+                        <outlet property="clearFilters" destination="Xke-mW-8GN" id="bR9-0y-UwU"/>
                         <outlet property="dormMerion" destination="GXa-Jc-d7W" id="7vB-Fp-3Io"/>
                         <outlet property="dormNewDorm" destination="NIl-wR-NR4" id="Jzr-BZ-BA8"/>
                         <outlet property="dormRadnor" destination="OFM-nw-BTg" id="n6n-i1-PRd"/>
@@ -422,6 +453,7 @@
                         <outlet property="floor1st" destination="15j-IE-eGY" id="zmO-nd-Mq5"/>
                         <outlet property="floor2nd" destination="UFM-XW-rGV" id="eAE-oz-3fn"/>
                         <outlet property="floor3rd" destination="bVe-pe-oPK" id="ce6-pE-qzv"/>
+                        <outlet property="floor4th" destination="vln-Ob-6zw" id="18c-jh-mAN"/>
                         <outlet property="floorTextLabel" destination="oC8-5e-FUK" id="L2O-Tf-rI6"/>
                         <outlet property="flooringCarpet" destination="yKA-Jy-RdS" id="zcZ-r5-66v"/>
                         <outlet property="flooringTextLabel" destination="sfM-hZ-N2L" id="pGT-Lu-Dhy"/>
@@ -432,6 +464,7 @@
                         <outlet property="occupancyTriple" destination="ApI-sK-pmg" id="L7L-WD-Gwe"/>
                         <outlet property="otherFireplace" destination="ISe-gV-2S5" id="GCf-w3-Pud"/>
                         <outlet property="otherTextLabel" destination="UsT-ab-GOr" id="HGd-Wa-jdD"/>
+                        <outlet property="otherWindowSeat" destination="FNE-qM-s0z" id="IlA-dM-sun"/>
                         <outlet property="storageCaptains" destination="rRL-mC-aAS" id="sEf-EG-gCy"/>
                         <outlet property="storageCloset" destination="qLj-1K-L0M" id="UG6-Zk-HR3"/>
                         <outlet property="storageDresser" destination="HmG-YM-ib8" id="Xq8-bp-Vkd"/>
@@ -532,46 +565,35 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JdK-Dq-fbx">
-                                <rect key="frame" x="118" y="88" width="86" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yj-zQ-rS2">
+                                <rect key="frame" x="266" y="127" width="100" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="52J-0i-nlc"/>
-                                </connections>
-                            </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Chk-5C-Qn0">
-                                <rect key="frame" x="118" y="121" width="86" height="74"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="BdO-l7-nHc"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="LWh-0Q-fvE"/>
-                                </connections>
-                            </pickerView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3PA-jd-61j">
-                                <rect key="frame" x="20" y="88" width="90" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Rooms Displayed: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ywM-YF-Sdv" userLabel="Rooms Displayed">
+                                <rect key="frame" x="222" y="147" width="185" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="GrK-dH-dSk"/>
-                                </connections>
-                            </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="roS-yZ-iwo">
-                                <rect key="frame" x="20" y="121" width="90" height="74"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="ZcC-C0-i4S"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="WdO-Jn-Hil"/>
-                                </connections>
-                            </pickerView>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Filters Applied: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KqQ-sM-RsB">
+                                <rect key="frame" x="18" y="148" width="132" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ef-Rh-h3T">
-                                <rect key="frame" x="250" y="88" width="128" height="31"/>
+                                <rect key="frame" x="132" y="97" width="150" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.17320742419999999" green="0.33281013780000002" blue="0.55882113739999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Add Filters">
+                                <buttonConfiguration key="configuration" style="filled" title="Apply Filters">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="0.17320742419999999" green="0.33281013780000002" blue="0.55882113739999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="strokeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -585,13 +607,6 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yj-zQ-rS2">
-                                <rect key="frame" x="266" y="127" width="0.0" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="secondaryLabelColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -599,12 +614,9 @@
                     <navigationItem key="navigationItem" title="Filter Rooms" id="DNV-1y-gWm"/>
                     <connections>
                         <outlet property="addFiltersButton" destination="5ef-Rh-h3T" id="V1e-r5-4L8"/>
-                        <outlet property="dropDownAC" destination="Chk-5C-Qn0" id="8cn-9u-eNF"/>
-                        <outlet property="dropDownFloors" destination="roS-yZ-iwo" id="iB9-Uo-SpC"/>
-                        <outlet property="roomsCount" destination="2yj-zQ-rS2" id="mAL-IE-rcV"/>
+                        <outlet property="filtersApplied" destination="KqQ-sM-RsB" id="lsE-vf-EuS"/>
+                        <outlet property="roomsDisplayed" destination="ywM-YF-Sdv" id="p44-a0-Ghb"/>
                         <outlet property="roomsTableView" destination="foD-Cy-NOd" id="jNd-yn-qsq"/>
-                        <outlet property="textBoxAC" destination="JdK-Dq-fbx" id="2iE-UL-VtF"/>
-                        <outlet property="textBoxFloors" destination="3PA-jd-61j" id="npq-uj-f3a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -933,7 +945,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="OKW-RZ-x1m"/>
                                     <constraint firstAttribute="height" constant="31" id="m99-g0-hgN"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="systemBlueColor"/>
+                                <color key="tintColor" red="0.17320742419999999" green="0.33281013780000002" blue="0.55882113739999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Search"/>
                                 <connections>
@@ -1072,11 +1084,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

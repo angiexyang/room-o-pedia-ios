@@ -24,6 +24,7 @@ class ApplyFiltersViewController: UIViewController {
     @IBOutlet weak var floor1st: UIButton!
     @IBOutlet weak var floor2nd: UIButton!
     @IBOutlet weak var floor3rd: UIButton!
+    @IBOutlet weak var floor4th: UIButton!
     @IBOutlet weak var dormMerion: UIButton!
     @IBOutlet weak var dormNewDorm: UIButton!
     @IBOutlet weak var dormRadnor: UIButton!
@@ -47,9 +48,10 @@ class ApplyFiltersViewController: UIViewController {
     @IBOutlet weak var windowW: UIButton!
     @IBOutlet weak var windowNW: UIButton!
     @IBOutlet weak var otherFireplace: UIButton!
+    @IBOutlet weak var otherWindowSeat: UIButton!
     
     @IBOutlet weak var testDone: UIButton!
-    
+    @IBOutlet weak var clearFilters: UIButton!
     
     @IBAction func tappedFloor1st() {
         if floor1st.isSelected == true {
@@ -87,6 +89,19 @@ class ApplyFiltersViewController: UIViewController {
             floor3rd.isSelected = true
             floor3rd.tintColor = UIColor.systemBlue
             currentFilters.append("floor-3rd")
+        }
+    }
+    
+    @IBAction func tappedFloor4th() {
+        if floor4th.isSelected == true {
+            floor4th.isSelected = false
+            floor4th.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "floor-4th"}
+        }
+        else {
+            floor4th.isSelected = true
+            floor4th.tintColor = UIColor.systemBlue
+            currentFilters.append("floor-4th")
         }
     }
     
@@ -389,10 +404,52 @@ class ApplyFiltersViewController: UIViewController {
         }
     }
     
+    @IBAction func tappedWindowSeat() {
+        if otherWindowSeat.isSelected == true {
+            otherWindowSeat.isSelected = false
+            otherWindowSeat.tintColor = UIColor.systemGray2
+            currentFilters.removeAll {$0 == "other-window seat"}
+        }
+        else {
+            otherWindowSeat.isSelected = true
+            otherWindowSeat.tintColor = UIColor.systemBlue
+            currentFilters.append("other-window seat")
+        }
+    }
+    
+    
+    @IBAction func tappedClear() {
+        
+        let allFilters = [
+            "floor-1st": floor1st, "floor-2nd": floor2nd, "floor-3rd": floor3rd, "floor-4th": floor4th,
+            "dorm-Merion": dormMerion, "dorm-New Dorm": dormNewDorm, "dorm-Radnor": dormRadnor,
+            "occupancy-single": occupancySingle, "occupancy-double": occupancyDouble, "occupancy-triple": occupancyTriple,
+            "cooling_system-central": acCentral, "cooling_system-window unit": acWindow,
+            "flooring-wood": flooringWood, "flooring-carpet": flooringCarpet,
+            "storage-closet": storageCloset, "storage-wardrobe": storageWardrobe, "storage-dresser": storageDresser, "storage-captain's bed": storageCaptains,
+            "window_direction-north": windowN, "window_direction-northeast": windowNE, "window_direction-east": windowE, "window_direction-southeast": windowSE, "window_direction-south": windowS, "window_direction-southwest": windowSW, "window_direction-west": windowW, "window_direction-northwest": windowNW,
+            "other-fireplace": otherFireplace, "other-window seat": otherWindowSeat]
+        
+        for (key, value) in allFilters {
+            if currentFilters.contains(key) {
+                if ((value) != nil) {
+                    var temp = value
+                    if (temp?.isSelected == true) {
+                        temp!.isSelected = false
+                        temp!.tintColor = UIColor.systemGray2
+                    }
+                }
+            }
+        }
+        currentFilters.removeAll()
+    }
+    
     // DO NOT CONNECT THIS TO THE STORYBOARD!!
     @IBAction func tappedDone() {
         performSegue(withIdentifier: "unwindSegueToViewController", sender: self)
     }
+    
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "unwindSegueToViewController" {
@@ -407,14 +464,14 @@ class ApplyFiltersViewController: UIViewController {
         super.viewDidLoad()
         
         let allFilters = [
-            "floor-1st": floor1st, "floor-2nd": floor2nd, "floor-3rd": floor3rd,
+            "floor-1st": floor1st, "floor-2nd": floor2nd, "floor-3rd": floor3rd, "floor-4th": floor4th,
             "dorm-Merion": dormMerion, "dorm-New Dorm": dormNewDorm, "dorm-Radnor": dormRadnor,
             "occupancy-single": occupancySingle, "occupancy-double": occupancyDouble, "occupancy-triple": occupancyTriple,
             "cooling_system-central": acCentral, "cooling_system-window unit": acWindow,
             "flooring-wood": flooringWood, "flooring-carpet": flooringCarpet,
             "storage-closet": storageCloset, "storage-wardrobe": storageWardrobe, "storage-dresser": storageDresser, "storage-captain's bed": storageCaptains,
             "window_direction-north": windowN, "window_direction-northeast": windowNE, "window_direction-east": windowE, "window_direction-southeast": windowSE, "window_direction-south": windowS, "window_direction-southwest": windowSW, "window_direction-west": windowW, "window_direction-northwest": windowNW,
-            "other-fireplace": otherFireplace]
+            "other-fireplace": otherFireplace, "other-window seat": otherWindowSeat]
         
         for (key, value) in allFilters {
             if currentFilters.contains(key) {

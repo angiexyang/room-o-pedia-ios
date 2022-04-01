@@ -11,37 +11,29 @@ protocol DataDelegate {
     func updateArray(newArray: String)
 }
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
     
     
     // ------- Room Feature Filters --------------------------------------------------------------
     
     @IBOutlet weak var addFiltersButton: UIButton!
-    @IBOutlet weak var dropDownFloors: UIPickerView!
-    @IBOutlet weak var textBoxFloors: UITextField!
-    @IBOutlet weak var dropDownAC: UIPickerView!
-    @IBOutlet weak var textBoxAC: UITextField!
-    @IBOutlet weak var roomsCount: UILabel!
-    
+    @IBOutlet weak var roomsDisplayed: UITextView!
+    @IBOutlet weak var filtersApplied: UITextView!
     @IBAction func addFilters() {
         //print(currentFilters)
     }
     
-    // arrays of options for each filter
-    var floorsFeature = ["Any Floor", "1st", "2nd", "3rd", "4th"]
-    var ACFeature = ["Any AC Option", "central", "window unit", "none"]
     
     // use this array for rooms that apply to the current filters
     var filteredRoomsArray = [Room]()
     
     // use these to keep track of there are ANY filters active, and what they're set to
     var filterActive = false
-    var floorsCurrFilter = "None"
-    var ACCurrFilter = "None"
     
     // NEW!! USE THIS STRING ARRAY
     var currentFilters = [String]()
     var currentRooms = [Room]()
+    var roomsDisplayedNumber = 0;
     
     //------------------------------------ FILTERING LOGIC TEST ---------------------------
     func filterRooms() {
@@ -145,7 +137,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         filteredRoomsArray = currentRooms
         filteredRoomsArray.sort{$0.dorm + " " + $0.number < $1.dorm + " " + $1.number}
         print("FOUND \(filteredRoomsArray.count) RESULTS!!!!!!")
-       // roomsCount.text = "\(filteredRoomsArray.count) rooms found"
+        
+        
     }
         
         
@@ -155,84 +148,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //------------------------------------ END MAIN FILTER TEST --------------------------
     
-    
-    
-    
-    // function sets one field per filter
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    // function sets number of rows in filter picker
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        var countRows : Int = ACFeature.count
-        if pickerView == dropDownFloors {
-            countRows = self.floorsFeature.count
-        }
-        return countRows
-    }
-    
-    // function that I don't really get the point of
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView == dropDownAC {
-            let titleRow = ACFeature[row]
-            return titleRow
-        }
-        else if pickerView == dropDownFloors {
-            let titleRow = floorsFeature[row]
-            return titleRow
-        }
-        return ""
-    }
-    
-    // function that does the logic:
-    // upon selecting a row, it displays the selected option, hides the dropdown picker, and populates the filteredRoomsArray
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == dropDownAC {
-            filteredRoomsArray = roomsArray
-            self.textBoxAC.text = self.ACFeature[row]
-            self.dropDownAC.isHidden = true
-        
-            ACCurrFilter = self.ACFeature[row]
-            filteredRoomsArray = roomsArray.filter{$0.features.cooling_system == ACCurrFilter || ACCurrFilter == "Any AC Option"}
-        }
-        else if pickerView == dropDownFloors {
-            filteredRoomsArray = roomsArray
-            self.textBoxFloors.text = self.floorsFeature[row]
-            self.dropDownFloors.isHidden = true
-            
-            floorsCurrFilter = self.floorsFeature[row]
-            filteredRoomsArray = roomsArray.filter{$0.features.floor == floorsCurrFilter || floorsCurrFilter == "Any Floor"}
-        }
-        filterActive = true
-        self.roomsTableView.reloadData()
-        
-        
-    }
-    
-    // function that does formating
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let label = (view as? UILabel) ?? UILabel()
-        label.textAlignment = .center
-        label.font = UIFont(name: "SanFranciscoText-Light", size: 18)
-        
-        if (pickerView == dropDownFloors) {
-            label.text = floorsFeature[row]
-        }
-        else {
-            label.text = ACFeature[row]
-        }
-        return label
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if (textField == self.textBoxAC) {
-            self.dropDownAC.isHidden = false
-        }
-        else if (textField == self.textBoxFloors) {
-            self.dropDownFloors.isHidden = false
-        }
-    }
     
     // ------- Room Listings -------------------------------------------------------------
     var roomsArray = [Room]()
@@ -268,13 +183,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func unwind(_ seg: UIStoryboardSegue) {
         if (currentFilters.count > 0) {
             filterRooms()
-            self.roomsTableView.reloadData()
             print("------------JUST RELOADED MAIN VIEW-------------")
         } else {
             print("FILTER IS NOT ACTIVE")
             filteredRoomsArray = roomsArray
-            self.roomsTableView.reloadData()
         }
+        
+        // Counts for filters applied and rooms found
+        roomsDisplayedNumber = filteredRoomsArray.count
+        if (roomsDisplayedNumber == 0){
+            roomsDisplayed.text = String(roomsDisplayedNumber) + " Rooms Found"
+        }
+        else if (roomsDisplayedNumber == 1){
+            roomsDisplayed.text = String(roomsDisplayedNumber) + " Room Found"
+        }
+        else {
+            roomsDisplayed.text = String(roomsDisplayedNumber) + " Rooms Found"
+        }
+        
+        if (currentFilters.count == 1) {
+            filtersApplied.text = String(currentFilters.count) + " Filter Applied"
+        }
+        else {
+            filtersApplied.text = String(currentFilters.count) + " Filters Applied"
+        }
+        
+        self.roomsTableView.reloadData()
     }
     
     
@@ -425,9 +359,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 //self?.roomsTableView.reloadData()
             }
+            
+            roomsDisplayedNumber = roomsArray.count
+            roomsDisplayed.text = String(roomsDisplayedNumber) + " Rooms Found"
+            filtersApplied.text = String(currentFilters.count) + " Filters Applied"
             // --------------- End test star button ------------------------------------
             return cell
         }
+        
+        
     }
     
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -446,10 +386,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         roomsTableView.dataSource = self
         // Do any additional setup after loading the view.
         
-        dropDownFloors.selectedRow(inComponent: 0)
-        dropDownAC.selectedRow(inComponent: 0)
-        textBoxFloors.placeholder = "Select Floor"
-        textBoxAC.placeholder = "Select AC Option"
+        roomsDisplayed.isEditable = false
+        roomsDisplayed.isSelectable = false
+        
+        
+        
         
     }
 }
