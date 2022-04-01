@@ -34,7 +34,7 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.roomTagLabel.font = UIFont.systemFont(ofSize: 11)
         self.currFeatures = room.features
         
-        //make feature array with format feature-value to match filters
+        //make feature array with format feature-value to match filters in view controller
         let floorFeature = "floor-"+self.currFeatures.floor
         let coolingFeature = "cooling_system-"+self.currFeatures.cooling_system
         let flooringFeature = "flooring-"+self.currFeatures.flooring
@@ -55,7 +55,7 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
         }
         
-        //put in tag labels for each cell
+        //put in tag labels for each cell, reformat string
         if tagCount<featureArray.count{
             let currTag = featureArray[tagCount]
             let dashIndex = currTag.firstIndex(of: "-")
@@ -74,8 +74,6 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
 
-
-    
     @IBOutlet weak var tagCollectionView: UICollectionView!
     
     @IBOutlet weak var roomImageView: UIImageView!
@@ -103,49 +101,23 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBOutlet weak var dormRoomLabel: UILabel!
     
-
+    //when tag is clicked, perform unwind segue back to view controller
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //tagCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .bottom)
-        //let item = indexPath.row
+
         print("indexpath\t", indexPath)
         print("row\t", indexPath.row)
-        print("selectedFeature\t", [featureArray[indexPath.row]])
-       // self.performSegue(withIdentifier: "tagClickSegue", sender: indexPath.row)
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("here1")
-        if segue.identifier == "tagClickSegue"  {
-           // let selectedIndexPath = sender as? NSIndexPath
-            print("here2")
-           // let vc = segue.destination as! ViewController
-            print("here3")
-            print("featurearray\t", featureArray)
-         
-            //print("indexPath\t", featureArray[tagCollectionView.indexPathsForSelectedItems])
-          //  print("indexPath1\t", featureArray[tagCollectionView.indexPathsForSelectedItems?.first.row])
-           // print("indexPath2\t", tagCollectionView.indexPathsForSelectedItems as Any)
-          //  print("indexPathRow\t", selectedIndexPath!.row)
-           // print("selectedtag\t",[featureArray[selectedIndexPath!.row] as String])
-            //vc.currentFilters = [featureArray[selectedIndexPath!.row] as String]
-//            vc.currentFilters = [ featureArray[tagCollectionView.indexPathsForSelectedItems?.first!.row] as String]
-           // print("sender\t", sender)
-            //print("selectedFeature\t", sender)
-//            vc.currentFilters = [featureArray[sender.row]]
-//            if let cell = sender as? TagCollectionViewCell, let indexPath = self.collectionView(<#T##collectionView: UICollectionView##UICollectionView#>, cellForItemAt: <#T##IndexPath#>)
-//                vc.currentFilters = [featureArray[sender as Int]]
-            
-            if let cell = sender as? TagCollectionViewCell, let indexPath = self.tagCollectionView.indexPath(for: cell){
-                let vc = segue.destination as! ViewController
-                vc.currentFilters = [featureArray[indexPath.row]]
-
-            }
-            print("here4")
-        }
-
-
-    }
+        //pass through feature selected as an array of 1 string
+        performSegue(withIdentifier: "tagClickSegue", sender: [featureArray[indexPath.row]])
+        
     
+}
+    
+    //prepare for unwind segue back to view controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! ViewController
+        vc.currentFilters = (sender as? [String])!
+    }
+  
    
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -175,15 +175,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
       //      print(self.currentFilters)
             
         }
-        //dont need to send room info if new room
-       // if segue.identifier == "roomsAddRoomSegue" {
-          //  let vc = segue.destination as! AddRoomViewController
-          //  vc.room = roomsArray[roomsTableView.indexPathForSelectedRow!.row]
-       // }
-        
     }
     
-    @IBAction func unwind(_ seg: UIStoryboardSegue) {
+    //function to reload view controller, called in both unwind functions
+    func reloadVC(){
         if (currentFilters.count > 0) {
             filterRooms()
             print("------------JUST RELOADED MAIN VIEW-------------")
@@ -213,8 +208,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         self.roomsTableView.reloadData()
     }
-
     
+    //unwind from filter screen
+    @IBAction func unwind(_ seg: UIStoryboardSegue) {
+        reloadVC()
+    }
+
+    //unwind from single room view after tag is clicked
+    @IBAction func tagClickUnwind( _ seg: UIStoryboardSegue){
+        print("tagClickUnwind")
+        print("currfilters passed: \t",currentFilters)
+        reloadVC()
+        
+    }
     
     //returns number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
