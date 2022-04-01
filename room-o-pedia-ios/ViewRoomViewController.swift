@@ -34,24 +34,40 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.roomTagLabel.font = UIFont.systemFont(ofSize: 11)
         self.currFeatures = room.features
         
-        featureArray = [self.currFeatures.floor, self.currFeatures.cooling_system, self.currFeatures.flooring]
+        //make feature array with format feature-value to match filters
+        let floorFeature = "floor-"+self.currFeatures.floor
+        let coolingFeature = "cooling_system-"+self.currFeatures.cooling_system
+        let flooringFeature = "flooring-"+self.currFeatures.flooring
         
+        featureArray = [floorFeature, coolingFeature, flooringFeature]
+
         for s in self.currFeatures.storage{
-            featureArray.append(s)
+            featureArray.append("storage-"+s)
         }
         
         for w in self.currFeatures.window_direction{
-            featureArray.append(w + " windows")
+            featureArray.append("window_direction-"+w)
         }
         
         for o in self.currFeatures.other{
-            if (o != "") {
-                featureArray.append(o)
+            if (o != ""){
+                featureArray.append("other-"+o)
             }
-            
         }
+        
+        //put in tag labels for each cell
         if tagCount<featureArray.count{
-            cell.roomTagLabel.text = featureArray[tagCount]
+            let currTag = featureArray[tagCount]
+            let dashIndex = currTag.firstIndex(of: "-")
+            let stringCut = currTag.index(after: dashIndex!)
+            
+            //if feature is window direction, add "windows" after direction on the tag
+            let currFeature = String(currTag[...currTag.index(before: dashIndex!)])
+            if (currFeature == "window_direction"){
+                cell.roomTagLabel.text = String(currTag[stringCut...])+" windows"
+            }
+            else{
+                cell.roomTagLabel.text = String(currTag[stringCut...])}
         }
         tagCount+=1
         return cell
@@ -87,7 +103,50 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBOutlet weak var dormRoomLabel: UILabel!
     
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //tagCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .bottom)
+        //let item = indexPath.row
+        print("indexpath\t", indexPath)
+        print("row\t", indexPath.row)
+        print("selectedFeature\t", [featureArray[indexPath.row]])
+       // self.performSegue(withIdentifier: "tagClickSegue", sender: indexPath.row)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("here1")
+        if segue.identifier == "tagClickSegue"  {
+           // let selectedIndexPath = sender as? NSIndexPath
+            print("here2")
+           // let vc = segue.destination as! ViewController
+            print("here3")
+            print("featurearray\t", featureArray)
+         
+            //print("indexPath\t", featureArray[tagCollectionView.indexPathsForSelectedItems])
+          //  print("indexPath1\t", featureArray[tagCollectionView.indexPathsForSelectedItems?.first.row])
+           // print("indexPath2\t", tagCollectionView.indexPathsForSelectedItems as Any)
+          //  print("indexPathRow\t", selectedIndexPath!.row)
+           // print("selectedtag\t",[featureArray[selectedIndexPath!.row] as String])
+            //vc.currentFilters = [featureArray[selectedIndexPath!.row] as String]
+//            vc.currentFilters = [ featureArray[tagCollectionView.indexPathsForSelectedItems?.first!.row] as String]
+           // print("sender\t", sender)
+            //print("selectedFeature\t", sender)
+//            vc.currentFilters = [featureArray[sender.row]]
+//            if let cell = sender as? TagCollectionViewCell, let indexPath = self.collectionView(<#T##collectionView: UICollectionView##UICollectionView#>, cellForItemAt: <#T##IndexPath#>)
+//                vc.currentFilters = [featureArray[sender as Int]]
+            
+            if let cell = sender as? TagCollectionViewCell, let indexPath = self.tagCollectionView.indexPath(for: cell){
+                let vc = segue.destination as! ViewController
+                vc.currentFilters = [featureArray[indexPath.row]]
+
+            }
+            print("here4")
+        }
+
+
+    }
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         

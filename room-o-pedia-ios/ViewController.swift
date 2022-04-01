@@ -35,11 +35,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var currentRooms = [Room]()
     var roomsDisplayedNumber = 0;
     
+    var tagClicked = false
+    
     //------------------------------------ FILTERING LOGIC TEST ---------------------------
     func filterRooms() {
         //print("GOT INTO FUNCTION")
         if currentFilters.count > 0 {
             filterActive = true
+            print("currFilter \n", currentFilters)
           //  print("FILTER TURNED ON")
         }
         
@@ -210,6 +213,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         self.roomsTableView.reloadData()
     }
+
     
     
     //returns number of rows
@@ -227,7 +231,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //customize what is displayed inside cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cellIdentifier = "RoomCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RoomTableViewCell
         // if there are any filters applied, the table will dequeue rooms from the filteredRoomsArray
@@ -370,6 +373,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    
+    
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 80
 //    }
@@ -379,18 +384,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         APIFunctions.functions.delegate = self
         APIFunctions.functions.fetchRooms()
+       
         
         roomsTableView.delegate = self
         roomsTableView.dataSource = self
         // Do any additional setup after loading the view.
         
+        
         roomsDisplayed.isEditable = false
         roomsDisplayed.isSelectable = false
-        
-        
-        
         
     }
 }
