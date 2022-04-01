@@ -27,8 +27,12 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         favTableView.delegate = self
         favTableView.dataSource = self
         
-        favorited = defaults.stringArray(forKey: "roomFavorite")!
-        favorited.sort()
+        if defaults.stringArray(forKey: "roomFavorite") != nil {
+            favorited = defaults.stringArray(forKey: "roomFavorite")!
+            favorited.sort()
+        } else {
+            favorited = []
+        }
         
         if let data = defaults.data(forKey: "starredRooms") {
             starredRooms = try! PropertyListDecoder().decode([Room].self, from: data)
