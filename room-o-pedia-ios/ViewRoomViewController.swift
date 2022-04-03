@@ -90,9 +90,7 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
                 let currPhoto = photoURLArray[photoCount]
                 cell.roomPhoto.loadFrom(URLAddress: currPhoto)
                 cell.clipsToBounds = true
-                //cell.roomPhoto.image = UIImage(named: "owl")
                 cell.roomPhoto.contentMode = .scaleAspectFit
-                //cell.frame = CGRect(x: 0, y: 0, width: self.photoCollectionView.frame.width/2, height: self.photoCollectionView.frame.height/2)
             }
             photoCount+=1
             return cell
@@ -108,7 +106,6 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
 
     @IBOutlet weak var tagCollectionView: UICollectionView!
-    //@IBOutlet weak var roomImageView: UIImageView!
     
 
     @IBOutlet weak var dormRoomLabel: UILabel!
@@ -193,9 +190,7 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         // GET PHOTOURLS
         self.photoURLArray = room.photoURL
         self.pageControl.numberOfPages = photoURLArray.count
-        //let currURL = photoURLArray[0] // GET FIRST FOR TESTER
         
-        //roomImageView.loadFrom(URLAddress: currURL)
         tagCollectionView.delegate = self
         tagCollectionView.dataSource = self
         photoCollectionView.dataSource = self

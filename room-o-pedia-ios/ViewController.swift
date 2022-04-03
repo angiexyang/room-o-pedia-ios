@@ -37,13 +37,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var tagClicked = false
     
-    //------------------------------------ FILTERING LOGIC TEST ---------------------------
+    //------------------------------------ FILTERING LOGIC ---------------------------
     func filterRooms() {
-        //print("GOT INTO FUNCTION")
         if currentFilters.count > 0 {
             filterActive = true
             print("currFilter \n", currentFilters)
-          //  print("FILTER TURNED ON")
         }
         
         var currFiltersDict = [String : [String]]()
@@ -60,8 +58,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
             }
         }
-       // print("CURRENT FILTER DICT")
-       // print(currFiltersDict)
         
         currentRooms = roomsArray
         
@@ -83,73 +79,51 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let indexDorm = selectedKeys.firstIndex(of: "dorm")
             selectedKeys.remove(at: indexDorm!)
             
-          //  print("UNSELECTED DORMS")
-          //  print(unselectedDorms)
             currentRooms.removeAll(where: {unselectedDorms.contains($0.dorm)})
         }
         
         
         // check other conditions for the rest of the rooms
         for room in currentRooms {
-           // print("//////////// \(room.dorm) \(room.number)  //////////////")
             do {
                 roomFeatureDict = try DictionaryEncoder().encode(room.features)
             } catch {
-           //     print("FAILED TO CONVERT TO DICT")
             }
             
             // go through each category that requires filtering
             for keyFilter in selectedKeys {
-             //   print("ROOM DICT AT KEY LOOKS LIKE")
-             //   print(roomFeatureDict[keyFilter]!)
                 if roomFeatureDict[keyFilter] != nil {
                     if let accessDict = roomFeatureDict[keyFilter]! as? String {
                         roomValues = Array(arrayLiteral: accessDict)
                     } else if let accessDict = roomFeatureDict[keyFilter]! as? [String] {
                         roomValues = accessDict
                     }
-               //     print("ROOM VALUES ARRAY")
-               //     print(roomValues)
                 } else {
                     roomValues = []
                 }
-              //  print("FILTER SELECTED")
-                selectedValues = currFiltersDict[keyFilter]!                    //"carpet"
-              //  print(selectedValues)
+                selectedValues = currFiltersDict[keyFilter]!
                 
-                for option in selectedValues {                                  //"carpet"
+                for option in selectedValues {
                     if roomValues.contains(option) {
                         satisfied = true
                         break
                     } else {
-                        satisfied = false                                       //false
+                        satisfied = false
                     }
                 }
-                
                 if satisfied == false {
                     let indexRoom = currentRooms.firstIndex(where: {$0.dorm + $0.number == room.dorm + room.number})
                     currentRooms.remove(at: indexRoom!)
                     break
                 }
             }
-            //if satisfied == true {
-            //    filteredRoomsArray.append(room)
-            //}
         }
         
         filteredRoomsArray = currentRooms
         filteredRoomsArray.sort{$0.dorm + " " + $0.number < $1.dorm + " " + $1.number}
         print("FOUND \(filteredRoomsArray.count) RESULTS!!!!!!")
-        
-        
     }
-        
-        
-    
-    
-    
-    
-    //------------------------------------ END MAIN FILTER TEST --------------------------
+    //------------------------------------ END MAIN FILTER --------------------------
     
     
     // ------- Room Listings -------------------------------------------------------------
@@ -171,9 +145,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         else if segue.identifier == "applyFiltersSegue" {
             let vc = segue.destination as! ApplyFiltersViewController
             vc.currentFilters = self.currentFilters
-      //      print("VIEW CONTROLLER CHECK HERE")
-      //      print(self.currentFilters)
-            
         }
     }
     
@@ -241,12 +212,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RoomTableViewCell
         // if there are any filters applied, the table will dequeue rooms from the filteredRoomsArray
         if (filterActive) {
-            //filteredRoomsArray.sort{$0.dorm + " " + $0.number < $1.dorm + " " + $1.number}
             //index path is which cell is clicked on
             let currRoom = filteredRoomsArray[indexPath.row]
             let dormAndNumber = currRoom.dorm + " " + currRoom.number
-    //        cell.imageView?.image = UIImage(named: "rad101")
-    //        cell.textLabel?.text = dormAndNumber
             cell.roomLabel.text = dormAndNumber
             cell.occupancyLabel.text = currRoom.features.occupancy + " occupancy"
             cell.roomPreviewImageView.loadFrom(URLAddress: currRoom.photoURL[0])
@@ -307,17 +275,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         // if no filters applied, then use the full roomsArray
         else {
-            //roomsArray.sort{$0.dorm + " " + $0.number < $1.dorm + " " + $1.number}
             let currRoom = roomsArray[indexPath.row]
             let dormAndNumber = currRoom.dorm + " " + currRoom.number
-    //        cell.imageView?.image = UIImage(named: "rad101")
-    //        cell.textLabel?.text = dormAndNumber
             cell.roomLabel.text = dormAndNumber
             cell.occupancyLabel.text = currRoom.features.occupancy + " occupancy"
             cell.roomPreviewImageView.loadFrom(URLAddress: currRoom.photoURL[0])
             
             
-            // ----------------------- test starButton ----------------------
+            // ----------------------- starButton 2 ----------------------
             if rowsWhichAreChecked.contains(dormAndNumber) {
                 cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
                 if !(starredRooms.contains(where: {$0.dorm + " " + $0.number == dormAndNumber})) {
@@ -372,18 +337,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             roomsDisplayedNumber = roomsArray.count
             roomsDisplayed.text = String(roomsDisplayedNumber) + " Rooms Found"
             filtersApplied.text = String(currentFilters.count) + " Filters Applied"
-            // --------------- End test star button ------------------------------------
+            // --------------- End star button 2------------------------------------
             return cell
         }
         
         
     }
     
-    
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 80
-//    }
     
         
     @IBOutlet weak var roomsTableView: UITableView!
