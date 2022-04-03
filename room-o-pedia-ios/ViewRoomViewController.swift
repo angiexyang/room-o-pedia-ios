@@ -138,6 +138,51 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     //---------------
     
+    
+    
+    //--------- Save to photo library ------
+    @objc func longPressed(sender: UILongPressGestureRecognizer) {
+        if (sender.state != .ended) {
+            return
+        }
+        let point = sender.location(in: self.photoCollectionView)
+        let indexPath = self.photoCollectionView.indexPathForItem(at: point)
+        if (indexPath == nil) {
+            print("long press on collection view but not on a item")
+        } else {
+            // save image to album if said OK in alert
+            let saveAlert = UIAlertController(title: "Save Image?", message: "Image will be saved to your Photo Library.", preferredStyle: UIAlertController.Style.alert)
+            // save if OK
+            saveAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+                let cell = self.photoCollectionView.cellForItem(at: indexPath!) as? PhotoCollectionViewCell
+                UIImageWriteToSavedPhotosAlbum(cell!.roomPhoto.image!, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+            }))
+            // do nothing if cancel
+            saveAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            }))
+            present(saveAlert, animated: true, completion: nil)
+        }
+    }
+
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            print(error.localizedDescription)
+            let saveError = UIAlertController(title: "Error Saving Image!", message: "Please allow our access in Settings > Privacy > Photos > Room-o-pedia.", preferredStyle: UIAlertController.Style.alert)
+            present(saveError, animated: true, completion:{Timer.scheduledTimer(withTimeInterval: 2.5, repeats:false, block: {_ in
+                self.dismiss(animated: true, completion: nil) })})
+        } else {
+            print("Success")
+            let savedSuccess = UIAlertController(title: "Image Saved", message: nil, preferredStyle: UIAlertController.Style.alert)
+            present(savedSuccess, animated: true, completion:{Timer.scheduledTimer(withTimeInterval: 0.5, repeats:false, block: {_ in
+                self.dismiss(animated: true, completion: nil) })})
+        }
+    }
+    
+    //--------------------------------------
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -158,6 +203,10 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         photoCollectionView.isPagingEnabled = true
         photoCollectionView.showsHorizontalScrollIndicator = false
         // Do any additional setup after loading the view.
+        
+        //save image to photo library
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed))
+        photoCollectionView.addGestureRecognizer(longPressRecognizer)
     }
 
     

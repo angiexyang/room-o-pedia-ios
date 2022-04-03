@@ -490,6 +490,7 @@
 				DEVELOPMENT_TEAM = 8QK37J2DM5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "room-o-pedia-ios/Info.plist";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please choose \"Allow\" to save the photo!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -519,6 +520,7 @@
 				DEVELOPMENT_TEAM = 8QK37J2DM5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "room-o-pedia-ios/Info.plist";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please choose \"Allow\" to save the photo!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
