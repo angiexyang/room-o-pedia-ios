@@ -168,11 +168,12 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         if let error = error {
             print(error.localizedDescription)
             let saveError = UIAlertController(title: "Error Saving Image!", message: "Please allow our access in Settings > Privacy > Photos > Room-o-pedia.", preferredStyle: UIAlertController.Style.alert)
-            present(saveError, animated: true, completion:{Timer.scheduledTimer(withTimeInterval: 2.5, repeats:false, block: {_ in
-                self.dismiss(animated: true, completion: nil) })})
+            saveError.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+            }))
+            present(saveError, animated: true, completion:nil)
         } else {
             print("Success")
-            let savedSuccess = UIAlertController(title: "Image Saved", message: nil, preferredStyle: UIAlertController.Style.alert)
+            let savedSuccess = UIAlertController(title: "Image Saved!", message: nil, preferredStyle: UIAlertController.Style.alert)
             present(savedSuccess, animated: true, completion:{Timer.scheduledTimer(withTimeInterval: 0.5, repeats:false, block: {_ in
                 self.dismiss(animated: true, completion: nil) })})
         }
