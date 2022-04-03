@@ -36,9 +36,25 @@ class SearchRoomsViewController: UIViewController, UIPickerViewDelegate, UIPicke
             room = searchResultsArray[0]
             // GET PHOTOURLS
             let currURL = room.photoURL[0] // GET FIRST FOR TESTER
-            
-            roomImage.loadFrom(URLAddress: currURL)
-           // tagCollectionView.delegate = self
+            let dormAndNumber = room.dorm + " " + room.number
+            let dormAndNumber0 = dormAndNumber + "0"
+            //let searchDormAndNumber = room.dorm + " " + room.number + "search" //not needed if only show first of each
+            //roomImage.loadFrom(URLAddress: currURL)
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    if let cachedImage = Cache.imageCache.object(forKey: NSString(string: dormAndNumber0)) {
+                        self.roomImage.image = cachedImage
+                    } else {
+                        let url = URL(string: currURL)
+                        let data = try? Data(contentsOf: url!)
+                        let image: UIImage = UIImage(data: data!)!
+                        self.roomImage.image = image
+                        Cache.imageCache.setObject(image, forKey: NSString(string: dormAndNumber0))
+                    }
+                    
+                }
+            }
+            tagCollectionView.delegate = self
             tagCollectionView.dataSource = self
         }
         else if searchResultsArray.count > 1 {

@@ -11,8 +11,15 @@ protocol DataDelegate {
     func updateArray(newArray: String)
 }
 
+class Cache {
+    static let imageCache = NSCache<NSString, UIImage>()
+}
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
     
+  //  let imageCache = NSCache<NSString, UIImage>()
+    let loadingView = LoadingView()
+    var loading = false
     
     // ------- Room Feature Filters --------------------------------------------------------------
     
@@ -206,6 +213,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var rowsWhichAreChecked = UserDefaults.standard.array(forKey: "roomFavorite") as? [String] ?? [String] ()
     var starredRooms = [Room]()
     
+    
     //customize what is displayed inside cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "RoomCell"
@@ -215,9 +223,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //index path is which cell is clicked on
             let currRoom = filteredRoomsArray[indexPath.row]
             let dormAndNumber = currRoom.dorm + " " + currRoom.number
+            let dormAndNumber0 = dormAndNumber + "0"
+            cell.roomPreviewImageView.image = nil
             cell.roomLabel.text = dormAndNumber
             cell.occupancyLabel.text = currRoom.features.occupancy + " occupancy"
-            cell.roomPreviewImageView.loadFrom(URLAddress: currRoom.photoURL[0])
+            //cell.roomPreviewImageView.loadFrom(URLAddress: currRoom.photoURL[0])
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    if let cachedImage = Cache.imageCache.object(forKey: NSString(string: dormAndNumber0)) {
+                        cell.roomPreviewImageView.image = cachedImage
+                    } else {
+                        let url = URL(string: currRoom.photoURL[0])
+                        let data = try? Data(contentsOf: url!)
+                        let image: UIImage = UIImage(data: data!)!
+                        cell.roomPreviewImageView.image = image
+                        Cache.imageCache.setObject(image, forKey: NSString(string: dormAndNumber0))
+                    }
+                    
+                }
+            }
+            
+            
+            
+            
+            
             
             //------------------- starButton ---------------
             if rowsWhichAreChecked.contains(dormAndNumber) {
@@ -277,9 +306,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         else {
             let currRoom = roomsArray[indexPath.row]
             let dormAndNumber = currRoom.dorm + " " + currRoom.number
+            let dormAndNumber0 = dormAndNumber + "0"
+            cell.roomPreviewImageView.image = nil
             cell.roomLabel.text = dormAndNumber
             cell.occupancyLabel.text = currRoom.features.occupancy + " occupancy"
-            cell.roomPreviewImageView.loadFrom(URLAddress: currRoom.photoURL[0])
+            //cell.roomPreviewImageView.loadFrom(URLAddress: currRoom.photoURL[0])
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    if let cachedImage = Cache.imageCache.object(forKey: NSString(string: dormAndNumber0)) {
+                        cell.roomPreviewImageView.image = cachedImage
+                    } else {
+                        let url = URL(string: currRoom.photoURL[0])
+                        let data = try? Data(contentsOf: url!)
+                        let image: UIImage = UIImage(data: data!)!
+                        cell.roomPreviewImageView.image = image
+                        Cache.imageCache.setObject(image, forKey: NSString(string: dormAndNumber0))
+                    }
+                    
+                }
+            }
             
             
             // ----------------------- starButton 2 ----------------------
@@ -363,7 +408,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         roomsDisplayed.isEditable = false
         roomsDisplayed.isSelectable = false
         
+        /* loading view test
+        loading = true
+        configureLoadingView()
+        loadingView.animate()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) {
+            self.loading = false
+            self.configureLoadingView()
+        }
+        // loading view end */
+        
     }
+    
+    /*
+    private func configureLoadingView() {
+        if loading == true {
+            view.addSubview(loadingView)
+            NSLayoutConstraint.activate([
+                loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
+                loadingView.heightAnchor.constraint(equalToConstant: 40),
+                loadingView.widthAnchor.constraint(equalToConstant: 150)
+            ])
+        } else {
+            loadingView.removeFromSuperview()
+        }
+    }
+    */
+    
 }
 
 extension ViewController: DataDelegate {

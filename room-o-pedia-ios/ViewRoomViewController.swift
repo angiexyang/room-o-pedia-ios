@@ -19,6 +19,7 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     var tagCount = 0
     var photoCount = 0
+  
    
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
@@ -86,9 +87,25 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCollectionViewCell
+            let dormAndNumber = room.dorm + " " + room.number
             if photoCount < photoURLArray.count {
                 let currPhoto = photoURLArray[photoCount]
-                cell.roomPhoto.loadFrom(URLAddress: currPhoto)
+                let newDormAndNumber = dormAndNumber + String(photoCount)
+                //cell.roomPhoto.loadFrom(currPhoto)
+                DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.async {
+                        if let cachedImage = Cache.imageCache.object(forKey: NSString(string: newDormAndNumber)) {
+                            cell.roomPhoto.image = cachedImage
+                        } else {
+                            let url = URL(string: currPhoto)
+                            let data = try? Data(contentsOf: url!)
+                            let image: UIImage = UIImage(data: data!)!
+                            cell.roomPhoto.image = image
+                            Cache.imageCache.setObject(image, forKey: NSString(string: newDormAndNumber))
+                        }
+                        
+                    }
+                }
                 cell.clipsToBounds = true
                 cell.roomPhoto.contentMode = .scaleAspectFit
             }
@@ -219,13 +236,13 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
 
 }
 
-// LOAD PHOTO FROM URL
+// LOAD PHOTO FROM URL - NOT USED 
 extension UIImageView {
-    func loadFrom(URLAddress: String) {
+    func loadFrom(URLAddress: String, placeholder: UIImage? = nil) {
         guard let url = URL(string: URLAddress) else {
             return
         }
-        
+        //image = placeholder
         DispatchQueue.main.async { [weak self] in
             if let imageData = try? Data(contentsOf: url) {
                 if let loadedImage = UIImage(data: imageData) {
