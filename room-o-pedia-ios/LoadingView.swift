@@ -9,7 +9,7 @@ import UIKit
 
 class LoadingView: UIView {
     
-    let backgroundView = UIView()
+  //  let backgroundView = UIView()
     let circle1 = UIView()
     let circle2 = UIView()
     let circle3 = UIView()

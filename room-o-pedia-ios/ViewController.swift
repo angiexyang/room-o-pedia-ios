@@ -393,6 +393,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     @IBOutlet weak var roomsTableView: UITableView!
     
+    lazy var containerView: UIView = {
+       let v = UIView()
+       v.backgroundColor = .white
+       v.frame = CGRect(x: 0, y: 0, width: 500, height: 666)
+       v.center.x = self.view.center.x
+       v.center.y = self.view.center.y * 1.12
+        v.isUserInteractionEnabled = false
+       return v
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -408,34 +418,43 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         roomsDisplayed.isEditable = false
         roomsDisplayed.isSelectable = false
         
-        /* loading view test
+        //loading view test
         loading = true
         configureLoadingView()
         loadingView.animate()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
             self.loading = false
             self.configureLoadingView()
         }
-        // loading view end */
+        // loading view end
         
     }
     
-    /*
+    var activityIndicator = UIActivityIndicatorView(style: .large)
+    
     private func configureLoadingView() {
         if loading == true {
-            view.addSubview(loadingView)
-            NSLayoutConstraint.activate([
+            view.addSubview(containerView)
+            activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+            containerView.addSubview(activityIndicator)
+            activityIndicator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+            activityIndicator.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+            activityIndicator.startAnimating()
+         /*   containerView.addSubview(loadingView)
+                NSLayoutConstraint.activate([
                 loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
+                loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 35),
                 loadingView.heightAnchor.constraint(equalToConstant: 40),
                 loadingView.widthAnchor.constraint(equalToConstant: 150)
-            ])
+            ]) */
         } else {
-            loadingView.removeFromSuperview()
+          /*  loadingView.removeFromSuperview() */
+            containerView.removeFromSuperview()
+            self.activityIndicator.stopAnimating()
         }
     }
-    */
+    
     
 }
 
