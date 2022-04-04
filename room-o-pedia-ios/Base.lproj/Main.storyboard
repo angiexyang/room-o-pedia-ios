@@ -572,7 +572,7 @@
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Rooms Displayed: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ywM-YF-Sdv" userLabel="Rooms Displayed">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ywM-YF-Sdv" userLabel="Rooms Displayed">
                                 <rect key="frame" x="222" y="147" width="185" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -580,7 +580,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Filters Applied: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KqQ-sM-RsB">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KqQ-sM-RsB">
                                 <rect key="frame" x="18" y="148" width="132" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -724,6 +724,13 @@
                                                 <color key="pageIndicatorTintColor" systemColor="systemGray4Color"/>
                                                 <color key="currentPageIndicatorTintColor" systemColor="systemTealColor"/>
                                             </pageControl>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Long press to save image!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bG8-V9-NzO">
+                                                <rect key="frame" x="20" y="106" width="212" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -765,6 +772,7 @@
                     <connections>
                         <outlet property="DormRoomLabel" destination="RhA-ok-hqo" id="Ad1-ug-Pqj"/>
                         <outlet property="TagCollectionView" destination="TYj-I8-tt2" id="3nv-A9-3Fb"/>
+                        <outlet property="longpressLabel" destination="bG8-V9-NzO" id="zJc-zF-0hY"/>
                         <outlet property="pageControl" destination="POa-dM-dWN" id="bMn-ja-vhf"/>
                         <outlet property="photoCollectionView" destination="568-te-j1y" id="EOK-vf-KFF"/>
                         <segue destination="I3u-uh-z5W" kind="unwind" identifier="tagClickSegue" unwindAction="tagClickUnwind:" id="dou-Kp-fYM"/>

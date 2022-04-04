@@ -23,6 +23,7 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
    
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
+    @IBOutlet weak var longpressLabel: UILabel!
     @IBOutlet weak var pageControl: UIPageControl!
     
     //number of rows
@@ -74,11 +75,22 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
                 let dashIndex = currTag.firstIndex(of: "-")
                 let stringCut = currTag.index(after: dashIndex!)
             
-                //if feature is window direction, add "windows" after direction on the tag
+               
+                
                 let currFeature = String(currTag[...currTag.index(before: dashIndex!)])
+                //if feature is window direction, add "windows" after direction on the tag
                 if (currFeature == "window_direction"){
-                    cell.roomTagLabel.text =    String(currTag[stringCut...])+" windows"
-                } else {
+                    cell.roomTagLabel.text = String(currTag[stringCut...])+" windows"
+                }
+                //if feature is cooling system, add "ac" after ac type on tag
+                else if (currFeature == "cooling_system"){
+                    cell.roomTagLabel.text = String(currTag[stringCut...])+" ac"
+                }
+                //if feature is flooring, add "floor" after floor type on tag
+                else if (currFeature == "flooring" || currFeature == "floor"){
+                    cell.roomTagLabel.text = String(currTag[stringCut...])+" floor"
+                }
+                else {
                     cell.roomTagLabel.text = String(currTag[stringCut...])
                 }
             }

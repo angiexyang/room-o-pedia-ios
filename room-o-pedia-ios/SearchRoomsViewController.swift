@@ -134,9 +134,9 @@ class SearchRoomsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "featureTag", for: indexPath) as! TagCollectionViewCell
         cell.roomTagLabel.font = UIFont.systemFont(ofSize: 11)
-       // self.currFeatures = room.features
+        let coolingTag = room.features.cooling_system + " ac"
         
-        featureArray = [room.features.floor, room.features.cooling_system, room.features.flooring]
+        featureArray = [room.features.floor + " floor", coolingTag, room.features.flooring + " floor"]
         
         for s in room.features.storage{
             featureArray.append(s)
