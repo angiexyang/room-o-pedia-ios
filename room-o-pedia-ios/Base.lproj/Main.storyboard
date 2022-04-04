@@ -572,7 +572,7 @@
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Rooms Displayed: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ywM-YF-Sdv" userLabel="Rooms Displayed">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ywM-YF-Sdv" userLabel="Rooms Displayed">
                                 <rect key="frame" x="222" y="147" width="185" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -580,7 +580,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Filters Applied: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KqQ-sM-RsB">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KqQ-sM-RsB">
                                 <rect key="frame" x="18" y="148" width="132" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -634,8 +634,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pv-KE-MOc">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JkV-sq-Uog">
-                                        <rect key="frame" x="0.0" y="49" width="414" height="725"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JkV-sq-Uog">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhA-ok-hqo">
                                                 <rect key="frame" x="20" y="35" width="374" height="5"/>
@@ -724,10 +724,36 @@
                                                 <color key="pageIndicatorTintColor" systemColor="systemGray4Color"/>
                                                 <color key="currentPageIndicatorTintColor" systemColor="systemTealColor"/>
                                             </pageControl>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nu7-jo-8cO">
+                                                <rect key="frame" x="8" y="628" width="152" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="152" id="VLy-df-pE5"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Add Your Photo?"/>
+                                                <connections>
+                                                    <action selector="tabUpload" destination="a2E-GF-9mH" eventType="touchUpInside" id="WP4-yN-Ii0"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VaP-3N-wCI">
+                                                <rect key="frame" x="257" y="14" width="96" height="65"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="96" id="jLe-N8-8Xa"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Long press image to save" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUb-0u-QJH">
+                                                <rect key="frame" x="27" y="104" width="208" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="RhA-ok-hqo" firstAttribute="leading" secondItem="TYj-I8-tt2" secondAttribute="leading" id="5PZ-Tx-zpe"/>
+                                            <constraint firstItem="VaP-3N-wCI" firstAttribute="top" secondItem="JkV-sq-Uog" secondAttribute="top" constant="14" id="7oK-qd-Wig"/>
+                                            <constraint firstItem="nu7-jo-8cO" firstAttribute="top" secondItem="VaP-3N-wCI" secondAttribute="bottom" constant="549" id="GEt-nY-LoP"/>
                                             <constraint firstItem="RhA-ok-hqo" firstAttribute="top" secondItem="JkV-sq-Uog" secondAttribute="top" constant="35" id="GwY-Hw-fjn"/>
                                             <constraint firstItem="POa-dM-dWN" firstAttribute="centerX" secondItem="RhA-ok-hqo" secondAttribute="centerX" id="WVh-2w-oiJ"/>
                                             <constraint firstItem="568-te-j1y" firstAttribute="top" secondItem="RhA-ok-hqo" secondAttribute="bottom" constant="83" id="ZXt-6r-7D3"/>
@@ -735,8 +761,11 @@
                                             <constraint firstAttribute="trailing" secondItem="POa-dM-dWN" secondAttribute="trailing" constant="20" id="lQD-qq-a9L"/>
                                             <constraint firstItem="568-te-j1y" firstAttribute="trailing" secondItem="RhA-ok-hqo" secondAttribute="trailing" id="lTr-K9-NsD"/>
                                             <constraint firstAttribute="bottom" secondItem="POa-dM-dWN" secondAttribute="bottom" constant="309" id="lsd-Ij-CYN"/>
+                                            <constraint firstAttribute="trailing" secondItem="VaP-3N-wCI" secondAttribute="trailing" constant="61" id="mUg-Tf-iPS"/>
                                             <constraint firstItem="POa-dM-dWN" firstAttribute="top" secondItem="RhA-ok-hqo" secondAttribute="bottom" constant="350" id="oOO-ff-s9S"/>
                                             <constraint firstItem="POa-dM-dWN" firstAttribute="leading" secondItem="JkV-sq-Uog" secondAttribute="leading" constant="20" id="rnR-UH-eKs"/>
+                                            <constraint firstAttribute="trailing" secondItem="nu7-jo-8cO" secondAttribute="trailing" constant="254" id="xSk-O5-bga"/>
+                                            <constraint firstItem="568-te-j1y" firstAttribute="top" secondItem="nu7-jo-8cO" secondAttribute="bottom" constant="-536" id="z1r-nQ-IaV"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -765,8 +794,11 @@
                     <connections>
                         <outlet property="DormRoomLabel" destination="RhA-ok-hqo" id="Ad1-ug-Pqj"/>
                         <outlet property="TagCollectionView" destination="TYj-I8-tt2" id="3nv-A9-3Fb"/>
+                        <outlet property="longPressInform" destination="bUb-0u-QJH" id="XaL-6q-VKa"/>
                         <outlet property="pageControl" destination="POa-dM-dWN" id="bMn-ja-vhf"/>
                         <outlet property="photoCollectionView" destination="568-te-j1y" id="EOK-vf-KFF"/>
+                        <outlet property="testPhotoUpload" destination="VaP-3N-wCI" id="cx3-lU-EEH"/>
+                        <outlet property="uploadButton" destination="nu7-jo-8cO" id="wad-rm-npy"/>
                         <segue destination="I3u-uh-z5W" kind="unwind" identifier="tagClickSegue" unwindAction="tagClickUnwind:" id="dou-Kp-fYM"/>
                     </connections>
                 </viewController>

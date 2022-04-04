@@ -7,9 +7,64 @@
 
 import UIKit
 
+extension ViewRoomViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let chosenImage  = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+            let req = NetworkManager.api.uploadImage(image: chosenImage)
+            req.done{
+                url in
+                print("success: ", url)
+                let urlString = "\(url)"
+               // self.testPhotoUpload.loadFrom(URLAddress: urlString, placeholder: nil)
+               // self.testPhotoUpload.contentMode = .scaleAspectFit
+               // self.testPhotoUpload.clipsToBounds = true
+               // print("tried displaying photo")
+                
+                // updating photo to database, update object
+                let accessURL = "http://localhost:3000/add_photoUrl/\(self.room._id)"
+
+                APIFunctions.functions.updateRoom(roomId: self.room._id, newURL: urlString, room: self.room, features: self.room.features, accessURL: accessURL)
+                print("viewroomviewcontroller: finish updating")
+                
+                let uploadAlert = UIAlertController(title: "Image Uploaded", message: "Image will be updated at next open of app", preferredStyle: UIAlertController.Style.alert)
+                uploadAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+                }))
+                self.present(uploadAlert, animated: true, completion: nil)
+                
+            }.catch{
+                error in
+                print("error description: ", error.localizedDescription)
+            }
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+
 
 
 class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    
+    @IBOutlet weak var uploadButton: UIButton!
+    
+    @IBOutlet weak var longPressInform: UILabel!
+    @IBOutlet weak var testPhotoUpload: UIImageView!
+    @IBAction func tabUpload() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+        
+    }
+    
     
     var room: Room!
     var currFeatures: Features!
@@ -36,6 +91,7 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
             return tagTotal
         } else {
             print("number of photos \(photoURLArray.count)")
+            self.pageControl.numberOfPages = photoURLArray.count
             return photoURLArray.count
         }
     }
@@ -206,7 +262,8 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         // GET PHOTOURLS
         self.photoURLArray = room.photoURL
-        self.pageControl.numberOfPages = photoURLArray.count
+        //self.pageControl.numberOfPages = photoURLArray.count
+        self.testPhotoUpload.image = nil
         
         tagCollectionView.delegate = self
         tagCollectionView.dataSource = self
@@ -240,6 +297,7 @@ class ViewRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
 extension UIImageView {
     func loadFrom(URLAddress: String, placeholder: UIImage? = nil) {
         guard let url = URL(string: URLAddress) else {
+            print("url not right or does not show image")
             return
         }
         //image = placeholder
@@ -249,6 +307,7 @@ extension UIImageView {
                         self?.image = loadedImage
                 }
             }
+            print("photo is displayed from url")
         }
     }
 }

@@ -51,6 +51,41 @@ class APIFunctions {
     }
     
     
+    func updateRoom(roomId: String, newURL: String, room: Room, features: Features, accessURL: String) {
+        
+        var photoURLArray = room.photoURL
+        photoURLArray.append(newURL)
+        
+        let featureList: Parameters = [
+            "floor": features.floor,
+            "occupancy": features.occupancy,
+            "cooling_system": features.cooling_system,
+            "storage": features.storage,
+            "flooring": features.flooring,
+            "window_direction": features.window_direction,
+            "other": features.other,
+        ]
+        let roomMain: Parameters = [
+            "_id" : room._id,
+            "dorm": room.dorm,
+            "number": room.number,
+            "photoURL": photoURLArray,
+            "features": featureList
+        ]
+        let request = AF.request(accessURL, method: .put, parameters: roomMain, encoding: JSONEncoding.default, headers: nil)
+        request.responseJSON(completionHandler: { response in
+            guard response.error == nil else {
+                print("error in updating")
+                return
+            }
+            if let json = response.value as? [String:Any] {
+                print("UPDATED SUCCESSFULLY")
+                print(json)
+            }
+        })
+    }
+    
+    
     func AddRoom(dorm: String, number: String){
         //does not work
         AF.request("http://localhost:3000/create_room_with_photo", method: .post, encoding: URLEncoding.httpBody, headers: ["dorm": dorm, "number": number]).responseDecodable(of: Room.self){

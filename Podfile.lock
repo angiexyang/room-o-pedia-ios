@@ -1,16 +1,36 @@
 PODS:
+  - AWSCore (2.27.6)
+  - AWSS3 (2.27.6):
+    - AWSCore (= 2.27.6)
   - DropDown (2.3.13)
+  - PromiseKit (6.17.0):
+    - PromiseKit/CorePromise (= 6.17.0)
+    - PromiseKit/Foundation (= 6.17.0)
+    - PromiseKit/UIKit (= 6.17.0)
+  - PromiseKit/CorePromise (6.17.0)
+  - PromiseKit/Foundation (6.17.0):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.17.0):
+    - PromiseKit/CorePromise
 
 DEPENDENCIES:
+  - AWSS3
   - DropDown
+  - PromiseKit
 
 SPEC REPOS:
   trunk:
+    - AWSCore
+    - AWSS3
     - DropDown
+    - PromiseKit
 
 SPEC CHECKSUMS:
+  AWSCore: 0b6fa020f5f343a211862d702ba7a067272a60f7
+  AWSS3: 2b8d31de4ae07b8dc00ab26e805f389b328b20a3
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  PromiseKit: 996202d4cae72b7801b312abef4cd2f995b2978a
 
-PODFILE CHECKSUM: 0a257956584442181b836857c8e12683469ac7a3
+PODFILE CHECKSUM: f84e0e0b2bfe0d058bd5c5ecf53bf65812c8755d
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

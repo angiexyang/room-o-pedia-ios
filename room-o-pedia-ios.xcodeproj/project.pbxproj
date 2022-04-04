@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		558E9540E463A0C5E54E1BCD /* Pods_room_o_pedia_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 914853139176F9794D17B7D0 /* Pods_room_o_pedia_iosTests.framework */; };
+		81FC3F7325A81CC2820D3829 /* Pods_room_o_pedia_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AB2EDE52B78831FE2DB6AD /* Pods_room_o_pedia_ios.framework */; };
 		A31299E227C19CB300B7AF01 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31299E127C19CB300B7AF01 /* RoomTableViewCell.swift */; };
 		A35909C027ED57C600C3C3D2 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35909BF27ED57C600C3C3D2 /* FavoriteTableViewCell.swift */; };
 		A392E49927BC45DE00F1A760 /* ViewRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A392E49827BC45DD00F1A760 /* ViewRoomViewController.swift */; };
@@ -28,6 +30,8 @@
 		D35D706127F17AAA00C28419 /* ApplyFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35D706027F17AAA00C28419 /* ApplyFiltersViewController.swift */; };
 		D3B2212827E8EEFE006C4FA2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B2212727E8EEFE006C4FA2 /* LoginViewController.swift */; };
 		D3B2213027ED34BF006C4FA2 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B2212F27ED34BF006C4FA2 /* FavoriteViewController.swift */; };
+		D3C8C32527FA493E00A29539 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C8C32427FA493E00A29539 /* NetworkManager.swift */; };
+		FBA000AE171676D3DE7A4400 /* Pods_room_o_pedia_ios_room_o_pedia_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D11D44691A54EDAE41EE23F0 /* Pods_room_o_pedia_ios_room_o_pedia_iosUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		162DA3DE37AABE1F20F44028 /* Pods-room-o-pedia-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-room-o-pedia-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-room-o-pedia-iosTests/Pods-room-o-pedia-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		16ECEA0F79E0AE523E62F818 /* Pods-room-o-pedia-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-room-o-pedia-ios.debug.xcconfig"; path = "Target Support Files/Pods-room-o-pedia-ios/Pods-room-o-pedia-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		28AB2EDE52B78831FE2DB6AD /* Pods_room_o_pedia_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_room_o_pedia_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44439166B6F4194497DA9EDA /* Pods-room-o-pedia-ios-room-o-pedia-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-room-o-pedia-ios-room-o-pedia-iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-room-o-pedia-ios-room-o-pedia-iosUITests/Pods-room-o-pedia-ios-room-o-pedia-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		65E1F39829382B379B9B11BC /* Pods-room-o-pedia-ios-room-o-pedia-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-room-o-pedia-ios-room-o-pedia-iosUITests.release.xcconfig"; path = "Target Support Files/Pods-room-o-pedia-ios-room-o-pedia-iosUITests/Pods-room-o-pedia-ios-room-o-pedia-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7CFD335FDBA34845D65B5482 /* Pods-room-o-pedia-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-room-o-pedia-ios.release.xcconfig"; path = "Target Support Files/Pods-room-o-pedia-ios/Pods-room-o-pedia-ios.release.xcconfig"; sourceTree = "<group>"; };
+		914853139176F9794D17B7D0 /* Pods_room_o_pedia_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_room_o_pedia_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A31299E127C19CB300B7AF01 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
 		A35909BF27ED57C600C3C3D2 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		A392E49827BC45DD00F1A760 /* ViewRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRoomViewController.swift; sourceTree = "<group>"; };
@@ -66,12 +77,15 @@
 		A3C5DE7527ADDDC70072D4E8 /* room_o_pedia_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = room_o_pedia_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A3EE042927E4FCB100E5E357 /* SearchRoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRoomsViewController.swift; sourceTree = "<group>"; };
 		A3FFF51E27C5894C007B0994 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		D11D44691A54EDAE41EE23F0 /* Pods_room_o_pedia_ios_room_o_pedia_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_room_o_pedia_ios_room_o_pedia_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D304D07E27ADF16700407DFD /* APIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFunctions.swift; sourceTree = "<group>"; };
 		D351BCD427F8D15D00714375 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		D351BCD827F995D700714375 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		D35D706027F17AAA00C28419 /* ApplyFiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyFiltersViewController.swift; sourceTree = "<group>"; };
 		D3B2212727E8EEFE006C4FA2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D3B2212F27ED34BF006C4FA2 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		D3C8C32427FA493E00A29539 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D3EE392C920CCD1C78F50E39 /* Pods-room-o-pedia-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-room-o-pedia-iosTests.release.xcconfig"; path = "Target Support Files/Pods-room-o-pedia-iosTests/Pods-room-o-pedia-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3D2DD0927C7245800C66707 /* Alamofire in Frameworks */,
+				81FC3F7325A81CC2820D3829 /* Pods_room_o_pedia_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				558E9540E463A0C5E54E1BCD /* Pods_room_o_pedia_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,12 +110,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBA000AE171676D3DE7A4400 /* Pods_room_o_pedia_ios_room_o_pedia_iosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69000D52E1060A649EFF6AE9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28AB2EDE52B78831FE2DB6AD /* Pods_room_o_pedia_ios.framework */,
+				D11D44691A54EDAE41EE23F0 /* Pods_room_o_pedia_ios_room_o_pedia_iosUITests.framework */,
+				914853139176F9794D17B7D0 /* Pods_room_o_pedia_iosTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A3C5DE4627ADDDC30072D4E8 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +134,8 @@
 				A3C5DE6827ADDDC70072D4E8 /* room-o-pedia-iosTests */,
 				A3C5DE7227ADDDC70072D4E8 /* room-o-pedia-iosUITests */,
 				A3C5DE5027ADDDC30072D4E8 /* Products */,
+				E12BAD00204997F6B2DDB718 /* Pods */,
+				69000D52E1060A649EFF6AE9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +170,7 @@
 				D35D706027F17AAA00C28419 /* ApplyFiltersViewController.swift */,
 				D351BCD427F8D15D00714375 /* PhotoCollectionViewCell.swift */,
 				D351BCD827F995D700714375 /* LoadingView.swift */,
+				D3C8C32427FA493E00A29539 /* NetworkManager.swift */,
 			);
 			path = "room-o-pedia-ios";
 			sourceTree = "<group>";
@@ -162,6 +192,19 @@
 			path = "room-o-pedia-iosUITests";
 			sourceTree = "<group>";
 		};
+		E12BAD00204997F6B2DDB718 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				16ECEA0F79E0AE523E62F818 /* Pods-room-o-pedia-ios.debug.xcconfig */,
+				7CFD335FDBA34845D65B5482 /* Pods-room-o-pedia-ios.release.xcconfig */,
+				44439166B6F4194497DA9EDA /* Pods-room-o-pedia-ios-room-o-pedia-iosUITests.debug.xcconfig */,
+				65E1F39829382B379B9B11BC /* Pods-room-o-pedia-ios-room-o-pedia-iosUITests.release.xcconfig */,
+				162DA3DE37AABE1F20F44028 /* Pods-room-o-pedia-iosTests.debug.xcconfig */,
+				D3EE392C920CCD1C78F50E39 /* Pods-room-o-pedia-iosTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -169,9 +212,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3C5DE7927ADDDC70072D4E8 /* Build configuration list for PBXNativeTarget "room-o-pedia-ios" */;
 			buildPhases = (
+				E81F2B1794B2E6B36B807705 /* [CP] Check Pods Manifest.lock */,
 				A3C5DE4B27ADDDC30072D4E8 /* Sources */,
 				A3C5DE4C27ADDDC30072D4E8 /* Frameworks */,
 				A3C5DE4D27ADDDC30072D4E8 /* Resources */,
+				4F860F32AD277530898D2F18 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -189,6 +234,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3C5DE7C27ADDDC70072D4E8 /* Build configuration list for PBXNativeTarget "room-o-pedia-iosTests" */;
 			buildPhases = (
+				FF3DE6F3454573E62CB324F9 /* [CP] Check Pods Manifest.lock */,
 				A3C5DE6127ADDDC70072D4E8 /* Sources */,
 				A3C5DE6227ADDDC70072D4E8 /* Frameworks */,
 				A3C5DE6327ADDDC70072D4E8 /* Resources */,
@@ -207,9 +253,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3C5DE7F27ADDDC70072D4E8 /* Build configuration list for PBXNativeTarget "room-o-pedia-iosUITests" */;
 			buildPhases = (
+				00DBE43FB812EDE868CB69F5 /* [CP] Check Pods Manifest.lock */,
 				A3C5DE6B27ADDDC70072D4E8 /* Sources */,
 				A3C5DE6C27ADDDC70072D4E8 /* Frameworks */,
 				A3C5DE6D27ADDDC70072D4E8 /* Resources */,
+				96A26D5FA2D00BA798F6CD8E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -294,6 +342,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		00DBE43FB812EDE868CB69F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-room-o-pedia-ios-room-o-pedia-iosUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F860F32AD277530898D2F18 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-room-o-pedia-ios/Pods-room-o-pedia-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-room-o-pedia-ios/Pods-room-o-pedia-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-room-o-pedia-ios/Pods-room-o-pedia-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96A26D5FA2D00BA798F6CD8E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-room-o-pedia-ios-room-o-pedia-iosUITests/Pods-room-o-pedia-ios-room-o-pedia-iosUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-room-o-pedia-ios-room-o-pedia-iosUITests/Pods-room-o-pedia-ios-room-o-pedia-iosUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-room-o-pedia-ios-room-o-pedia-iosUITests/Pods-room-o-pedia-ios-room-o-pedia-iosUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E81F2B1794B2E6B36B807705 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-room-o-pedia-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF3DE6F3454573E62CB324F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-room-o-pedia-iosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A3C5DE4B27ADDDC30072D4E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -311,6 +462,7 @@
 				A3C5DE5327ADDDC30072D4E8 /* AppDelegate.swift in Sources */,
 				A31299E227C19CB300B7AF01 /* RoomTableViewCell.swift in Sources */,
 				A392E49927BC45DE00F1A760 /* ViewRoomViewController.swift in Sources */,
+				D3C8C32527FA493E00A29539 /* NetworkManager.swift in Sources */,
 				D3B2212827E8EEFE006C4FA2 /* LoginViewController.swift in Sources */,
 				A3C5DE5527ADDDC30072D4E8 /* SceneDelegate.swift in Sources */,
 			);
@@ -486,6 +638,7 @@
 		};
 		A3C5DE7A27ADDDC70072D4E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16ECEA0F79E0AE523E62F818 /* Pods-room-o-pedia-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -516,6 +669,7 @@
 		};
 		A3C5DE7B27ADDDC70072D4E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CFD335FDBA34845D65B5482 /* Pods-room-o-pedia-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -546,6 +700,7 @@
 		};
 		A3C5DE7D27ADDDC70072D4E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 162DA3DE37AABE1F20F44028 /* Pods-room-o-pedia-iosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -565,6 +720,7 @@
 		};
 		A3C5DE7E27ADDDC70072D4E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3EE392C920CCD1C78F50E39 /* Pods-room-o-pedia-iosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -584,6 +740,7 @@
 		};
 		A3C5DE8027ADDDC70072D4E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44439166B6F4194497DA9EDA /* Pods-room-o-pedia-ios-room-o-pedia-iosUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -601,6 +758,7 @@
 		};
 		A3C5DE8127ADDDC70072D4E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65E1F39829382B379B9B11BC /* Pods-room-o-pedia-ios-room-o-pedia-iosUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

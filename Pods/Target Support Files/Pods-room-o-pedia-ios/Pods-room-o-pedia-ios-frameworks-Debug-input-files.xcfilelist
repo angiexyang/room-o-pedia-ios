@@ -1,2 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-room-o-pedia-ios/Pods-room-o-pedia-ios-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework
+${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework
 ${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework
+${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework

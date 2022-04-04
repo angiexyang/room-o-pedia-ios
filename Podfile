@@ -2,6 +2,9 @@
 # platform :ios, '9.0'
 
 target 'room-o-pedia-ios' do
+
+pod "PromiseKit"
+pod 'AWSS3' 
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
